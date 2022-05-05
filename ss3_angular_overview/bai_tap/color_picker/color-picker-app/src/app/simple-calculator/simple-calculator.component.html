@@ -1,0 +1,19 @@
+<h1 style="text-align: center">SIMPLE CALCULATOR</h1>
+<div style="display: flex; justify-content: center">
+  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+    <input class="child" [defaultValue]="0" name="first" ngModel>
+    <select class="child" name="select" ngModel>
+      <option value="+">+</option>
+      <option value="-">-</option>
+      <option value="x">x</option>
+      <option value=":">:</option>
+    </select>
+    <input class="child" [defaultValue]="0" name="second" ngModel>
+    <br>
+    <br>
+    <div>
+      <button style="text-align: center">Calculate</button>
+      <p >Result: {{result}}</p>
+    </div>
+  </form>
+</div>

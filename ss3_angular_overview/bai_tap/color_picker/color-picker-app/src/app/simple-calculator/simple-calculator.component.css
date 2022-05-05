@@ -1,0 +1,12 @@
+select {
+  -webkit-appearance: none;
+  width: 30px;
+  text-align: center;
+  /*-moz-appearance: none;*/
+  /*text-indent: 1px;*/
+  /*text-overflow: '';*/
+}
+
+.child{
+  margin-left: 10px;
+}
