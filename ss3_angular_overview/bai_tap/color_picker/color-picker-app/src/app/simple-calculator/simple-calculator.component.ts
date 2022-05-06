@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {NgForm} from "@angular/forms";
 
 @Component({
@@ -9,30 +9,51 @@ import {NgForm} from "@angular/forms";
 export class SimpleCalculatorComponent implements OnInit {
 
   result: any;
-  constructor() { }
+  sumString = '';
+
+  constructor() {
+  }
 
   ngOnInit(): void {
   }
 
-  onSubmit(f: NgForm) {
-    console.log(f.value);
-    switch (f.value.select) {
-      case '+':
-        this.result = Number.parseInt(f.value.first) + Number.parseInt(f.value.second);
-        break;
-      case '-':
-        this.result = Number.parseInt(f.value.first) - Number.parseInt(f.value.second);
-        break;
-      case 'x':
-        this.result = Number.parseInt(f.value.first) * Number.parseInt(f.value.second);
-        break;
-      case ':':
-        if (Number.parseInt(f.value.second) == 0){
-          this.result = 'Second number can not be 0';
-        }else {
-          this.result = Number.parseInt(f.value.first) / Number.parseInt(f.value.second);
-          break;
-        }
+  // FORM SUBMIT
+  // onSubmit(f: NgForm) {
+  //   console.log(f.value);
+  //   switch (f.value.select) {
+  //     case '+':
+  //       this.result = eval('f.value.first + f.value.second');
+  //       break;
+  //     case '-':
+  //       this.result = eval('f.value.first - f.value.second');
+  //       break;
+  //     case 'x':
+  //       this.result = eval('f.value.first * f.value.second');
+  //       break;
+  //     case ':':
+  //       if (Number.parseInt(f.value.second) == 0) {
+  //         this.result = 'Second number can not be 0';
+  //       } else {
+  //         this.result = eval('f.value.first / f.value.second');
+  //         break;
+  //       }
+  //   }
+  // }
+
+  getNumber(str) {
+    this.sumString += str;
+  }
+
+  calculate() {
+    this.sumString = eval(this.sumString);
+    if (this.sumString == 'Infinity') {
+      this.sumString = 'N/A';
     }
+    return this.sumString;
+  }
+
+  clear() {
+    this.sumString = '';
+    return this.sumString;
   }
 }

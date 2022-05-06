@@ -10,3 +10,15 @@ select {
 .child{
   margin-left: 10px;
 }
+
+td{
+  text-align: center;
+}
+
+button{
+  width: 80px;
+}
+
+button:hover {
+  color: #ff0000;
+}

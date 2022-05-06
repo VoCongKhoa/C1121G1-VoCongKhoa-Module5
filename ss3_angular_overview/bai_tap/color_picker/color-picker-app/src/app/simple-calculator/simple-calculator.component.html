@@ -1,19 +1,57 @@
+
+<!--FORM-->
+<!--<h1 style="text-align: center">SIMPLE CALCULATOR</h1>-->
+<!--<div style="display: flex; justify-content: center">-->
+<!--  <form #f="ngForm" (ngSubmit)="onSubmit(f)">-->
+<!--    <input class="child" [defaultValue]="0" name="first" ngModel>-->
+<!--    <select class="child" name="select" ngModel>-->
+<!--      <option value="+">+</option>-->
+<!--      <option value="-">-</option>-->
+<!--      <option value="x">x</option>-->
+<!--      <option value=":">:</option>-->
+<!--    </select>-->
+<!--    <input class="child" [defaultValue]="0" name="second" ngModel>-->
+<!--    <br>-->
+<!--    <br>-->
+<!--    <div>-->
+<!--      <button style="text-align: center">Calculate</button>-->
+<!--      <p >Result: {{result}}</p>-->
+<!--    </div>-->
+<!--  </form>-->
+<!--</div>-->
+
+<!--TABLE-->
+
 <h1 style="text-align: center">SIMPLE CALCULATOR</h1>
 <div style="display: flex; justify-content: center">
-  <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-    <input class="child" [defaultValue]="0" name="first" ngModel>
-    <select class="child" name="select" ngModel>
-      <option value="+">+</option>
-      <option value="-">-</option>
-      <option value="x">x</option>
-      <option value=":">:</option>
-    </select>
-    <input class="child" [defaultValue]="0" name="second" ngModel>
-    <br>
-    <br>
-    <div>
-      <button style="text-align: center">Calculate</button>
-      <p >Result: {{result}}</p>
-    </div>
-  </form>
+<table border="2px" style="width: 30%; height: 250px">
+  <tr>
+    <th colspan="4"><input type="text" style="width: 95%; height: 50px" [(ngModel)]="sumString"></th>
+  </tr>
+  <tr>
+    <td><button (click)="getNumber('1')">1</button></td>
+    <td><button (click)="getNumber('2')">2</button></td>
+    <td><button (click)="getNumber('3')">3</button></td>
+    <td><button (click)="getNumber('+')">+</button></td>
+  </tr>
+  <tr>
+    <td><button (click)="getNumber('4')">4</button></td>
+    <td><button (click)="getNumber('5')">5</button></td>
+    <td><button (click)="getNumber('6')">6</button></td>
+    <td><button (click)="getNumber('-')">-</button></td>
+  </tr>
+  <tr>
+    <td><button (click)="getNumber('7')">7</button></td>
+    <td><button (click)="getNumber('8')">8</button></td>
+    <td><button (click)="getNumber('9')">9</button></td>
+    <td><button (click)="getNumber('*')">x</button></td>
+  </tr>
+  <tr>
+    <td><button (click)="clear()">AC</button></td>
+    <td><button (click)="getNumber('0')">0</button></td>
+    <td><button (click)="calculate()">=</button></td>
+    <td><button (click)="getNumber('/')">/</button></td>
+  </tr>
+</table>
+
 </div>
