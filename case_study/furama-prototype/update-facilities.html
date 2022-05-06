@@ -19,7 +19,7 @@
         }
 
         .contact-form {
-            padding: 50px;
+            padding: 0px;
             margin: 30px auto;
         }
 
@@ -80,6 +80,11 @@
             color: #03A9F4;
         }
 
+        .row img{
+            margin: 40px auto;
+            width: 120%;
+        }
+
     </style>
 </head>
 <body>
@@ -89,18 +94,19 @@
             <div class="contact-form">
                 <h1>Get in Touch</h1>
                 <form action="/services/create" id="createFormVilla" method="POST">
-                    <p id="checkErrorVilla" hidden></p>
+                    <div style="display: flex;justify-content: center;">
+                        <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Lagoon-Superior-twin-bed-M.jpg" >
+                    </div>
                     <input value=1 name="serviceTypeId" hidden>
                     <div class="form-group">
                         <label for="serviceCodeCreateVilla">Service code</label>
-                        <input type="text" class="form-control" placeholder="Type new service code here"
-                               id="serviceCodeCreateVilla">
+                        <input type="text" class="form-control" id="serviceCodeCreateVilla" readonly value="DV-0001">
                     </div>
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="serviceNameCreateVilla">Service name</label>
-                                <input type="text" class="form-control" placeholder="Type new service name here"
+                                <input type="text" class="form-control" value="Ocean Studio Suite"
                                        id="serviceNameCreateVilla">
 
                             </div>
@@ -108,7 +114,7 @@
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="serviceAreaCreateVilla">Services area</label>
-                                <input type="text" class="form-control" placeholder="Type new services area here"
+                                <input type="text" class="form-control" value="43m²"
                                        id="serviceAreaCreateVilla">
 
                             </div>
@@ -119,7 +125,7 @@
                             <div class="form-group">
                                 <label for="serviceCostCreateVilla">Service cost:</label>
                                 <input type="text" class="form-control" id="serviceCostCreateVilla"
-                                       placeholder="Type new services cost here">
+                                       value="VND 6,079,672.01">
 
                             </div>
                         </div>
@@ -127,7 +133,7 @@
                             <div class="form-group">
                                 <label for="serviceMaxPeopleCreateVilla">Service max people:</label>
                                 <input type="text" class="form-control" id="serviceMaxPeopleCreateVilla"
-                                       placeholder="Type new services max people here">
+                                       value="4">
 
                             </div>
                         </div>
@@ -135,11 +141,9 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label for="rentTypeCreateVilla">Choose new rent type:</label>
-                                <select id="rentTypeCreateVilla" class="form-control">
-                                    <option>
-                                    </option>
-                                </select>
+                                <label for="rentTypeCreateVilla">Rent type:</label>
+                                <input type="text" class="form-control" id="rentTypeCreateVilla"
+                                       value="Day">
                             </div>
                         </div>
                         <input type="text" class="form-control" id="serviceTypeCreateVilla"
@@ -156,14 +160,14 @@
                             <div class="form-group">
                                 <label for="standardRoomCreateVilla">Standard room:</label>
                                 <input type="text" class="form-control" id="standardRoomCreateVilla"
-                                       placeholder="Type new standard room">
+                                       value="Suite">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="descriptionOtherConvenienceCreateVilla">Description other convenience:</label>
                                 <input type="text" class="form-control" id="descriptionOtherConvenienceCreateVilla"
-                                       placeholder="Type new description other convenience">
+                                       value="Ocean view•Air conditioned•Wireless Internet">
                             </div>
                         </div>
                     </div>
@@ -172,14 +176,14 @@
                             <div class="form-group">
                                 <label for="poolAreaCreateVilla">Pool area:</label>
                                 <input type="text" class="form-control" id="poolAreaCreateVilla"
-                                       placeholder="Type new description other convenience">
+                                       value="0">
                             </div>
                         </div>
                         <div class="col-sm-6">
                             <div class="form-group">
                                 <label for="numberOfFloorsCreateVilla">Number of floors:</label>
                                 <input type="text" class="form-control" id="numberOfFloorsCreateVilla"
-                                       placeholder="Type new number of floors">
+                                       value="1">
                             </div>
                         </div>
                     </div>
