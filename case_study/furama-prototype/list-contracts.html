@@ -625,16 +625,16 @@
             <div class="table-title">
                 <div class="row" style="justify-content: flex-end">
                     <div class="col-sm-4 text-center">
-                        <h2>Manage <b>Customers</b></h2>
+                        <h2>Manage <b>Contracts</b></h2>
                     </div>
 
-                    <!--                    ADD NEW CUSTOMER-->
+                    <!--                    ADD NEW CONTRACT-->
                     <div class="col-sm-4" style="text-align: right">
                         <a href="#" class="btn btn-success" id="modalActivate" type="button"
                            data-toggle="modal"
                            data-target="#createModal"><i
                                 class="material-icons">&#xE147;</i>
-                            <span>Add New Customer</span>
+                            <span>Add New Contract</span>
                         </a>
                     </div>
                 </div>
@@ -644,13 +644,14 @@
                     <div class="col-sm-3">
 
                         <!--                        FORM SORT-->
-                        <form method="get" id="sortForm" onchange="submitSortForm()" action="/customer/list">
+                        <form method="get" id="sortForm" action="/contract/list" onchange="submitSortForm()">
                             <div class="filter-group">
                                 <select name="sortOption" id="sort" class="form-control">
                                     <option value="" selected>Sort</option>
-                                    <!--                                    <option value="idSort">Sort by ID</option>-->
-                                    <option value="nameSort">Sort by name</option>
-                                    <option value="birthdaySort">Sort by birthday</option>
+                                    <option value="startDateSort">Sort by start date</option>
+                                    <option value="endDateSort">Sort by end date</option>
+                                    <option value="depositSort">Sort by deposit</option>
+                                    <option value="totalMoneySort">Sort by total money</option>
                                 </select>
                             </div>
                         </form>
@@ -677,17 +678,18 @@
                                       </svg></a>
 
                                     </span>
-                                <form method="get" action="/customer/list">
-                                    <input type="hidden" name="action" value="search">
-                                    <input type="text" class="form-control" placeholder="Search by code"
+                                <form method="get" action="/contract/list">
+                                    Contract date from:
+                                    <input type="date" class="form-control"
                                            aria-label="Input group example" aria-describedby="basic-addon1"
-                                           name="codeSearch">
-                                    <input type="text" class="form-control" placeholder="Search by name"
+                                           name="contractStartDateOptional">
+                                    To:
+                                    <input type="date" class="form-control"
                                            aria-label="Input group example" aria-describedby="basic-addon1"
-                                           name="nameSearch">
-                                    <input type="text" class="form-control" placeholder="Search by address"
+                                           name="contractEndDateOptional">
+                                    <input type="text" class="form-control" placeholder="Search by total money from..."
                                            aria-label="Input group example" aria-describedby="basic-addon1"
-                                           name="addressSearch">
+                                           name="contractTotalMoneyOptional">
                                     <button type="submit" class="btn btn-primary" style="margin-left: 10px;"><i
                                             class="fa fa-search"></i></button>
                                 </form>
@@ -703,165 +705,121 @@
                     <thead>
                     <tr>
                         <th>ID</th>
-                        <th>Code</th>
-                        <th>Name</th>
-                        <th>Birthday</th>
-                        <th>Gender</th>
-                        <th>Id Card Number</th>
-                        <th>Phone</th>
-                        <th>Email</th>
-                        <th>Address</th>
-                        <th>Customer Type Name</th>
-                        <th>Actions</th>
+                        <th>Contract Start Date</th>
+                        <th>Contract End Date</th>
+                        <th>Contract Deposit</th>
+                        <th>Contract Total Money</th>
+                        <th>Employee Id</th>
+                        <th>Customer Id</th>
+                        <th>Service Id</th>
+                        <th>Action</th>
                     </tr>
                     </thead>
                     <tbody>
                     <tr>
                         <td>1</td>
-                        <td>KH-0001</td>
-                        <td>Nguyễn Thị Hào</td>
-                        <td>1970-11-07</td>
-                        <td>Nữ</td>
-                        <td>643431213</td>
-                        <td>0905423362</td>
-                        <td>thihao07@gmail.com</td>
-                        <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-                        <td>Member</td>
-                        <td colspan="2">
-                            <a style="color: #ffc107"><i class="fas fa-edit"></i></a>
-                            <a style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
+                        <td>2020-12-08</td>
+                        <td>2020-12-08</td>
+                        <td>0</td>
+                        <td>1000000</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>3</td>
+                        <td>
+                            <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
                         </td>
                     </tr>
                     <tr>
                         <td>2</td>
-                        <td>KH-0002</td>
-                        <td>Phạm Xuân Diệu</td>
-                        <td>1992-08-08</td>
-                        <td>Nam</td>
-                        <td>865342123</td>
-                        <td>0904333333</td>
-                        <td>xuandieu92@gmail.com</td>
-                        <td>K77/22 Thái Phiên, Quảng Trị</td>
-                        <td>Gold</td>
-                        <td colspan="2">
-                            <a style="color: #ffc107"><i class="fas fa-edit"></i></a>
-                            <a style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
+                        <td>2020-07-14</td>
+                        <td>2020-07-21</td>
+                        <td>200000</td>
+                        <td>2000000</td>
+                        <td>7</td>
+                        <td>3</td>
+                        <td>1</td>
+                        <td>
+                            <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
                         </td>
                     </tr>
                     <tr>
                         <td>3</td>
-                        <td>KH-0003</td>
-                        <td>Nguyễn Thị Hào3</td>
-                        <td>1970-11-07</td>
-                        <td>Nữ</td>
-                        <td>643431213</td>
-                        <td>0905423362</td>
-                        <td>thihao07@gmail.com</td>
-                        <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-                        <td>Member</td>
-                        <td colspan="2">
-                            <a style="color: #ffc107"><i class="fas fa-edit"></i></a>
-                            <a style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
+                        <td>2021-03-15</td>
+                        <td>2021-03-17</td>
+                        <td>50000</td>
+                        <td>1500000</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>2</td>
+                        <td>
+                            <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
                         </td>
                     </tr>
                     <tr>
                         <td>4</td>
-                        <td>KH-0004</td>
-                        <td>Nguyễn Văn Hào4</td>
-                        <td>1970-11-07</td>
-                        <td>Nam</td>
-                        <td>643431213</td>
-                        <td>0905423362</td>
-                        <td>thihao07@gmail.com</td>
-                        <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-                        <td>Member</td>
-                        <td colspan="2">
-                            <a style="color: #ffc107"><i class="fas fa-edit"></i></a>
-                            <a style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
+                        <td>2021-01-14</td>
+                        <td>2021-01-18</td>
+                        <td>100000</td>
+                        <td>1400000</td>
+                        <td>7</td>
+                        <td>5</td>
+                        <td>5</td>
+                        <td>
+                            <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
                         </td>
                     </tr>
                     <tr>
                         <td>5</td>
-                        <td>KH-0005</td>
-                        <td>Nguyễn Thị Hào5</td>
-                        <td>1970-11-07</td>
-                        <td>Nữ</td>
-                        <td>643431213</td>
-                        <td>0905423362</td>
-                        <td>thihao07@gmail.com</td>
-                        <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-                        <td>Member</td>
-                        <td colspan="2">
-                            <a style="color: #ffc107"><i class="fas fa-edit"></i></a>
-                            <a style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
+                        <td>2021-07-14</td>
+                        <td>2021-07-15</td>
+                        <td>0</td>
+                        <td>100000</td>
+                        <td>7</td>
+                        <td>2</td>
+                        <td>6</td>
+                        <td>
+                            <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
                         </td>
                     </tr><tr>
                         <td>6</td>
-                        <td>KH-0006</td>
-                        <td>Nguyễn Trần B</td>
-                        <td>1970-11-07</td>
-                        <td>Nam</td>
-                        <td>643431213</td>
-                        <td>0905423362</td>
-                        <td>thihao07@gmail.com</td>
-                        <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-                        <td>Member</td>
-                        <td colspan="2">
-                            <a style="color: #ffc107"><i class="fas fa-edit"></i></a>
-                            <a style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
+                        <td>2021-06-01</td>
+                        <td>2021-06-03</td>
+                        <td>0</td>
+                        <td>100000</td>
+                        <td>7</td>
+                        <td>7</td>
+                        <td>6</td>
+                        <td>
+                            <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
                         </td>
                     </tr>
                     <tr>
                         <td>7</td>
-                        <td>KH-0008</td>
-                        <td>Nguyễn Thị Hào7</td>
-                        <td>1970-11-07</td>
-                        <td>Nữ</td>
-                        <td>643431213</td>
-                        <td>0905423362</td>
-                        <td>thihao07@gmail.com</td>
-                        <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-                        <td>Member</td>
-                        <td colspan="2">
-                            <a style="color: #ffc107"><i class="fas fa-edit"></i></a>
-                            <a style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
+                        <td>2021-09-02</td>
+                        <td>2021-09-05</td>
+                        <td>100000</td>
+                        <td>1000000</td>
+                        <td>7</td>
+                        <td>4</td>
+                        <td>4</td>
+                        <td>
+                            <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
                         </td>
                     </tr><tr>
                         <td>8</td>
-                        <td>KH-0009</td>
-                        <td>Nguyễn Thị Hào8</td>
-                        <td>1970-11-07</td>
-                        <td>Nữ</td>
-                        <td>643431213</td>
-                        <td>0905423362</td>
-                        <td>thihao07@gmail.com</td>
-                        <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-                        <td>Member</td>
-                        <td colspan="2">
-                            <a style="color: #ffc107"><i class="fas fa-edit"></i></a>
-                            <a style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
+                        <td>2021-06-17</td>
+                        <td>2021-06-18</td>
+                        <td>150000</td>
+                        <td>1600000</td>
+                        <td>3</td>
+                        <td>4</td>
+                        <td>1</td>
+                        <td>
+                            <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
                         </td>
                     </tr>
-                    <tr>
-                        <td>9</td>
-                        <td>KH-0009</td>
-                        <td>Nguyễn Thị Hào9</td>
-                        <td>1970-11-07</td>
-                        <td>Nữ</td>
-                        <td>643431213</td>
-                        <td>0905423362</td>
-                        <td>thihao07@gmail.com</td>
-                        <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-                        <td>Member</td>
-                        <td colspan="2">
-                            <a style="color: #ffc107"><i class="fas fa-edit"></i></a>
-                            <a style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
-                        </td>
-                    </tr>
-
                     </tbody>
                 </table>
-
                 <hr/>
                 <ul class="nav nav-pills" style="align-items: center; justify-content: center">
                     <a class="page-link">«</a>
@@ -885,3 +843,4 @@
 </script>
 
 </html>
+

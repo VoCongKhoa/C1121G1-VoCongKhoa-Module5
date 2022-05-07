@@ -80,7 +80,7 @@
             color: #03A9F4;
         }
 
-        .row img{
+        .row img {
             margin: 40px auto;
             width: 120%;
         }
@@ -92,106 +92,75 @@
     <div class="row">
         <div class="col-md-8 mx-auto">
             <div class="contact-form">
-                <h1>Update Facilities</h1>
-                <form action="/services/create" id="createFormVilla" method="POST">
-                    <div style="display: flex;justify-content: center;">
-                        <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Lagoon-Superior-twin-bed-M.jpg" >
+                <h1>Create Contract</h1>
+                <form action="/contract/create" id="createFormVilla" method="POST">
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="contractStartDateCreate">Contract Start Date</label>
+                                <input type="date" class="form-control" id="contractStartDateCreate">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="contractEndDateCreate">Contract End Date</label>
+                                <input type="date" class="form-control" id="contractEndDateCreate">
+                            </div>
+                        </div>
                     </div>
-                    <input value=1 name="serviceTypeId" hidden>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="contractDepositCreate">Contract deposit:</label>
+                                <input type="text" class="form-control" id="contractDepositCreate"
+                                       placeholder="Type new contract cost here">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="contractTotalMoneyCreate">Contract total money:</label>
+                                <input type="text" class="form-control" id="contractTotalMoneyCreate"
+                                       placeholder="Type new contract cost here">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="employeeCreate">Choose new employee:</label>
+                                <select id="employeeCreate" class="form-control">
+                                    <option value="1">Nguyễn Văn An</option>
+                                    <option value="2">Lê Văn Bình</option>
+                                    <option value="3">Hồ Thị Yến</option>
+                                    <option value="4">Võ Công Toản</option>
+                                    <option value="5">Nguyễn Bỉnh Phát</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="customerCreate">Choose new customer:</label>
+                                <select id="customerCreate" class="form-control">
+                                    <option value="1">KH-0001 - Nguyễn Thị Hào</option>
+                                    <option value="2">KH-0002 - Phạm Xuân Diệu</option>
+                                    <option value="3">KH-0003 - Trương Đình Nghệ</option>
+                                    <option value="4">KH-0004 - Dương Văn Quan</option>
+                                    <option value="5">KH-0005 - Hoàng Trần Nhi Nhi</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
-                        <label for="serviceCodeCreateVilla">Service code</label>
-                        <input type="text" class="form-control" id="serviceCodeCreateVilla" readonly value="DV-0001">
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="serviceNameCreateVilla">Service name</label>
-                                <input type="text" class="form-control" value="Ocean Studio Suite"
-                                       id="serviceNameCreateVilla">
-
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="serviceAreaCreateVilla">Services area</label>
-                                <input type="text" class="form-control" value="43m²"
-                                       id="serviceAreaCreateVilla">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="serviceCostCreateVilla">Service cost:</label>
-                                <input type="text" class="form-control" id="serviceCostCreateVilla"
-                                       value="VND 6,079,672.01">
-
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="serviceMaxPeopleCreateVilla">Service max people:</label>
-                                <input type="text" class="form-control" id="serviceMaxPeopleCreateVilla"
-                                       value="4">
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="rentTypeCreateVilla">Rent type:</label>
-                                <select id="rentTypeCreateVilla" class="form-control">
-                                    <option value="4">Hour</option>
-                                    <option value="3" selected>Day</option>
-                                    <option value="2">Month</option>
-                                    <option value="1">Year</option>
-                                </select>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="serviceTypeCreateVilla">Service type:</label>
-                                <select id="serviceTypeCreateVilla" class="form-control" >
-                                    <option value="3">Room</option>
-                                    <option value="2">House</option>
-                                    <option value="1" selected>Villa</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="standardRoomCreateVilla">Standard room:</label>
-                                <input type="text" class="form-control" id="standardRoomCreateVilla"
-                                       value="Suite">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="descriptionOtherConvenienceCreateVilla">Description other convenience:</label>
-                                <input type="text" class="form-control" id="descriptionOtherConvenienceCreateVilla"
-                                       value="Ocean view•Air conditioned•Wireless Internet">
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="poolAreaCreateVilla">Pool area:</label>
-                                <input type="text" class="form-control" id="poolAreaCreateVilla"
-                                       value="0">
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <label for="numberOfFloorsCreateVilla">Number of floors:</label>
-                                <input type="text" class="form-control" id="numberOfFloorsCreateVilla"
-                                       value="1">
-                            </div>
-                        </div>
+                        <label for="servicesCreate">Choose new services:</label>
+                        <select id="servicesCreate" class="form-control">
+                            <option value="6">Room Twin 02</option>
+                            <option value="5">House Princess 02</option>
+                            <option value="4">Villa No Beach Front</option>
+                            <option value="3">Room Twin 01</option>
+                            <option value="2">House Princess 01</option>
+                            <option value="1">Villa Beach Front</option>
+                        </select>
                     </div>
                     <div class="text-center">
                         <button type="submit" class="btn btn-primary" style="
@@ -215,5 +184,6 @@
 </div>
 </body>
 </html>
+
 
 
