@@ -11,10 +11,22 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-    <!--    <link rel="stylesheet" href="@{/assets/css/main.css}">-->
+    <style>
+        .backgroundVilla {
+            background: linear-gradient(rgba(81,121,86,.85), rgba(181,175,175,.6)),
+            url('https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-Sea-View-1047x563.jpg');
+        }
+        .backgroundHouse {
+            background: linear-gradient(rgba(81,121,86,.85), rgba(181,175,175,.6)),
+            url('https://cdn.luxstay.com/rooms/27381/large/room_27381_1_1564024606.jpg');
+        }
+        .backgroundRoom {
+            background: linear-gradient(rgba(81,121,86,.85), rgba(181,175,175,.6)),
+            url('https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas_Twin-Bedroom.jpg');
+        }
+    </style>
 
     <script>
-
         $(document).ready(function () {
             if ($('#createSelection').val() == 0) {
                 $('#create-form-villa').hide();
@@ -29,22 +41,19 @@
                         $('#create-form-villa').show();
                         $('#create-form-house').hide();
                         $('#create-form-room').hide();
-                        $('#background').css('background-image',
-                            'url("https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-Sea-View-1047x563.jpg")');
+                        $('#background').addClass( "backgroundVilla" );
                         break;
                     case '2':
                         $('#create-form-villa').hide();
                         $('#create-form-house').show();
                         $('#create-form-room').hide();
-                        $('#background').css('background-image',
-                            'url("https://cdn.luxstay.com/rooms/27381/large/room_27381_1_1564024606.jpg")');
+                        $('#background').addClass( "backgroundHouse" );
                         break;
                     case '3':
                         $('#create-form-villa').hide();
                         $('#create-form-house').hide();
                         $('#create-form-room').show();
-                        $('#background').css('background-image',
-                            'url("https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas_Twin-Bedroom.jpg")');
+                        $('#background').addClass( "backgroundRoom" );
                         break;
                     default:
                         $('#create-form-villa').hide();
@@ -75,348 +84,356 @@
             });
         });
     </script>
+
+
 </head>
 
-<body id="background" >
-
-<!--<form method="get" id="sortForm" action="/services/list">-->
-<div class="container d-flex text-center" style="justify-content: center;">
-    <form action="/services/showCreate" method="GET">
-        <label for="createSelection" style="font-size: 30px; margin-top: 10px;"><b>Select service type for
-            create:</b></label>
-        <select name="serviceTypeId" id="createSelection" class="form-control mb-3" style="width: 550px;">
-            <option value="0" selected>Create new services</option>
-            <option value="1">Create by villa</option>
-            <option value="2">Create by house</option>
-            <option value="3">Create by room</option>
-        </select>
-        <!--        <button class="btn btn-success">Show form create</button>-->
-    </form>
-</div>
-<div class="container"
-     style="background-repeat: no-repeat;background-size: 100% 100%">
-<!--    background-image: url('https://anhdepfree.com/wp-content/uploads/2018/11/tong-hop-anh-nen-dep-nhat-1.jpg');-->
-    <!--VILLA FORM CREATE-->
-    <!--</form>-->
-    <div id="create-form-villa">
-        <div class="container" id="villa">
-            <form action="/services/create" id="createFormVilla" method="POST">
-                <p id="checkErrorVilla" hidden></p>
-                <input value=1 name="serviceTypeId" hidden>
-                <div class="form-group">
-                    <label for="serviceCodeCreateVilla">Service code</label>
-                    <input type="text" class="form-control" placeholder="Type new service code here"
-                           id="serviceCodeCreateVilla">
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceNameCreateVilla">Service name</label>
-                            <input type="text" class="form-control" placeholder="Type new service name here"
-                                   id="serviceNameCreateVilla">
-
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceAreaCreateVilla">Services area</label>
-                            <input type="text" class="form-control" placeholder="Type new services area here"
-                                   id="serviceAreaCreateVilla">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceCostCreateVilla">Service cost:</label>
-                            <input type="text" class="form-control" id="serviceCostCreateVilla"
-                                   placeholder="Type new services cost here">
-
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceMaxPeopleCreateVilla">Service max people:</label>
-                            <input type="text" class="form-control" id="serviceMaxPeopleCreateVilla"
-                                   placeholder="Type new services max people here">
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="rentTypeCreateVilla">Choose new rent type:</label>
-                            <select id="rentTypeCreateVilla" class="form-control">
-                                <option>
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <input type="text" class="form-control" id="serviceTypeCreateVilla"
-                           value="1" hidden>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceTypeCreateVilla">Service type:</label>
-                            <input type="text" class="form-control" value="Villa" readonly>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="standardRoomCreateVilla">Standard room:</label>
-                            <input type="text" class="form-control" id="standardRoomCreateVilla"
-                                   placeholder="Type new standard room">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="descriptionOtherConvenienceCreateVilla">Description other convenience:</label>
-                            <input type="text" class="form-control" id="descriptionOtherConvenienceCreateVilla"
-                                   placeholder="Type new description other convenience">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="poolAreaCreateVilla">Pool area:</label>
-                            <input type="text" class="form-control" id="poolAreaCreateVilla"
-                                   placeholder="Type new description other convenience">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="numberOfFloorsCreateVilla">Number of floors:</label>
-                            <input type="text" class="form-control" id="numberOfFloorsCreateVilla"
-                                   placeholder="Type new number of floors">
-                        </div>
-                    </div>
-                </div>
-                <!--            <input type="hidden" id="messageSuccess" name="messageCreate">-->
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary" style="
-                              min-width: 250px;
-                              color: #fcda2e;
-                              background: #403838 !important;
-                              margin-top: 20px;
-                              border: none;"
-                            id="btn-create-villa">
-                        <i class="fa fa-paper-plane"></i>
-                        Send
-                    </button>
-                </div>
-            </form>
-
-            <br>
-            <br>
-            <a href="/" class="backHome" style="font-size: 42px;
-              font-family: cursive;
-              margin: 0 0 50px;
-              text-align: center;"><h1>Back Home</h1></a>
-        </div>
-    </div>
-
-    <!--HOUSE FORM CREATE-->
-    <div id="create-form-house">
-        <div class="container" id="house">
-
-            <form action="/services/create" id="createFormHouse" method="POST">
-                <p id="checkErrorHouse" hidden></p>
-                <input value=2 name="serviceTypeId" hidden>
-                <div class="form-group">
-                    <label for="serviceCodeCreateHouse">Service code</label>
-                    <input type="text" class="form-control" placeholder="Type new service code here"
-                           id="serviceCodeCreateHouse">
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceNameCreateHouse">Service name</label>
-                            <input type="text" class="form-control" placeholder="Type new service name here"
-                                   id="serviceNameCreateHouse">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceAreaCreateHouse">Services area</label>
-                            <input type="text" class="form-control" placeholder="Type new services area here"
-                                   id="serviceAreaCreateHouse">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceCostCreateHouse">Service cost:</label>
-                            <input type="text" class="form-control" id="serviceCostCreateHouse"
-                                   placeholder="Type new services cost here" l>
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceMaxPeopleCreateHouse">Service max people:</label>
-                            <input type="text" class="form-control" id="serviceMaxPeopleCreateHouse"
-                                   placeholder="Type new services max people here">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="rentTypeCreateHouse">Choose new rent type:</label>
-                            <select id="rentTypeCreateHouse" class="form-control">
-                                <option>
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <input type="text" class="form-control" id="serviceTypeCreateHouse" value="2" hidden>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceTypeCreateHouse">Service type:</label>
-                            <input type="text" class="form-control" value="House" readonly>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="standardRoomCreateHouse">Standard room:</label>
-                            <input type="text" class="form-control" id="standardRoomCreateHouse"
-                                   placeholder="Type new standard room">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="descriptionOtherConvenienceCreateHouse">Description other convenience:</label>
-                            <input type="text" class="form-control" id="descriptionOtherConvenienceCreateHouse"
-                                   placeholder="Type new description other convenience">
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group" style="width: 100%">
-                    <label for="numberOfFloorsCreateHouse">Number of floors:</label>
-                    <input type="text" class="form-control" id="numberOfFloorsCreateHouse"
-                           placeholder="Type new number of floors">
-                </div>
-
-                <!--            <input type="hidden" id="messageSuccess" name="messageCreate">-->
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary" style="
-                              min-width: 250px;
-                              color: #fcda2e;
-                              background: #403838 !important;
-                              margin-top: 20px;
-                              border: none;"
-                            id="btn-create-house">
-                        <i class="fa fa-paper-plane"></i>
-                        Send
-                    </button>
-                </div>
-            </form>
-
-            <br>
-            <br>
-            <a href="/" class="backHome" style="font-size: 42px;
-              font-family: cursive;
-              margin: 0 0 50px;
-              text-align: center;"><h1>Back Home</h1></a>
-        </div>
-    </div>
-
-    <!--ROOM FORM CREATE-->
-    <div id="create-form-room">
-        <div class="container" id="room">
-
-            <form action="/services/create" id="createFormRoom" method="POST">
-                <p id="checkErrorRoom" hidden></p>
-                <input value=3 name="serviceTypeId" hidden>
-                <div class="form-group">
-                    <label for="serviceCodeCreateRoom">Service code</label>
-                    <input type="text" class="form-control" placeholder="Type new service code here"
-                           id="serviceCodeCreateRoom">
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceNameCreateRoom">Service name</label>
-                            <input type="text" class="form-control" placeholder="Type new service name here"
-                                   id="serviceNameCreateRoom">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceAreaCreateRoom">Services area</label>
-                            <input type="text" class="form-control" placeholder="Type new services area here"
-                                   id="serviceAreaCreateRoom">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceCostCreateRoom">Service cost:</label>
-                            <input type="text" class="form-control" id="serviceCostCreateRoom"
-                                   placeholder="Type new services cost here">
-                        </div>
-                    </div>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceMaxPeopleCreateRoom">Service max people:</label>
-                            <input type="text" class="form-control" id="serviceMaxPeopleCreateRoom"
-                                   placeholder="Type new services max people here">
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="rentTypeCreateRoom">Choose new rent type:</label>
-                            <select id="rentTypeCreateRoom" class="form-control">
-                                <option>
-                                </option>
-                            </select>
-                        </div>
-                    </div>
-                    <input type="text" class="form-control" id="serviceTypeCreateRoom" value="3" hidden>
-                    <div class="col-sm-6">
-                        <div class="form-group">
-                            <label for="serviceTypeCreateRoom">Service type:</label>
-                            <input type="text" class="form-control" value="Room" readonly>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group" style="width: 100%">
-                    <label for="freeAttachedServiceCreateRoom">Free attached service:</label>
-                    <input type="text" class="form-control" id="freeAttachedServiceCreateRoom"
-                           placeholder="Type new free attached service here">
-                </div>
-
-                <input type="hidden" id="messageSuccess" name="messageCreate">
-                <div class="text-center">
-                    <button type="submit" class="btn btn-primary" style="
-                              min-width: 250px;
-                              color: #fcda2e;
-                              background: #403838 !important;
-                              margin-top: 20px;
-                              border: none;"
-                            id="btn-create">
-                        <i class="fa fa-paper-plane"></i>
-                        Send
-                    </button>
-                </div>
-            </form>
-            <br>
-            <br>
-            <a href="/" class="backHome" style="font-size: 42px;
-              font-family: cursive;
-              margin: 0 0 50px;
-              text-align: center;"><h1>Back Home</h1></a>
-        </div>
+<body>
+<div style="background-color: #77b0e2">
+    <div class="container d-flex text-center" style="justify-content: center;">
+        <form action="/services/showCreate" method="GET">
+            <label for="createSelection" style="font-size: 30px; margin-top: 10px;"><b>Select service type for
+                create:</b></label>
+            <select name="serviceTypeId" id="createSelection" class="form-control mb-3" style="width: 550px;">
+                <option value="0" selected>Create new services</option>
+                <option value="1">Create by villa</option>
+                <option value="2">Create by house</option>
+                <option value="3">Create by room</option>
+            </select>
+            <!--        <button class="btn btn-success">Show form create</button>-->
+        </form>
     </div>
 </div>
+<div id="background">
+    <!--<form method="get" id="sortForm" action="/services/list">-->
+    <div class="container"
+         style="background-repeat: no-repeat;background-size: 100% 100%">
+        <!--    background-image: url('https://anhdepfree.com/wp-content/uploads/2018/11/tong-hop-anh-nen-dep-nhat-1.jpg');-->
+        <!--VILLA FORM CREATE-->
+        <!--</form>-->
+        <div id="create-form-villa">
+            <div class="container" id="villa">
+                <form action="/services/create" id="createFormVilla" method="POST">
+                    <p id="checkErrorVilla" hidden></p>
+                    <input value=1 name="serviceTypeId" hidden>
+                    <div class="form-group">
+                        <label for="serviceCodeCreateVilla">Service code</label>
+                        <input type="text" class="form-control" placeholder="Type new service code here"
+                               id="serviceCodeCreateVilla">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceNameCreateVilla">Service name</label>
+                                <input type="text" class="form-control" placeholder="Type new service name here"
+                                       id="serviceNameCreateVilla">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceAreaCreateVilla">Services area</label>
+                                <input type="text" class="form-control" placeholder="Type new services area here"
+                                       id="serviceAreaCreateVilla">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceCostCreateVilla">Service cost:</label>
+                                <input type="text" class="form-control" id="serviceCostCreateVilla"
+                                       placeholder="Type new services cost here">
+
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceMaxPeopleCreateVilla">Service max people:</label>
+                                <input type="text" class="form-control" id="serviceMaxPeopleCreateVilla"
+                                       placeholder="Type new services max people here">
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="rentTypeCreateVilla">Choose new rent type:</label>
+                                <select id="rentTypeCreateVilla" class="form-control">
+                                    <option>
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" id="serviceTypeCreateVilla"
+                               value="1" hidden>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceTypeCreateVilla">Service type:</label>
+                                <input type="text" class="form-control" value="Villa" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="standardRoomCreateVilla">Standard room:</label>
+                                <input type="text" class="form-control" id="standardRoomCreateVilla"
+                                       placeholder="Type new standard room">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="descriptionOtherConvenienceCreateVilla">Description other
+                                    convenience:</label>
+                                <input type="text" class="form-control" id="descriptionOtherConvenienceCreateVilla"
+                                       placeholder="Type new description other convenience">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="poolAreaCreateVilla">Pool area:</label>
+                                <input type="text" class="form-control" id="poolAreaCreateVilla"
+                                       placeholder="Type new description other convenience">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="numberOfFloorsCreateVilla">Number of floors:</label>
+                                <input type="text" class="form-control" id="numberOfFloorsCreateVilla"
+                                       placeholder="Type new number of floors">
+                            </div>
+                        </div>
+                    </div>
+                    <!--            <input type="hidden" id="messageSuccess" name="messageCreate">-->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" style="
+                              min-width: 250px;
+                              color: #fcda2e;
+                              background: #403838 !important;
+                              margin-top: 20px;
+                              border: none;"
+                                id="btn-create-villa">
+                            <i class="fa fa-paper-plane"></i>
+                            Send
+                        </button>
+                    </div>
+                </form>
+
+                <br>
+                <br>
+                <a href="/" class="backHome" style="font-size: 42px;
+              font-family: cursive;
+              margin: 0 0 50px;
+              text-align: center;"><h1>Back Home</h1></a>
+            </div>
+        </div>
+
+        <!--HOUSE FORM CREATE-->
+        <div id="create-form-house">
+            <div class="container" id="house">
+
+                <form action="/services/create" id="createFormHouse" method="POST">
+                    <p id="checkErrorHouse" hidden></p>
+                    <input value=2 name="serviceTypeId" hidden>
+                    <div class="form-group">
+                        <label for="serviceCodeCreateHouse">Service code</label>
+                        <input type="text" class="form-control" placeholder="Type new service code here"
+                               id="serviceCodeCreateHouse">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceNameCreateHouse">Service name</label>
+                                <input type="text" class="form-control" placeholder="Type new service name here"
+                                       id="serviceNameCreateHouse">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceAreaCreateHouse">Services area</label>
+                                <input type="text" class="form-control" placeholder="Type new services area here"
+                                       id="serviceAreaCreateHouse">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceCostCreateHouse">Service cost:</label>
+                                <input type="text" class="form-control" id="serviceCostCreateHouse"
+                                       placeholder="Type new services cost here" l>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceMaxPeopleCreateHouse">Service max people:</label>
+                                <input type="text" class="form-control" id="serviceMaxPeopleCreateHouse"
+                                       placeholder="Type new services max people here">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="rentTypeCreateHouse">Choose new rent type:</label>
+                                <select id="rentTypeCreateHouse" class="form-control">
+                                    <option>
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" id="serviceTypeCreateHouse" value="2" hidden>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceTypeCreateHouse">Service type:</label>
+                                <input type="text" class="form-control" value="House" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="standardRoomCreateHouse">Standard room:</label>
+                                <input type="text" class="form-control" id="standardRoomCreateHouse"
+                                       placeholder="Type new standard room">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="descriptionOtherConvenienceCreateHouse">Description other
+                                    convenience:</label>
+                                <input type="text" class="form-control" id="descriptionOtherConvenienceCreateHouse"
+                                       placeholder="Type new description other convenience">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width: 100%">
+                        <label for="numberOfFloorsCreateHouse">Number of floors:</label>
+                        <input type="text" class="form-control" id="numberOfFloorsCreateHouse"
+                               placeholder="Type new number of floors">
+                    </div>
+
+                    <!--            <input type="hidden" id="messageSuccess" name="messageCreate">-->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" style="
+                              min-width: 250px;
+                              color: #fcda2e;
+                              background: #403838 !important;
+                              margin-top: 20px;
+                              border: none;"
+                                id="btn-create-house">
+                            <i class="fa fa-paper-plane"></i>
+                            Send
+                        </button>
+                    </div>
+                </form>
+
+                <br>
+                <br>
+                <a href="/" class="backHome" style="font-size: 42px;
+              font-family: cursive;
+              margin: 0 0 50px;
+              text-align: center;"><h1>Back Home</h1></a>
+            </div>
+        </div>
+
+        <!--ROOM FORM CREATE-->
+        <div id="create-form-room">
+            <div class="container" id="room">
+
+                <form action="/services/create" id="createFormRoom" method="POST">
+                    <p id="checkErrorRoom" hidden></p>
+                    <input value=3 name="serviceTypeId" hidden>
+                    <div class="form-group">
+                        <label for="serviceCodeCreateRoom">Service code</label>
+                        <input type="text" class="form-control" placeholder="Type new service code here"
+                               id="serviceCodeCreateRoom">
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceNameCreateRoom">Service name</label>
+                                <input type="text" class="form-control" placeholder="Type new service name here"
+                                       id="serviceNameCreateRoom">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceAreaCreateRoom">Services area</label>
+                                <input type="text" class="form-control" placeholder="Type new services area here"
+                                       id="serviceAreaCreateRoom">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceCostCreateRoom">Service cost:</label>
+                                <input type="text" class="form-control" id="serviceCostCreateRoom"
+                                       placeholder="Type new services cost here">
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceMaxPeopleCreateRoom">Service max people:</label>
+                                <input type="text" class="form-control" id="serviceMaxPeopleCreateRoom"
+                                       placeholder="Type new services max people here">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="rentTypeCreateRoom">Choose new rent type:</label>
+                                <select id="rentTypeCreateRoom" class="form-control">
+                                    <option>
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                        <input type="text" class="form-control" id="serviceTypeCreateRoom" value="3" hidden>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <label for="serviceTypeCreateRoom">Service type:</label>
+                                <input type="text" class="form-control" value="Room" readonly>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group" style="width: 100%">
+                        <label for="freeAttachedServiceCreateRoom">Free attached service:</label>
+                        <input type="text" class="form-control" id="freeAttachedServiceCreateRoom"
+                               placeholder="Type new free attached service here">
+                    </div>
+
+                    <input type="hidden" id="messageSuccess" name="messageCreate">
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary" style="
+                              min-width: 250px;
+                              color: #fcda2e;
+                              background: #403838 !important;
+                              margin-top: 20px;
+                              border: none;"
+                                id="btn-create">
+                            <i class="fa fa-paper-plane"></i>
+                            Send
+                        </button>
+                    </div>
+                </form>
+                <br>
+                <br>
+                <a href="/" class="backHome" style="font-size: 42px;
+              font-family: cursive;
+              margin: 0 0 50px;
+              text-align: center;"><h1>Back Home</h1></a>
+            </div>
+        </div>
+    </div>
+</div>
+
 </body>
 </html>

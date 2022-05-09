@@ -1,0 +1,125 @@
+<div class="container-lg">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="contact-form">
+        <h1>Update Facilities</h1>
+        <form action="/services/create" id="createFormVilla" method="POST">
+          <div style="display: flex;justify-content: center;">
+            <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Lagoon-Superior-twin-bed-M.jpg" >
+          </div>
+          <input value=1 name="serviceTypeId" hidden>
+          <div class="form-group">
+            <label for="serviceCodeCreateVilla">Service code</label>
+            <input type="text" class="form-control" id="serviceCodeCreateVilla" readonly value="DV-0001">
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="serviceNameCreateVilla">Service name</label>
+                <input type="text" class="form-control" value="Ocean Studio Suite"
+                       id="serviceNameCreateVilla">
+
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="serviceAreaCreateVilla">Services area</label>
+                <input type="text" class="form-control" value="43m²"
+                       id="serviceAreaCreateVilla">
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="serviceCostCreateVilla">Service cost:</label>
+                <input type="text" class="form-control" id="serviceCostCreateVilla"
+                       value="VND 6,079,672.01">
+
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="serviceMaxPeopleCreateVilla">Service max people:</label>
+                <input type="text" class="form-control" id="serviceMaxPeopleCreateVilla"
+                       value="4">
+
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="rentTypeCreateVilla">Rent type:</label>
+                <select id="rentTypeCreateVilla" class="form-control">
+                  <option value="4">Hour</option>
+                  <option value="3" selected>Day</option>
+                  <option value="2">Month</option>
+                  <option value="1">Year</option>
+                </select>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="serviceTypeCreateVilla">Service type:</label>
+                <select id="serviceTypeCreateVilla" class="form-control" >
+                  <option value="3">Room</option>
+                  <option value="2">House</option>
+                  <option value="1" selected>Villa</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="standardRoomCreateVilla">Standard room:</label>
+                <input type="text" class="form-control" id="standardRoomCreateVilla"
+                       value="Suite">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="descriptionOtherConvenienceCreateVilla">Description other convenience:</label>
+                <input type="text" class="form-control" id="descriptionOtherConvenienceCreateVilla"
+                       value="Ocean view•Air conditioned•Wireless Internet">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="poolAreaCreateVilla">Pool area:</label>
+                <input type="text" class="form-control" id="poolAreaCreateVilla"
+                       value="0">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="numberOfFloorsCreateVilla">Number of floors:</label>
+                <input type="text" class="form-control" id="numberOfFloorsCreateVilla"
+                       value="1">
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" style="
+                              min-width: 250px;
+                              color: #fcda2e;
+                              background: #403838 !important;
+                              margin-top: 20px;
+                              border: none;"
+                    id="btn-create-villa">
+              <i class="fa fa-paper-plane"></i>
+              Send
+            </button>
+          </div>
+        </form>
+        <br>
+        <br>
+        <a href="/" class="backHome"><h1>Back Home</h1></a>
+      </div>
+    </div>
+  </div>
+</div>

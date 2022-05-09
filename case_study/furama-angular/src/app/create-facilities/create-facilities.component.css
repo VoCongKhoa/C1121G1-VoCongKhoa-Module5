@@ -1,0 +1,12 @@
+.backgroundVilla {
+  background: linear-gradient(rgba(81,121,86,.85), rgba(181,175,175,.6)),
+  url('https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Beach_Pool_Villas-Sea-View-1047x563.jpg');
+}
+.backgroundHouse {
+  background: linear-gradient(rgba(81,121,86,.85), rgba(181,175,175,.6)),
+  url('https://cdn.luxstay.com/rooms/27381/large/room_27381_1_1564024606.jpg');
+}
+.backgroundRoom {
+  background: linear-gradient(rgba(81,121,86,.85), rgba(181,175,175,.6)),
+  url('https://furamavietnam.com/wp-content/uploads/2018/08/Vietnam_Danang_Furama_Villas_Pool_Villas_Twin-Bedroom.jpg');
+}

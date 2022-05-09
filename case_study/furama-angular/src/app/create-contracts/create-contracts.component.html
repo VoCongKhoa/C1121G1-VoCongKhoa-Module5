@@ -1,0 +1,94 @@
+<div class="container-lg">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="contact-form">
+        <h1>Create Contract</h1>
+        <form action="/contract/create" id="createFormVilla" method="POST">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="contractStartDateCreate">Contract Start Date</label>
+                <input type="date" class="form-control" id="contractStartDateCreate">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="contractEndDateCreate">Contract End Date</label>
+                <input type="date" class="form-control" id="contractEndDateCreate">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="contractDepositCreate">Contract deposit:</label>
+                <input type="text" class="form-control" id="contractDepositCreate"
+                       placeholder="Type new contract cost here">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="contractTotalMoneyCreate">Contract total money:</label>
+                <input type="text" class="form-control" id="contractTotalMoneyCreate"
+                       placeholder="Type new contract cost here">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="employeeCreate">Choose new employee:</label>
+                <select id="employeeCreate" class="form-control">
+                  <option value="1">Nguyễn Văn An</option>
+                  <option value="2">Lê Văn Bình</option>
+                  <option value="3">Hồ Thị Yến</option>
+                  <option value="4">Võ Công Toản</option>
+                  <option value="5">Nguyễn Bỉnh Phát</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="customerCreate">Choose new customer:</label>
+                <select id="customerCreate" class="form-control">
+                  <option value="1">KH-0001 - Nguyễn Thị Hào</option>
+                  <option value="2">KH-0002 - Phạm Xuân Diệu</option>
+                  <option value="3">KH-0003 - Trương Đình Nghệ</option>
+                  <option value="4">KH-0004 - Dương Văn Quan</option>
+                  <option value="5">KH-0005 - Hoàng Trần Nhi Nhi</option>
+                </select>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="servicesCreate">Choose new services:</label>
+            <select id="servicesCreate" class="form-control">
+              <option value="6">Room Twin 02</option>
+              <option value="5">House Princess 02</option>
+              <option value="4">Villa No Beach Front</option>
+              <option value="3">Room Twin 01</option>
+              <option value="2">House Princess 01</option>
+              <option value="1">Villa Beach Front</option>
+            </select>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" style="
+                              min-width: 250px;
+                              color: #fcda2e;
+                              background: #403838 !important;
+                              margin-top: 20px;
+                              border: none;"
+                    id="btn-create-villa">
+              <i class="fa fa-paper-plane"></i>
+              Send
+            </button>
+          </div>
+        </form>
+        <br>
+        <br>
+        <a href="/" class="backHome"><h1>Back Home</h1></a>
+      </div>
+    </div>
+  </div>
+</div>
