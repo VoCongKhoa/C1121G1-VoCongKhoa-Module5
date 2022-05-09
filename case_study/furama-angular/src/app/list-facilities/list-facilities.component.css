@@ -74,6 +74,15 @@
   text-decoration: none;
 }
 
+.room-name {
+  font-size: 17px;
+}
+
+.discount-price {
+  text-decoration: line-through;
+  font-size: 14px;
+}
+
 .create-div {
   width: 100%;
   height: 50px;

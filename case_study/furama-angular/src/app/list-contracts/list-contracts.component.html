@@ -12,7 +12,7 @@
             <a href="#" class="btn btn-success" id="modalActivate" type="button"
                data-toggle="modal"
                data-target="#createModal"
-               routerLink="create-contracts"><i
+               routerLink="/create-contracts"><i
               class="material-icons">&#xE147;</i>
               <span>Add New Contract</span>
             </a>
@@ -90,110 +90,21 @@
             <th>Contract Deposit</th>
             <th>Contract Total Money</th>
             <th>Employee Id</th>
-            <th>Customer Id</th>
-            <th>Service Id</th>
+            <th>Customer</th>
+            <th>Service</th>
             <th>Action</th>
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>1</td>
-            <td>2020-12-08</td>
-            <td>2020-12-08</td>
-            <td>0</td>
-            <td>1000000</td>
-            <td>3</td>
-            <td>1</td>
-            <td>3</td>
-            <td>
-              <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>2</td>
-            <td>2020-07-14</td>
-            <td>2020-07-21</td>
-            <td>200000</td>
-            <td>2000000</td>
-            <td>7</td>
-            <td>3</td>
-            <td>1</td>
-            <td>
-              <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>2021-03-15</td>
-            <td>2021-03-17</td>
-            <td>50000</td>
-            <td>1500000</td>
-            <td>3</td>
-            <td>4</td>
-            <td>2</td>
-            <td>
-              <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>2021-01-14</td>
-            <td>2021-01-18</td>
-            <td>100000</td>
-            <td>1400000</td>
-            <td>7</td>
-            <td>5</td>
-            <td>5</td>
-            <td>
-              <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>2021-07-14</td>
-            <td>2021-07-15</td>
-            <td>0</td>
-            <td>100000</td>
-            <td>7</td>
-            <td>2</td>
-            <td>6</td>
-            <td>
-              <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
-            </td>
-          </tr><tr>
-            <td>6</td>
-            <td>2021-06-01</td>
-            <td>2021-06-03</td>
-            <td>0</td>
-            <td>100000</td>
-            <td>7</td>
-            <td>7</td>
-            <td>6</td>
-            <td>
-              <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>2021-09-02</td>
-            <td>2021-09-05</td>
-            <td>100000</td>
-            <td>1000000</td>
-            <td>7</td>
-            <td>4</td>
-            <td>4</td>
-            <td>
-              <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
-            </td>
-          </tr><tr>
-            <td>8</td>
-            <td>2021-06-17</td>
-            <td>2021-06-18</td>
-            <td>150000</td>
-            <td>1600000</td>
-            <td>3</td>
-            <td>4</td>
-            <td>1</td>
+          <tr *ngFor="let contract of contracts">
+            <td>{{contract.contractId}}</td>
+            <td>{{contract.contractStartDate | date:'dd/MM/yyyy'}}</td>
+            <td>{{contract.contractEndDate | date:'dd/MM/yyyy'}}</td>
+            <td>{{contract.contractDeposit}}</td>
+            <td>{{contract.contractTotalMoney}}</td>
+            <td>{{contract.employeeId}}</td>
+            <td>{{contract.customer.customerCode}} - {{contract.customer.customerName}}</td>
+            <td>{{contract.services.serviceName}}</td>
             <td>
               <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
             </td>

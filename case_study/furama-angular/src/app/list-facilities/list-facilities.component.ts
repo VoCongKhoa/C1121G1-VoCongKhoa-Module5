@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { facilityList } from "../facilities";
+import { Facility } from "../../models/facility"
 
 @Component({
   selector: 'app-list-facilities',
@@ -7,9 +9,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListFacilitiesComponent implements OnInit {
 
+  // @ts-ignore
+  // facilityList: InstanceType<typeof facilityList>;
+  facilityList = facilityList;
   constructor() { }
 
   ngOnInit(): void {
   }
+
 
 }

@@ -12,14 +12,15 @@ import {ListContractsComponent} from "./list-contracts/list-contracts.component"
 
 const routes: Routes = [
   { path: 'facilities', component: ListFacilitiesComponent},
-  { path: 'facilities/update-facilities', component: UpdateFacilitiesComponent},
-  { path: 'facilities/create-facilities', component: CreateFacilitiesComponent},
+  { path: 'update-facilities', component: UpdateFacilitiesComponent},
+  { path: 'create-facilities', component: CreateFacilitiesComponent},
   { path: 'list-customers', component: ListCustomersComponent},
-  { path: 'list-customers/update-customers', component: UpdateCustomersComponent},
-  { path: 'list-customers/create-customers', component: CreateCustomersComponent},
+  { path: 'update-customers/:id', component: UpdateCustomersComponent},
+  { path: 'create-customers', component: CreateCustomersComponent},
   { path: 'list-contracts', component: ListContractsComponent},
-  { path: 'list-contracts/create-contracts', component: CreateContractsComponent},
+  { path: 'create-contracts', component: CreateContractsComponent},
   { path:'',component: HomePageComponent}
+  // { path:'**',component: PageNotFoundComponent}
 ]
 
 @NgModule({

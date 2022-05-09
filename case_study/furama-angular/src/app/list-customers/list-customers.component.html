@@ -12,7 +12,7 @@
             <a href="#" class="btn btn-success" id="modalActivate" type="button"
                data-toggle="modal"
                data-target="#createModal"
-               routerLink="create-customers"><i
+               routerLink="/create-customers"><i
               class="material-icons">&#xE147;</i>
               <span>Add New Customer</span>
             </a>
@@ -96,149 +96,28 @@
           </tr>
           </thead>
           <tbody>
-          <tr>
-            <td>1</td>
-            <td>KH-0001</td>
-            <td>Nguyễn Thị Hào</td>
-            <td>1970-11-07</td>
-            <td>Nữ</td>
-            <td>643431213</td>
-            <td>0905423362</td>
-            <td>thihao07@gmail.com</td>
-            <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-            <td>Member</td>
+          <tr *ngFor="let c of customers; index as i">
+            <td>{{i+1}}</td>
+            <td>{{c.customerCode}}</td>
+            <td>{{c.customerName}}</td>
+            <td>{{c.customerBirthday | date:'dd/MM/yyyy'}}</td>
+            <td>{{c.customerGender == 0 ? 'Nữ':'Nam'}}</td>
+            <td>{{c.customerIdCard}}</td>
+            <td>{{c.customerPhone}}</td>
+            <td>{{c.customerEmail}}</td>
+            <td>{{c.customerAddress}}</td>
+            <td [ngSwitch]="c.customerTypeId">
+              <span *ngSwitchCase="1">Diamond</span>
+              <span *ngSwitchCase="2">Platinum</span>
+              <span *ngSwitchCase="3">Gold</span>
+              <span *ngSwitchCase="4">Silver</span>
+              <span *ngSwitchCase="5">Member</span>
+            </td>
             <td colspan="2">
-              <a type="button" style="color: #ffc107" routerLink="update-customers"><i class="fas fa-edit"></i></a>
+              <a type="button" style="color: #ffc107" routerLink="/update-customers/{{c.customerId}}"><i class="fas fa-edit"></i></a>
               <a type="button" style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
             </td>
           </tr>
-          <tr>
-            <td>2</td>
-            <td>KH-0002</td>
-            <td>Phạm Xuân Diệu</td>
-            <td>1992-08-08</td>
-            <td>Nam</td>
-            <td>865342123</td>
-            <td>0904333333</td>
-            <td>xuandieu92@gmail.com</td>
-            <td>K77/22 Thái Phiên, Quảng Trị</td>
-            <td>Gold</td>
-            <td colspan="2">
-              <a type="button" style="color: #ffc107"  routerLink="update-customers"><i class="fas fa-edit"></i></a>
-              <a type="button" style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>3</td>
-            <td>KH-0003</td>
-            <td>Nguyễn Thị Hào3</td>
-            <td>1970-11-07</td>
-            <td>Nữ</td>
-            <td>643431213</td>
-            <td>0905423362</td>
-            <td>thihao07@gmail.com</td>
-            <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-            <td>Member</td>
-            <td colspan="2">
-              <a type="button" style="color: #ffc107"  routerLink="update-customers"><i class="fas fa-edit"></i></a>
-              <a type="button" style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>4</td>
-            <td>KH-0004</td>
-            <td>Nguyễn Văn Hào4</td>
-            <td>1970-11-07</td>
-            <td>Nam</td>
-            <td>643431213</td>
-            <td>0905423362</td>
-            <td>thihao07@gmail.com</td>
-            <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-            <td>Member</td>
-            <td colspan="2">
-              <a type="button" style="color: #ffc107"  routerLink="update-customers"><i class="fas fa-edit"></i></a>
-              <a type="button" style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>5</td>
-            <td>KH-0005</td>
-            <td>Nguyễn Thị Hào5</td>
-            <td>1970-11-07</td>
-            <td>Nữ</td>
-            <td>643431213</td>
-            <td>0905423362</td>
-            <td>thihao07@gmail.com</td>
-            <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-            <td>Member</td>
-            <td colspan="2">
-              <a type="button" style="color: #ffc107"  routerLink="update-customers"><i class="fas fa-edit"></i></a>
-              <a type="button" style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
-            </td>
-          </tr><tr>
-            <td>6</td>
-            <td>KH-0006</td>
-            <td>Nguyễn Trần B</td>
-            <td>1970-11-07</td>
-            <td>Nam</td>
-            <td>643431213</td>
-            <td>0905423362</td>
-            <td>thihao07@gmail.com</td>
-            <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-            <td>Member</td>
-            <td colspan="2">
-              <a type="button" style="color: #ffc107"  routerLink="update-customers"><i class="fas fa-edit"></i></a>
-              <a type="button" style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>7</td>
-            <td>KH-0008</td>
-            <td>Nguyễn Thị Hào7</td>
-            <td>1970-11-07</td>
-            <td>Nữ</td>
-            <td>643431213</td>
-            <td>0905423362</td>
-            <td>thihao07@gmail.com</td>
-            <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-            <td>Member</td>
-            <td colspan="2">
-              <a type="button" style="color: #ffc107"  routerLink="update-customers"><i class="fas fa-edit"></i></a>
-              <a type="button" style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
-            </td>
-          </tr><tr>
-            <td>8</td>
-            <td>KH-0009</td>
-            <td>Nguyễn Thị Hào8</td>
-            <td>1970-11-07</td>
-            <td>Nữ</td>
-            <td>643431213</td>
-            <td>0905423362</td>
-            <td>thihao07@gmail.com</td>
-            <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-            <td>Member</td>
-            <td colspan="2">
-              <a type="button" style="color: #ffc107"  routerLink="update-customers"><i class="fas fa-edit"></i></a>
-              <a type="button" style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
-            </td>
-          </tr>
-          <tr>
-            <td>9</td>
-            <td>KH-0009</td>
-            <td>Nguyễn Thị Hào9</td>
-            <td>1970-11-07</td>
-            <td>Nữ</td>
-            <td>643431213</td>
-            <td>0905423362</td>
-            <td>thihao07@gmail.com</td>
-            <td>23 Nguyễn Hoàng, Đà Nẵng</td>
-            <td>Member</td>
-            <td colspan="2">
-              <a type="button" style="color: #ffc107"  routerLink="update-customers"><i class="fas fa-edit"></i></a>
-              <a type="button" style="color: #17a2b8"><i class="fa-solid fa-trash-can"></i></a>
-            </td>
-          </tr>
-
           </tbody>
         </table>
 

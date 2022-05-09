@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { customerList } from "../customers";
+import {ActivatedRoute} from "@angular/router";
+import {Customer} from "../../models/customer";
 
 @Component({
   selector: 'app-list-customers',
@@ -7,7 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListCustomersComponent implements OnInit {
 
-  constructor() { }
+  // @ts-ignore
+  customers = customerList;
+  constructor() {
+
+  }
 
   ngOnInit(): void {
   }
