@@ -1,5 +1,5 @@
 export class CustomerType {
   customerTypeId: number;
-  customerTypeName: String;
+  customerTypeName: string;
   active: number;
 }

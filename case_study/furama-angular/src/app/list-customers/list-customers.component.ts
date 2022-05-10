@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { customerList } from "../customers";
-import {ActivatedRoute} from "@angular/router";
 import {Customer} from "../../models/customer";
+import {CustomerService} from "../../services/customers";
 
 @Component({
   selector: 'app-list-customers',
@@ -10,13 +9,16 @@ import {Customer} from "../../models/customer";
 })
 export class ListCustomersComponent implements OnInit {
 
-  // @ts-ignore
-  customers = customerList;
-  constructor() {
-
+  customers: Customer[] = [];
+  constructor(private customerService: CustomerService) {
+    this.getCustomers();
   }
 
   ngOnInit(): void {
+  }
+
+  getCustomers(){
+    this.customers = this.customerService.getCustomers();
   }
 
 }

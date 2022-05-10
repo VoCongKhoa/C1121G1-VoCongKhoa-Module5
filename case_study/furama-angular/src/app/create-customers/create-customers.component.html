@@ -3,44 +3,70 @@
     <div class="col-md-8 mx-auto">
       <div class="contact-form">
         <h1>Create Customer</h1>
-        <form action="/customer/create" id="createFormVilla" method="POST">
-          <input value=1 name="serviceTypeId" hidden>
+        <form (ngSubmit)="onSubmit()" [formGroup]="customerCreateForm" id="createFormVilla">
           <div class="form-group">
             <label for="serviceCodeCreateVilla">Customer code</label>
             <input type="text" class="form-control" id="serviceCodeCreateVilla"
-                   placeholder="Type new customer code here">
+                   placeholder="Type new customer code here" formControlName="customerCode">
+            <div
+              *ngIf="customerCode.invalid && (customerCode.dirty || customerCode.touched) || customerCode.errors?.empty">
+              <span *ngIf="customerCode.errors.pattern" style="color: red">Wrong format, ex: KH-0123</span>
+              <span *ngIf="customerCode.errors.required || customerCode.errors.empty" style="color: red">Empty! Input please!</span>
+            </div>
           </div>
+
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="serviceNameCreateVilla">Customer name</label>
                 <input type="text" class="form-control" placeholder="Type new customer name here"
-                       id="serviceNameCreateVilla">
+                       id="serviceNameCreateVilla" formControlName="customerName">
+                <div
+                  *ngIf="customerName.invalid && (customerName.dirty || customerName.touched) || customerName.errors?.empty">
+                  <span *ngIf="customerName.errors.required || customerName.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
+
             </div>
+
+
+
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="serviceAreaCreateVilla">Select customers birthday</label>
-                <input type="date" class="form-control" id="serviceAreaCreateVilla">
+                <input type="date" class="form-control" id="serviceAreaCreateVilla" formControlName="customerBirthday">
+                <div
+                  *ngIf="customerBirthday.invalid && (customerBirthday.dirty || customerBirthday.touched) || customerBirthday.errors?.empty">
+                  <span *ngIf="customerBirthday.errors.required || customerBirthday.errors.empty" style="color: red">Please choose a date!</span>
+                </div>
               </div>
             </div>
+
           </div>
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Select customer gender:</label><br>
-                <input type="radio" id="female" value="0" checked>
+                <input type="radio" id="female" value='0' formControlName="customerGender" style="margin: 10px;">
                 <label for="female" style="margin-bottom: 1px;">Female</label><br>
-                <input type="radio" id="male" value="1">
+                <input type="radio" id="male" value='1' formControlName="customerGender" style="margin: 10px;">
                 <label for="male">Male</label>
+                <div
+                  *ngIf="customerGender.invalid && (customerGender.dirty || customerGender.touched) || customerBirthday.errors?.empty">
+                  <span *ngIf="customerGender.errors?.required || customerGender.errors?.empty" style="color: red">Please choose customer gender!</span>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="idCard">Id Card Number:</label>
                 <input type="text" class="form-control"
-                       placeholder="Type new customer ID Card number here" id="idCard">
-
+                       placeholder="Type new customer ID Card number here" id="idCard" formControlName="customerIdCard">
+                <div
+                  *ngIf="customerIdCard.invalid && (customerIdCard.dirty || customerIdCard.touched) || customerIdCard.errors?.empty">
+                  <span *ngIf="customerIdCard.errors.pattern" style="color: red">Wrong format, ex: KH-0123</span>
+                  <span *ngIf="customerIdCard.errors.required || customerIdCard.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
           </div>
@@ -49,14 +75,25 @@
               <div class="form-group">
                 <label for="rentTypeCreateVilla">Phone:</label>
                 <input type="text" class="form-control" id="rentTypeCreateVilla"
-                       placeholder="Type new customer phone here">
+                       placeholder="Type new customer phone here" formControlName="customerPhone">
+                <div
+                  *ngIf="customerPhone.invalid && (customerPhone.dirty || customerPhone.touched) || customerPhone.errors?.empty">
+                  <span *ngIf="customerPhone.errors.pattern" style="color: red">Wrong format, ex: 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or (84)+91xxxxxxx</span>
+                  <span *ngIf="customerPhone.errors.required || customerPhone.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
 
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="email">Email:</label>
-                <input id="email" type="text" class="form-control" placeholder="Type new customer email here">
+                <input id="email" type="text" class="form-control" placeholder="Type new customer email here"
+                       formControlName="customerEmail">
+                <div
+                  *ngIf="customerEmail.invalid && (customerEmail.dirty || customerEmail.touched) || customerEmail.errors?.empty">
+                  <span *ngIf="customerEmail.errors.email" style="color: red">Wrong format, ex: abc@gmail.com</span>
+                  <span *ngIf="customerEmail.errors.required || customerEmail.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
           </div>
@@ -65,19 +102,27 @@
               <div class="form-group">
                 <label for="standardRoomCreateVilla">Address:</label>
                 <input type="text" class="form-control" id="standardRoomCreateVilla"
-                       placeholder="Type new customer address here">
+                       placeholder="Type new customer address here" formControlName="customerAddress">
+                <div
+                  *ngIf="customerAddress.invalid && (customerAddress.dirty || customerAddress.touched) || customerAddress.errors?.empty">
+                  <span *ngIf="customerAddress.errors.required || customerAddress.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="typeId">Choose customer type:</label>
-                <select id="typeId" class="form-control">
+                <select id="typeId" class="form-control" formControlName="customerTypeId">
                   <option value="5" selected>Member</option>
                   <option value="4">Silver</option>
                   <option value="3">Gold</option>
                   <option value="2">Platinium</option>
                   <option value="1">Diamond</option>
                 </select>
+                <div
+                  *ngIf="customerTypeId.invalid && (customerTypeId.dirty || customerTypeId.touched) || customerTypeId.errors?.empty">
+                  <span *ngIf="customerTypeId.errors.required || customerTypeId.errors.empty" style="color: red">Please choose customer type!!</span>
+                </div>
               </div>
             </div>
           </div>
@@ -89,6 +134,7 @@
                               margin-top: 20px;
                               border: none;"
                     id="btn-create-villa">
+              <!--                    [disabled]="!customerCreateForm.valid">-->
               <i class="fa fa-paper-plane"></i>
               Send
             </button>

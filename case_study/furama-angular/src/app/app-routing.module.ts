@@ -12,7 +12,7 @@ import {ListContractsComponent} from "./list-contracts/list-contracts.component"
 
 const routes: Routes = [
   { path: 'facilities', component: ListFacilitiesComponent},
-  { path: 'update-facilities', component: UpdateFacilitiesComponent},
+  { path: 'update-facilities/:id', component: UpdateFacilitiesComponent},
   { path: 'create-facilities', component: CreateFacilitiesComponent},
   { path: 'list-customers', component: ListCustomersComponent},
   { path: 'update-customers/:id', component: UpdateCustomersComponent},

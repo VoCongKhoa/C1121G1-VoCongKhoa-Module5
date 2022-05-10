@@ -3,30 +3,40 @@
     <div class="col-md-8 mx-auto">
       <div class="contact-form">
         <h1>Update Facilities</h1>
-        <form action="/services/create" id="createFormVilla" method="POST">
+        <form [formGroup] = "facilityUpdateForm" id="createFormVilla" method="POST" (ngSubmit)="onSubmit()">
+<!--          <input name="serviceId" hidden formControlName="serviceId">-->
           <div style="display: flex;justify-content: center;">
-            <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Lagoon-Superior-twin-bed-M.jpg" >
+<!--            <img formControlName = "serviceImage">-->
           </div>
-          <input value=1 name="serviceTypeId" hidden>
+          <input value=1 name="serviceTypeId" hidden formControlName="serviceTypeId">
           <div class="form-group">
             <label for="serviceCodeCreateVilla">Service code</label>
-            <input type="text" class="form-control" id="serviceCodeCreateVilla" readonly value="DV-0001">
+            <input type="text" class="form-control" id="serviceCodeCreateVilla" formControlName="serviceCode">
+            <div *ngIf="serviceCode.invalid && (serviceCode.dirty || serviceCode.touched)">
+              <span *ngIf="serviceCode.errors.pattern" style="color: red">Wrong format, ex: KH-0123</span>
+              <span *ngIf="serviceCode.errors.required" style="color: red">Empty! Input please!</span>
+            </div>
           </div>
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="serviceNameCreateVilla">Service name</label>
-                <input type="text" class="form-control" value="Ocean Studio Suite"
+                <input type="text" class="form-control" formControlName="serviceName"
                        id="serviceNameCreateVilla">
-
+                <div *ngIf="serviceName.invalid && (serviceName.dirty || serviceName.touched)">
+                  <span *ngIf="serviceName.errors.required" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="serviceAreaCreateVilla">Services area</label>
-                <input type="text" class="form-control" value="43m²"
+                <label for="serviceAreaCreateVilla">Services area (m²)</label>
+                <input type="text" class="form-control" formControlName="serviceArea"
                        id="serviceAreaCreateVilla">
-
+                <div *ngIf="serviceArea.invalid && (serviceArea.dirty || serviceArea.touched)">
+                  <span *ngIf="serviceArea.errors?.gte" style="color: red">{{serviceArea.errors?.requiredValue}}</span>
+                  <span *ngIf="serviceArea.errors.required" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
           </div>
@@ -35,38 +45,44 @@
               <div class="form-group">
                 <label for="serviceCostCreateVilla">Service cost:</label>
                 <input type="text" class="form-control" id="serviceCostCreateVilla"
-                       value="VND 6,079,672.01">
-
+                       formControlName="serviceCost">
+                <div *ngIf="serviceCost.invalid && (serviceCost.dirty || serviceCost.touched)">
+                  <span *ngIf="serviceCost.errors?.gte" style="color: red">{{serviceCost.errors?.requiredValue}}</span>
+                  <span *ngIf="serviceCost.errors.required" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="serviceMaxPeopleCreateVilla">Service max people:</label>
                 <input type="text" class="form-control" id="serviceMaxPeopleCreateVilla"
-                       value="4">
-
+                       formControlName="serviceMaxPeople">
+                <div *ngIf="serviceMaxPeople.invalid && (serviceMaxPeople.dirty || serviceMaxPeople.touched)">
+                  <span *ngIf="serviceMaxPeople.errors?.gte" style="color: red">{{serviceMaxPeople.errors?.requiredValue}}</span>
+                  <span *ngIf="serviceMaxPeople.errors.required" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="rentTypeCreateVilla">Rent type:</label>
-                <select id="rentTypeCreateVilla" class="form-control">
-                  <option value="4">Hour</option>
-                  <option value="3" selected>Day</option>
-                  <option value="2">Month</option>
-                  <option value="1">Year</option>
-                </select>
+<!--                <label for="rentTypeCreateVilla">Rent type:</label>-->
+<!--                <select id="rentTypeCreateVilla" class="form-control" formGroupName="rentType">-->
+<!--                  <option value="4" formControlName="rentTypeId">Hour</option>-->
+<!--                  <option value="3" formControlName="rentTypeId">Day</option>-->
+<!--                  <option value="2" formControlName="rentTypeId">Month</option>-->
+<!--                  <option value="1" formControlName="rentTypeId">Year</option>-->
+<!--                </select>-->
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="serviceTypeCreateVilla">Service type:</label>
-                <select id="serviceTypeCreateVilla" class="form-control" >
+                <select id="serviceTypeCreateVilla" class="form-control" formControlName="serviceTypeId">
                   <option value="3">Room</option>
                   <option value="2">House</option>
-                  <option value="1" selected>Villa</option>
+                  <option value="1">Villa</option>
                 </select>
               </div>
             </div>
@@ -76,14 +92,14 @@
               <div class="form-group">
                 <label for="standardRoomCreateVilla">Standard room:</label>
                 <input type="text" class="form-control" id="standardRoomCreateVilla"
-                       value="Suite">
+                       formControlName="standardRoom">
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="descriptionOtherConvenienceCreateVilla">Description other convenience:</label>
                 <input type="text" class="form-control" id="descriptionOtherConvenienceCreateVilla"
-                       value="Ocean view•Air conditioned•Wireless Internet">
+                       formControlName="descriptionOtherConvenience">
               </div>
             </div>
           </div>
@@ -92,14 +108,20 @@
               <div class="form-group">
                 <label for="poolAreaCreateVilla">Pool area:</label>
                 <input type="text" class="form-control" id="poolAreaCreateVilla"
-                       value="0">
+                       formControlName="poolArea">
+                <div *ngIf="poolArea.invalid && (poolArea.dirty || poolArea.touched)">
+                  <span *ngIf="poolArea.errors?.gte" style="color: red">{{poolArea.errors?.requiredValue}}</span>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="numberOfFloorsCreateVilla">Number of floors:</label>
                 <input type="text" class="form-control" id="numberOfFloorsCreateVilla"
-                       value="1">
+                       formControlName="numberOfFloors">
+                <div *ngIf="numberOfFloors.invalid && (numberOfFloors.dirty || numberOfFloors.touched)">
+                  <span *ngIf="numberOfFloors.errors?.gte" style="color: red">{{numberOfFloors.errors?.requiredValue}}</span>
+                </div>
               </div>
             </div>
           </div>

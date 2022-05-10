@@ -3,41 +3,38 @@
     <form action="/services/showCreate" method="GET">
       <label for="createSelection" style="font-size: 30px; margin-top: 10px;"><b>Select service type for
         create:</b></label>
-      <select name="serviceTypeId" id="createSelection" class="form-control mb-3" style="width: 550px;" (change)="showFormCreate($event)">
+      <select name="serviceTypeId" id="createSelection" class="form-control mb-3" style="width: 550px;"
+              (change)="showFormCreate($event)">
         <option value="0" selected>Create new services</option>
         <option value="1">Create by villa</option>
         <option value="2">Create by house</option>
         <option value="3">Create by room</option>
       </select>
-      <!--        <button class="btn btn-success">Show form create</button>-->
     </form>
   </div>
 </div>
 <div id="background">
-  <!--<form method="get" id="sortForm" action="/services/list">-->
   <div class="container"
        style="background-repeat: no-repeat;background-size: 100% 100%">
-    <!--    background-image: url('https://anhdepfree.com/wp-content/uploads/2018/11/tong-hop-anh-nen-dep-nhat-1.jpg');-->
     <!--</form>-->
-    <div *ngIf="check == 0" style="width: 100%; height: 500px"></div>
+    <div *ngIf="check == 0" style="width: 100%; height: 700px"></div>
+    <!--VILLA FORM CREATE-->
     <div *ngIf="check == 1">
-      <!--VILLA FORM CREATE-->
       <div class="backgroundVilla">
         <div class="container" id="villa">
-          <form action="/services/create" id="createFormVilla" method="POST">
-            <p id="checkErrorVilla" hidden></p>
-            <input value=1 name="serviceTypeId" hidden>
+          <form id="createFormVilla" method="POST" [formGroup]="facilityCreateForm" (ngSubmit)="onSubmit()">
+            <input value = '1' hidden formControlName="serviceTypeId">
             <div class="form-group">
               <label for="serviceCodeCreateVilla">Service code</label>
               <input type="text" class="form-control" placeholder="Type new service code here"
-                     id="serviceCodeCreateVilla">
+                     id="serviceCodeCreateVilla" formControlName="serviceCode">
             </div>
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="serviceNameCreateVilla">Service name</label>
                   <input type="text" class="form-control" placeholder="Type new service name here"
-                         id="serviceNameCreateVilla">
+                         id="serviceNameCreateVilla" formControlName="serviceName">
 
                 </div>
               </div>
@@ -45,7 +42,7 @@
                 <div class="form-group">
                   <label for="serviceAreaCreateVilla">Services area</label>
                   <input type="text" class="form-control" placeholder="Type new services area here"
-                         id="serviceAreaCreateVilla">
+                         id="serviceAreaCreateVilla" formControlName="serviceArea">
 
                 </div>
               </div>
@@ -55,7 +52,7 @@
                 <div class="form-group">
                   <label for="serviceCostCreateVilla">Service cost:</label>
                   <input type="text" class="form-control" id="serviceCostCreateVilla"
-                         placeholder="Type new services cost here">
+                         placeholder="Type new services cost here" formControlName="serviceCost">
 
                 </div>
               </div>
@@ -63,7 +60,7 @@
                 <div class="form-group">
                   <label for="serviceMaxPeopleCreateVilla">Service max people:</label>
                   <input type="text" class="form-control" id="serviceMaxPeopleCreateVilla"
-                         placeholder="Type new services max people here">
+                         placeholder="Type new services max people here" formControlName="serviceMaxPeople">
 
                 </div>
               </div>
@@ -72,10 +69,11 @@
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="rentTypeCreateVilla">Choose new rent type:</label>
-                  <select id="rentTypeCreateVilla" class="form-control">
-                    <option>
-                    </option>
-                  </select>
+                  <div formGroupName="rentType">
+                    <select id="rentTypeCreateVilla" class="form-control" formControlName="rentTypeId">
+                      <option *ngFor="let r of rentTypes" [ngValue]="r.rentTypeId">{{r.rentTypeName}}</option>
+                    </select>
+                  </div>
                 </div>
               </div>
               <input type="text" class="form-control" id="serviceTypeCreateVilla"
@@ -90,9 +88,9 @@
             <div class="row">
               <div class="col-sm-6">
                 <div class="form-group">
-                  <label for="standardRoomCreateVilla">Standard room:</label>
+                  <label for="standardRoomCreateVilla">Standard room: </label>
                   <input type="text" class="form-control" id="standardRoomCreateVilla"
-                         placeholder="Type new standard room">
+                         placeholder="Type new standard room" formControlName="standardRoom">
                 </div>
               </div>
               <div class="col-sm-6">
@@ -100,7 +98,8 @@
                   <label for="descriptionOtherConvenienceCreateVilla">Description other
                     convenience:</label>
                   <input type="text" class="form-control" id="descriptionOtherConvenienceCreateVilla"
-                         placeholder="Type new description other convenience">
+                         placeholder="Type new description other convenience"
+                         formControlName="descriptionOtherConvenience">
                 </div>
               </div>
             </div>
@@ -109,18 +108,17 @@
                 <div class="form-group">
                   <label for="poolAreaCreateVilla">Pool area:</label>
                   <input type="text" class="form-control" id="poolAreaCreateVilla"
-                         placeholder="Type new description other convenience">
+                         placeholder="Type new description other convenience" formControlName="poolArea">
                 </div>
               </div>
               <div class="col-sm-6">
                 <div class="form-group">
                   <label for="numberOfFloorsCreateVilla">Number of floors:</label>
                   <input type="text" class="form-control" id="numberOfFloorsCreateVilla"
-                         placeholder="Type new number of floors">
+                         placeholder="Type new number of floors" formControlName="numberOfFloors">
                 </div>
               </div>
             </div>
-            <!--            <input type="hidden" id="messageSuccess" name="messageCreate">-->
             <div class="text-center">
               <button type="submit" class="btn btn-primary" style="
                               min-width: 250px;
@@ -151,7 +149,7 @@
 
           <form action="/services/create" id="createFormHouse" method="POST">
             <p id="checkErrorHouse" hidden></p>
-            <input value=2 name="serviceTypeId" hidden>
+            <input value = 2 name="serviceTypeId" hidden>
             <div class="form-group">
               <label for="serviceCodeCreateHouse">Service code</label>
               <input type="text" class="form-control" placeholder="Type new service code here"
@@ -346,10 +344,6 @@
         </div>
       </div>
     </div>
-
-
-
-
 
 
   </div>

@@ -3,29 +3,38 @@
     <div class="col-md-8 mx-auto">
       <div class="contact-form">
         <h1>Update Customer</h1>
-        <form id="createFormVilla" method="POST" (ngSubmit)="updateCustomer(updateCustomerForm)" #updateCustomerForm = "ngForm">
-          <!--                    <div style="display: flex;justify-content: center;">-->
-          <!--                        <img src="https://furamavietnam.com/wp-content/uploads/2018/03/Vietnam_Danang_Furama_Lagoon-Superior-twin-bed-M.jpg" >-->
-          <!--                    </div>-->
-          <input value="{{customer.customerId}}" name="serviceTypeId" hidden ngModel>
+        <form id="createFormVilla" (ngSubmit)="onSubmit()" [formGroup]="customerUpdateForm">
+          <input name="customerId" hidden formControlName="customerId">
+          <input name="active" hidden formControlName="active">
           <div class="form-group">
             <label for="serviceCodeCreateVilla">Customer code</label>
-            <input type="text" class="form-control" id="serviceCodeCreateVilla" readonly value="{{customer.customerCode}}" ngModel>
+            <input type="text" class="form-control" id="serviceCodeCreateVilla" name="customerCode" formControlName="customerCode" readonly>
+          </div>
+          <div *ngIf="customerCode.invalid && (customerCode.dirty || customerCode.touched)">
+            <span *ngIf="customerCode.errors.pattern" style="color: red">Wrong format, ex: KH-0123</span>
+            <span *ngIf="customerCode.errors.required" style="color: red">Empty! Input please!</span>
           </div>
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="serviceNameCreateVilla">Customer name</label>
-                <input type="text" class="form-control" value="{{customer.customerName}}"
-                       id="serviceNameCreateVilla" ngModel>
-
+                <input type="text" class="form-control"
+                       id="serviceNameCreateVilla" name="customerName" formControlName="customerName">
+                <div
+                  *ngIf="customerName.invalid && (customerName.dirty || customerName.touched)">
+                  <span *ngIf="customerName.errors.required" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="serviceAreaCreateVilla">Customers birthday</label>
-                <input type="date" class="form-control" value="{{customer.customerBirthday}}"
-                       id="serviceAreaCreateVilla" ngModel>
+                <input type="date" class="form-control"
+                       id="serviceAreaCreateVilla" name="customerBirthday" formControlName="customerBirthday">
+                <div
+                  *ngIf="customerBirthday.invalid">
+                  <span>Empty! Input please!</span>
+                </div>
               </div>
             </div>
           </div>
@@ -33,18 +42,26 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Customer gender:</label><br>
-                <input type="radio" id="female" value="0" *ngIf="customer.customerGender == 0 ? 'selected':''" ngModel>
-                <label for="female" style="margin-bottom: 1px;">Female</label><br>
-                <input type="radio" id="male" value="1" *ngIf="customer.customerGender == 1 ? 'selected':''" ngModel>
-                <label for="male">Male</label>
+                <input type="radio" id="female" value="0" name="customerGender" formControlName="customerGender" style="margin: 10px;">
+                <label for="female" style="margin-bottom: 1px;"> Female</label><br>
+                <input type="radio" id="male" value="1" name="customerGender" formControlName="customerGender" style="margin: 10px;">
+                <label for="male"> Male</label>
+                <div
+                  *ngIf="customerGender.invalid">
+                  <span>Empty! Input please!</span>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="serviceMaxPeopleCreateVilla">Id Card Number:</label>
                 <input type="text" class="form-control" id="serviceMaxPeopleCreateVilla"
-                       value="{{customer.customerIdCard}}" ngModel>
-
+                        name="customerIdCard" formControlName="customerIdCard">
+                <div
+                  *ngIf="customerIdCard.invalid && (customerIdCard.dirty || customerIdCard.touched)">
+                  <span *ngIf="customerIdCard.errors.pattern" style="color: red">Wrong format, ex: KH-0123</span>
+                  <span *ngIf="customerIdCard.errors.required" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
           </div>
@@ -53,14 +70,25 @@
               <div class="form-group">
                 <label for="rentTypeCreateVilla">Phone:</label>
                 <input type="text" class="form-control" id="rentTypeCreateVilla"
-                       value="{{customer.customerPhone}}" ngModel>
+                        name="customerPhone" formControlName="customerPhone">
+                <div
+                  *ngIf="customerPhone.invalid && (customerPhone.dirty || customerPhone.touched)">
+                  <span *ngIf="customerPhone.errors.pattern" style="color: red">Wrong format, ex: 090xxxxxxx or 091xxxxxxx or (84)+90xxxxxxx or (84)+91xxxxxxx</span>
+                  <span *ngIf="customerPhone.errors.required" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
 
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="email">Email:</label>
-                <input id="email" type="text" class="form-control" value="{{customer.customerEmail}}" ngModel>
+                <input id="email" type="text" class="form-control"
+                       name="customerEmail" formControlName="customerEmail">
+                <div
+                  *ngIf="customerEmail.invalid && (customerEmail.dirty || customerEmail.touched)">
+                  <span *ngIf="customerEmail.errors.email" style="color: red">Wrong format, ex: abc@gmail.com</span>
+                  <span *ngIf="customerEmail.errors.required" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
           </div>
@@ -69,34 +97,37 @@
               <div class="form-group">
                 <label for="standardRoomCreateVilla">Address:</label>
                 <input type="text" class="form-control" id="standardRoomCreateVilla"
-                       value="{{customer.customerAddress}}" ngModel>
+                        name="customerAddress" formControlName="customerAddress">
+                <div
+                  *ngIf="customerAddress.invalid && (customerAddress.dirty || customerAddress.touched)">
+                  <span *ngIf="customerAddress.errors.required" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="typeId">Customer type:</label>
-                <select id="typeId" ngModel>
-                  <option [ngValue]="null" disabled>Select customer type</option>
-                  <option *ngFor="let c of customerTypes" [ngValue]="c.customerTypeId">{{c.customerTypeName}}</option>
+                <label for="typeId">Customer type: </label>
+                <select id="typeId" class="form-control" name="customerTypeId" formControlName="customerTypeId">
+                  <option [ngValue]="ct.customerTypeId" *ngFor="let ct of customerTypes" >{{ct.customerTypeName}}</option>
                 </select>
-<!--                <select id="typeId" class="form-control">-->
-<!--                  <option value="5" selected>Member</option>-->
-<!--                  <option value="4">Silver</option>-->
-<!--                  <option value="3">Gold</option>-->
-<!--                  <option value="2">Platinium</option>-->
-<!--                  <option value="1">Diamond</option>-->
-<!--                </select>-->
+                <div
+                  *ngIf="customerTypeId.invalid && (customerTypeId.dirty || customerTypeId.touched)">
+                  <span *ngIf="customerTypeId.errors.required" style="color: red">Please choose customer type!!</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="text-center">
-            <button class="btn btn-primary" style="
+            <button type="submit" class="btn btn-primary" style="
                               min-width: 250px;
                               color: #fcda2e;
                               background: #403838 !important;
                               margin-top: 20px;
                               border: none;"
-                    id="btn-create-villa">
+                    id="btn-create-villa" >
+<!--                    [disabled]="!customerUpdateForm.valid">-->
+<!--                                routerLink="/list-customers">-->
+            <!--                    (click)="btnClick()">-->
               <i class="fa fa-paper-plane"></i>
               Send
             </button>

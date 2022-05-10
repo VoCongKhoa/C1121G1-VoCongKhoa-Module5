@@ -3,20 +3,20 @@
 </div>
 <div class="container">
   <div class="row">
-    <div *ngFor="let facility of facilityList; index as i">
+    <div *ngFor="let f of facilities; index as i">
       <div class="col-sm-4">
         <div class="card">
           <div class="card-image">
             <img class="img-responsive"
-                 src="{{facility.serviceImage}}">
+                 src="{{f.serviceImage}}">
           </div>
           <div class="card-content">
-            <span class="card-title">{{facility.serviceName}}</span>
-            <p class="room-name">Room size {{facility.serviceArea}}m² - {{facility.descriptionOtherConvenience}}</p>
-            <p><span class="discount-price">VND {{facility.serviceCost}}</span> VND {{facility.serviceCost*0.8}}</p>
+            <span class="card-title">{{f.serviceName}}</span>
+            <p class="room-name">Room size {{f.serviceArea}}m² - {{f.descriptionOtherConvenience}}</p>
+            <p><span class="discount-price">VND {{f.serviceCost}}</span> VND {{f.serviceCost*0.8}}</p>
           </div>
           <div class="card-action d-flex">
-            <button type="button" class="btn btn-info" routerLink="/update-facilities">Edit</button>
+            <button type="button" class="btn btn-info" routerLink="/update-facilities/{{f.serviceId}}">Edit</button>
             <button type="button" class="btn btn-danger">Delete</button>
           </div>
         </div>

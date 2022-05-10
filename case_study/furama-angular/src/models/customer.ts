@@ -1,23 +1,23 @@
 export class Customer {
   customerId: number;
 
-  customerCode: String;
+  customerCode: string;
 
-  customerName: String;
+  customerName: string;
 
-  customerBirthday: String;
+  customerBirthday: string;
 
-  customerGender: number;
+  customerGender: string;
 
-  customerIdCard: String;
+  customerIdCard: string;
 
-  customerPhone: String;
+  customerPhone: string;
 
-  customerEmail: String;
+  customerEmail: string;
 
-  customerAddress: String;
+  customerAddress: string;
 
   customerTypeId: number;
 
-  active: number;
+  active: number = 1;
 }

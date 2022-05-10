@@ -3,8 +3,8 @@ import {Facility} from "./facility";
 
 export class Contract {
   contractId:number;
-  contractStartDate: String;
-  contractEndDate: String;
+  contractStartDate: string;
+  contractEndDate: string;
   contractDeposit: number;
   contractTotalMoney: number;
   employeeId: number;

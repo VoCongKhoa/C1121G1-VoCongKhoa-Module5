@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { facilityList } from "../facilities";
+import { FacilityService} from "../../services/facilities";
 import { Facility } from "../../models/facility"
 
 @Component({
@@ -11,10 +11,16 @@ export class ListFacilitiesComponent implements OnInit {
 
   // @ts-ignore
   // facilityList: InstanceType<typeof facilityList>;
-  facilityList = facilityList;
-  constructor() { }
+  facilities: Facility[] = [];
+  constructor(private facilityService: FacilityService) {
+    this.getFacilities();
+  }
 
   ngOnInit(): void {
+  }
+
+  getFacilities(){
+    this.facilities = this.facilityService.getFacilities();
   }
 
 
