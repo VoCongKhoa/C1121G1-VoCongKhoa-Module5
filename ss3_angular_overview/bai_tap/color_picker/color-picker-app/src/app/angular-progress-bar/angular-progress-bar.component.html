@@ -1,0 +1,11 @@
+<h2 style="text-align: center">Progress Bar</h2>
+
+<div class="progress-bar-container" [style.backgroundColor]="backgroundColor">
+  <div class="progress" [ngStyle]="{
+  backgroundColor: progressColor,
+  width: progress + '%'
+  }">{{progress}}%</div>
+</div>
+<div style="display: flex; justify-content: space-around">
+  <button (click)="start()" style="padding: 10px; margin: 10px">Start</button>
+</div>

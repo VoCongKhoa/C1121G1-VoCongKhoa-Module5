@@ -1,147 +1,168 @@
-<div class="container-lg">
-  <div class="row">
-    <div class="col-md-8 mx-auto">
-      <div class="contact-form">
-        <h1>Update Facilities</h1>
-        <form [formGroup] = "facilityUpdateForm" id="createFormVilla" method="POST" (ngSubmit)="onSubmit()">
-<!--          <input name="serviceId" hidden formControlName="serviceId">-->
-          <div style="display: flex;justify-content: center;">
-<!--            <img formControlName = "serviceImage">-->
-          </div>
-          <input value=1 name="serviceTypeId" hidden formControlName="serviceTypeId">
-          <div class="form-group">
-            <label for="serviceCodeCreateVilla">Service code</label>
-            <input type="text" class="form-control" id="serviceCodeCreateVilla" formControlName="serviceCode">
-            <div *ngIf="serviceCode.invalid && (serviceCode.dirty || serviceCode.touched)">
-              <span *ngIf="serviceCode.errors.pattern" style="color: red">Wrong format, ex: KH-0123</span>
-              <span *ngIf="serviceCode.errors.required" style="color: red">Empty! Input please!</span>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="serviceNameCreateVilla">Service name</label>
-                <input type="text" class="form-control" formControlName="serviceName"
-                       id="serviceNameCreateVilla">
-                <div *ngIf="serviceName.invalid && (serviceName.dirty || serviceName.touched)">
-                  <span *ngIf="serviceName.errors.required" style="color: red">Empty! Input please!</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="serviceAreaCreateVilla">Services area (m²)</label>
-                <input type="text" class="form-control" formControlName="serviceArea"
-                       id="serviceAreaCreateVilla">
-                <div *ngIf="serviceArea.invalid && (serviceArea.dirty || serviceArea.touched)">
-                  <span *ngIf="serviceArea.errors?.gte" style="color: red">{{serviceArea.errors?.requiredValue}}</span>
-                  <span *ngIf="serviceArea.errors.required" style="color: red">Empty! Input please!</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="serviceCostCreateVilla">Service cost:</label>
-                <input type="text" class="form-control" id="serviceCostCreateVilla"
-                       formControlName="serviceCost">
-                <div *ngIf="serviceCost.invalid && (serviceCost.dirty || serviceCost.touched)">
-                  <span *ngIf="serviceCost.errors?.gte" style="color: red">{{serviceCost.errors?.requiredValue}}</span>
-                  <span *ngIf="serviceCost.errors.required" style="color: red">Empty! Input please!</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="serviceMaxPeopleCreateVilla">Service max people:</label>
-                <input type="text" class="form-control" id="serviceMaxPeopleCreateVilla"
-                       formControlName="serviceMaxPeople">
-                <div *ngIf="serviceMaxPeople.invalid && (serviceMaxPeople.dirty || serviceMaxPeople.touched)">
-                  <span *ngIf="serviceMaxPeople.errors?.gte" style="color: red">{{serviceMaxPeople.errors?.requiredValue}}</span>
-                  <span *ngIf="serviceMaxPeople.errors.required" style="color: red">Empty! Input please!</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-<!--                <label for="rentTypeCreateVilla">Rent type:</label>-->
-<!--                <select id="rentTypeCreateVilla" class="form-control" formGroupName="rentType">-->
-<!--                  <option value="4" formControlName="rentTypeId">Hour</option>-->
-<!--                  <option value="3" formControlName="rentTypeId">Day</option>-->
-<!--                  <option value="2" formControlName="rentTypeId">Month</option>-->
-<!--                  <option value="1" formControlName="rentTypeId">Year</option>-->
+<!--<div class="container-lg">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-8 mx-auto">-->
+<!--      <div class="contact-form">-->
+<!--        <h1>Update Facilities</h1>-->
+<!--        <form [formGroup] = "facilityUpdateForm" id="createFormVilla" method="POST" (ngSubmit)="onSubmit()">-->
+<!--&lt;!&ndash;          <input name="serviceId" hidden formControlName="serviceId">&ndash;&gt;-->
+<!--          <div style="display: flex;justify-content: center;">-->
+<!--&lt;!&ndash;            <img formControlName = "serviceImage">&ndash;&gt;-->
+<!--          </div>-->
+<!--          <input formControlName="serviceId" hidden>-->
+<!--&lt;!&ndash;          <input hidden formControlName="serviceTypeId">&ndash;&gt;-->
+<!--          <div class="form-group">-->
+<!--            <label for="serviceCodeCreateVilla">Service code</label>-->
+<!--            <input type="text" class="form-control" id="serviceCodeCreateVilla" formControlName="serviceCode">-->
+<!--            <div *ngIf="serviceCode.invalid && (serviceCode.dirty || serviceCode.touched)">-->
+<!--              <span *ngIf="serviceCode.errors.pattern" style="color: red">Wrong format, ex: KH-0123</span>-->
+<!--              <span *ngIf="serviceCode.errors.required" style="color: red">Empty! Input please!</span>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-sm-6">-->
+<!--              <div class="form-group">-->
+<!--                <label for="serviceNameCreateVilla">Service name</label>-->
+<!--                <input type="text" class="form-control" formControlName="serviceName"-->
+<!--                       id="serviceNameCreateVilla">-->
+<!--                <div *ngIf="serviceName.invalid && (serviceName.dirty || serviceName.touched)">-->
+<!--                  <span *ngIf="serviceName.errors.required" style="color: red">Empty! Input please!</span>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-6">-->
+<!--              <div class="form-group">-->
+<!--                <label for="serviceAreaCreateVilla">Services area (m²)</label>-->
+<!--                <input type="text" class="form-control" formControlName="serviceArea"-->
+<!--                       id="serviceAreaCreateVilla">-->
+<!--                <div *ngIf="serviceArea.invalid && (serviceArea.dirty || serviceArea.touched)">-->
+<!--                  <span *ngIf="serviceArea.errors?.gte" style="color: red">{{serviceArea.errors?.requiredValue}}</span>-->
+<!--                  <span *ngIf="serviceArea.errors.required" style="color: red">Empty! Input please!</span>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-sm-6">-->
+<!--              <div class="form-group">-->
+<!--                <label for="serviceCostCreateVilla">Service cost:</label>-->
+<!--                <input type="text" class="form-control" id="serviceCostCreateVilla"-->
+<!--                       formControlName="serviceCost">-->
+<!--                <div *ngIf="serviceCost.invalid && (serviceCost.dirty || serviceCost.touched)">-->
+<!--                  <span *ngIf="serviceCost.errors?.gte" style="color: red">{{serviceCost.errors?.requiredValue}}</span>-->
+<!--                  <span *ngIf="serviceCost.errors.required" style="color: red">Empty! Input please!</span>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-6">-->
+<!--              <div class="form-group">-->
+<!--                <label for="serviceMaxPeopleCreateVilla">Service max people:</label>-->
+<!--                <input type="text" class="form-control" id="serviceMaxPeopleCreateVilla"-->
+<!--                       formControlName="serviceMaxPeople">-->
+<!--                <div *ngIf="serviceMaxPeople.invalid && (serviceMaxPeople.dirty || serviceMaxPeople.touched)">-->
+<!--                  <span *ngIf="serviceMaxPeople.errors?.gte" style="color: red">{{serviceMaxPeople.errors?.requiredValue}}</span>-->
+<!--                  <span *ngIf="serviceMaxPeople.errors.required" style="color: red">Empty! Input please!</span>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-sm-6">-->
+<!--              <div class="form-group">-->
+<!--                <label>Rent type:</label>-->
+<!--                <select formControlName="rentType">-->
+<!--                  <option *ngFor="let rt of rentTypes" [ngValue]="rt.rentTypeId" [selected]="rt.rentTypeId==facility.rentType.rentTypeId">{{rt.rentTypeName}}</option>-->
 <!--                </select>-->
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="serviceTypeCreateVilla">Service type:</label>
-                <select id="serviceTypeCreateVilla" class="form-control" formControlName="serviceTypeId">
-                  <option value="3">Room</option>
-                  <option value="2">House</option>
-                  <option value="1">Villa</option>
-                </select>
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="standardRoomCreateVilla">Standard room:</label>
-                <input type="text" class="form-control" id="standardRoomCreateVilla"
-                       formControlName="standardRoom">
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="descriptionOtherConvenienceCreateVilla">Description other convenience:</label>
-                <input type="text" class="form-control" id="descriptionOtherConvenienceCreateVilla"
-                       formControlName="descriptionOtherConvenience">
-              </div>
-            </div>
-          </div>
-          <div class="row">
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="poolAreaCreateVilla">Pool area:</label>
-                <input type="text" class="form-control" id="poolAreaCreateVilla"
-                       formControlName="poolArea">
-                <div *ngIf="poolArea.invalid && (poolArea.dirty || poolArea.touched)">
-                  <span *ngIf="poolArea.errors?.gte" style="color: red">{{poolArea.errors?.requiredValue}}</span>
-                </div>
-              </div>
-            </div>
-            <div class="col-sm-6">
-              <div class="form-group">
-                <label for="numberOfFloorsCreateVilla">Number of floors:</label>
-                <input type="text" class="form-control" id="numberOfFloorsCreateVilla"
-                       formControlName="numberOfFloors">
-                <div *ngIf="numberOfFloors.invalid && (numberOfFloors.dirty || numberOfFloors.touched)">
-                  <span *ngIf="numberOfFloors.errors?.gte" style="color: red">{{numberOfFloors.errors?.requiredValue}}</span>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="text-center">
-            <button type="submit" class="btn btn-primary" style="
-                              min-width: 250px;
-                              color: #fcda2e;
-                              background: #403838 !important;
-                              margin-top: 20px;
-                              border: none;"
-                    id="btn-create-villa">
-              <i class="fa fa-paper-plane"></i>
-              Send
-            </button>
-          </div>
-        </form>
-        <br>
-        <br>
-        <a href="/" class="backHome"><h1>Back Home</h1></a>
-      </div>
-    </div>
-  </div>
-</div>
+<!--&lt;!&ndash;                <select  id="rentTypeCreateVilla" class="form-control" formGroupName="rentType">&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <option value="4">Hour</option>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <option value="3">Day</option>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <option value="2">Month</option>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <option value="1">Year</option>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  [compareWith]="compareFn"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <select formControlName="rentType">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                    <option *ngFor="let rt of rentTypes" [value]="rt" [selected]="rt.rentTypeId==facility.rentType.rentTypeId">{{rt.rentTypeName}}</option>&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  </select>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <option *ngFor="let rt of rentTypes"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                          [value]="rt"&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                          [selected]="rt.rentTypeId==facility.rentType.rentTypeId">{{rt.rentTypeName}}</option>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  <ng-container *ngFor="let rt of rentTypes">&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                    <option *ngIf="rt.rentTypeId == facility.rentType.rentTypeId ? 'selected':''"  [ngValue]="rt" >{{rt.rentTypeName}}</option>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;&lt;!&ndash;                  </ng-container>&ndash;&gt;&ndash;&gt;-->
+<!--&lt;!&ndash;                </select>&ndash;&gt;-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-6">-->
+<!--              <div class="form-group">-->
+<!--                <label for="serviceTypeCreateVilla">Service type:</label>-->
+<!--                <select id="serviceTypeCreateVilla" class="form-control" formControlName="serviceTypeId">-->
+<!--                  <option value="3">Room</option>-->
+<!--                  <option value="2">House</option>-->
+<!--                  <option value="1">Villa</option>-->
+<!--                </select>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-sm-6">-->
+<!--              <div class="form-group">-->
+<!--                <label for="standardRoomCreateVilla">Standard room:</label>-->
+<!--                <input type="text" class="form-control" id="standardRoomCreateVilla"-->
+<!--                       formControlName="standardRoom">-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-6">-->
+<!--              <div class="form-group">-->
+<!--                <label for="descriptionOtherConvenienceCreateVilla">Description other convenience:</label>-->
+<!--                <input type="text" class="form-control" id="descriptionOtherConvenienceCreateVilla"-->
+<!--                       formControlName="descriptionOtherConvenience">-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="row">-->
+<!--            <div class="col-sm-6">-->
+<!--              <div class="form-group">-->
+<!--                <label for="poolAreaCreateVilla">Pool area:</label>-->
+<!--                <input type="text" class="form-control" id="poolAreaCreateVilla"-->
+<!--                       formControlName="poolArea">-->
+<!--                <div *ngIf="poolArea.invalid && (poolArea.dirty || poolArea.touched)">-->
+<!--                  <span *ngIf="poolArea.errors?.gte" style="color: red">{{poolArea.errors?.requiredValue}}</span>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--            <div class="col-sm-6">-->
+<!--              <div class="form-group">-->
+<!--                <label for="numberOfFloorsCreateVilla">Number of floors:</label>-->
+<!--                <input type="text" class="form-control" id="numberOfFloorsCreateVilla"-->
+<!--                       formControlName="numberOfFloors">-->
+<!--                <div *ngIf="numberOfFloors.invalid && (numberOfFloors.dirty || numberOfFloors.touched)">-->
+<!--                  <span *ngIf="numberOfFloors.errors?.gte" style="color: red">{{numberOfFloors.errors?.requiredValue}}</span>-->
+<!--                </div>-->
+<!--              </div>-->
+<!--            </div>-->
+<!--          </div>-->
+<!--          <div class="text-center">-->
+<!--            <button type="submit" class="btn btn-primary" style="-->
+<!--                              min-width: 250px;-->
+<!--                              color: #fcda2e;-->
+<!--                              background: #403838 !important;-->
+<!--                              margin-top: 20px;-->
+<!--                              border: none;"-->
+<!--                    id="btn-create-villa">-->
+<!--              <i class="fa fa-paper-plane"></i>-->
+<!--              Send-->
+<!--            </button>-->
+<!--          </div>-->
+<!--        </form>-->
+<!--        <br>-->
+<!--        <br>-->
+<!--        <a href="/" class="backHome"><h1>Back Home</h1></a>-->
+<!--      </div>-->
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<form [formGroup] = "facilityUpdateForm" id="createFormVilla" method="POST" (ngSubmit)="onSubmit()">
+  <input formControlName="serviceId">
+<select formControlName="rentType">
+  <option *ngFor="let rt of rentTypes" [value]="rt.rentTypeId" [selected]="rt.rentTypeId==facility.rentType.rentTypeId">{{rt.rentTypeName}}</option>
+</select>
+  <button>Update</button>
+</form>

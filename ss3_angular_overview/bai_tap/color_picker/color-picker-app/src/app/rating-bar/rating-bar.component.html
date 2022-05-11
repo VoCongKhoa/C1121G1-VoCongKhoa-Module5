@@ -1,0 +1,13 @@
+<h1 style="text-align: center">Rating Bar</h1>
+<div *ngIf="showRatingValue">
+  {{ ratingValue }}(
+    <span *ngIf="ratingValue <= 6" style="color: red">Bad</span>
+    <span *ngIf="ratingValue > 6 && ratingValue <= 8" style="color: yellow">Good</span>
+    <span *ngIf="ratingValue > 8" style="color: darkgreen">Excellent</span>
+  )
+</div>
+<div class="rating-bar" (mouseleave)="reset()">
+  <div class="rating-unit" [class.active]="item.active" *ngFor="let item of ratingUnits; index as i" (click)="select(i)">
+    {{ item.value }}
+  </div>
+</div>

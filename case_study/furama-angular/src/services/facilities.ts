@@ -16,7 +16,7 @@ export class FacilityService {
       numberOfFloors: 4,
       freeAttachedService: "",
       rentType: {
-        rentTypeId: 3,
+        rentTypeId: "3",
         rentTypeName: "day",
         rentTypeCost: 10000000,
         active: 1
@@ -38,7 +38,7 @@ export class FacilityService {
       numberOfFloors: 3,
       freeAttachedService: "",
       rentType: {
-        rentTypeId: 2,
+        rentTypeId: "2",
         rentTypeName: "month",
         rentTypeCost: 10000000,
         active: 1
@@ -60,7 +60,7 @@ export class FacilityService {
       numberOfFloors: 0,
       freeAttachedService: "",
       rentType: {
-        rentTypeId: 4,
+        rentTypeId: "4",
         rentTypeName: "hour",
         rentTypeCost: 10000000,
         active: 1
@@ -82,7 +82,7 @@ export class FacilityService {
       numberOfFloors: 3,
       freeAttachedService: "",
       rentType: {
-        rentTypeId: 3,
+        rentTypeId: "3",
         rentTypeName: "day",
         rentTypeCost: 10000000,
         active: 1
@@ -104,7 +104,7 @@ export class FacilityService {
       numberOfFloors: 2,
       freeAttachedService: "",
       rentType: {
-        rentTypeId: 3,
+        rentTypeId: "3",
         rentTypeName: "day",
         rentTypeCost: 10000000,
         active: 1
@@ -126,7 +126,7 @@ export class FacilityService {
       numberOfFloors: 0,
       freeAttachedService: "",
       rentType: {
-        rentTypeId: 4,
+        rentTypeId: "4",
         rentTypeName: "hour",
         rentTypeCost: 10000000,
         active: 1
