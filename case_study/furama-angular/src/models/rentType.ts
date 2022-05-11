@@ -1,5 +1,5 @@
 export class RentType {
-  rentTypeId: string;
+  rentTypeId: number;
   rentTypeName: string;
   rentTypeCost: number;
   active: number;

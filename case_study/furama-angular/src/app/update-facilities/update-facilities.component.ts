@@ -6,6 +6,7 @@ import {Facility} from "../../models/facility";
 import {RentType} from "../../models/rentType";
 import {FacilityService} from "../../services/facilities";
 import {gte} from "../../services/gte";
+import {FacilityDTO} from "../../models/facilityDTO";
 
 @Component({
   selector: 'app-update-facilities',
@@ -14,6 +15,7 @@ import {gte} from "../../services/gte";
 })
 export class UpdateFacilitiesComponent implements OnInit {
   facility: Facility;
+  facilityDTO: FacilityDTO = new FacilityDTO();
   rentTypes: RentType[] = [];
   facilityUpdateForm: FormGroup;
 
@@ -23,33 +25,7 @@ export class UpdateFacilitiesComponent implements OnInit {
               private fb: FormBuilder,
               private route: Router) {
     this.rentTypes = this.rentTypeService.getRentTypes();
-    // console.log(this.rentTypes)
   }
-
-  // facilityUpdateForm: FormGroup = new FormGroup(
-  //   {
-  //     serviceId: new FormControl(""),
-  //     serviceCode: new FormControl("", [Validators.required, Validators.pattern('^$|^DV-[\\d]{4}$')]),
-  //     serviceName: new FormControl("",Validators.required),
-  //     serviceImage: new FormControl(""),
-  //     serviceArea: new FormControl(0,[Validators.required, gte]),
-  //     serviceCost: new FormControl(0,[Validators.required, gte]),
-  //     serviceMaxPeople: new FormControl(0,[Validators.required, gte]),
-  //     standardRoom: new FormControl(""),
-  //     descriptionOtherConvenience: new FormControl(""),
-  //     poolArea: new FormControl(0,[gte]),
-  //     numberOfFloors: new FormControl(0,[gte]),
-  //     freeAttachedService: new FormControl(""),
-  //     rentType: new FormControl(""),
-  //     serviceTypeId: new FormControl(0,Validators.required)
-  //   }
-  // )
-
-  // rentType: new FormGroup(
-  //   {
-  //     rentTypeId: new FormControl(0,Validators.required)
-  //   }
-  // ),
 
   // compareFn(c1: Facility, c2: Facility): boolean {
   //   return c1 && c2 ? c1.rentType.rentTypeId == c2.rentType.rentTypeId : c1 == c2;
@@ -71,16 +47,28 @@ export class UpdateFacilitiesComponent implements OnInit {
       poolArea: [0, [gte]],
       numberOfFloors: [0, [gte]],
       freeAttachedService: [''],
-      rentType: [''],
+      rentTypeId: [''],
       serviceTypeId: [0, Validators.required]
     })
 
     //Generate facility update form
     if (this.router.snapshot.params['id']) {
       this.facility = this.facilityService.findById(this.router.snapshot.params['id'])[0];
-      this.facility.rentType = this.facility.rentType.rentTypeId;
-      // console.log(this.facility)
-      this.facilityUpdateForm.patchValue(this.facility);
+      this.facilityDTO.serviceId = this.facility.serviceId;
+      this.facilityDTO.serviceCode = this.facility.serviceCode;
+      this.facilityDTO.serviceName = this.facility.serviceName;
+      this.facilityDTO.serviceImage = this.facility.serviceImage;
+      this.facilityDTO.serviceArea = this.facility.serviceArea;
+      this.facilityDTO.serviceCost = this.facility.serviceCost;
+      this.facilityDTO.serviceMaxPeople = this.facility.serviceMaxPeople;
+      this.facilityDTO.standardRoom = this.facility.standardRoom;
+      this.facilityDTO.descriptionOtherConvenience = this.facility.descriptionOtherConvenience;
+      this.facilityDTO.poolArea = this.facility.poolArea;
+      this.facilityDTO.numberOfFloors = this.facility.numberOfFloors;
+      this.facilityDTO.freeAttachedService = this.facility.freeAttachedService;
+      this.facilityDTO.rentTypeId = this.facility.rentType.rentTypeId;
+      this.facilityDTO.serviceTypeId = this.facility.serviceTypeId;
+      this.facilityUpdateForm.patchValue(this.facilityDTO);
     }
 
   }
@@ -133,7 +121,7 @@ export class UpdateFacilitiesComponent implements OnInit {
     return this.facilityUpdateForm.get('freeAttachedService');
   }
 
-  get rentType() {
+  get rentTypeId() {
     return this.facilityUpdateForm.get('rentType');
   }
 
@@ -146,9 +134,9 @@ export class UpdateFacilitiesComponent implements OnInit {
       this.route.navigateByUrl('/update-facilities/' + this.serviceId.value);
     } else {
       //Chu y de navigate len dau moi duoc
-      this.facility = this.facilityUpdateForm.value;
+      this.facilityDTO = this.facilityUpdateForm.value;
       this.route.navigateByUrl('/facilities');
-      this.facility.rentType = this.rentTypeService.findById(this.facilityUpdateForm.value.rentType)[0];
+      this.facility.rentType = this.rentTypeService.findById(this.facilityUpdateForm.value.rentTypeId)[0];
       this.facilityService.updateFacility(this.facility);
       console.log(this.facility)
     }
