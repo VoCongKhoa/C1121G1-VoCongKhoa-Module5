@@ -102,7 +102,7 @@
             <td>{{contract.contractEndDate | date:'dd/MM/yyyy'}}</td>
             <td>{{contract.contractDeposit}}</td>
             <td>{{contract.contractTotalMoney}}</td>
-            <td>{{contract.employeeId}}</td>
+            <td>{{contract.employee.employeeId}} - {{contract.employee.employeeName}}</td>
             <td>{{contract.customer.customerCode}} - {{contract.customer.customerName}}</td>
             <td>{{contract.services.serviceName}}</td>
             <td>

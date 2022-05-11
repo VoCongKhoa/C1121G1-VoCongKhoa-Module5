@@ -169,9 +169,9 @@ export class CreateFacilitiesComponent implements OnInit {
       if (this.numberOfFloors.value == '') {
         this.numberOfFloors.setErrors({empty: 'Empty! Please input!'})
       }
-      if (this.freeAttachedService.value == '') {
-        this.freeAttachedService.setErrors({empty: 'Empty! Please input!'})
-      }
+      // if (this.freeAttachedService.value == '') {
+      //   this.freeAttachedService.setErrors({empty: 'Empty! Please input!'})
+      // }
       // if (this.rentType.value == '') {
       //   this.rentType.setErrors({empty: 'Empty! Please input!'})
       // }

@@ -21,6 +21,7 @@ import {FacilityService} from "../services/facilities";
 import {CustomerTypeService} from "../services/customerTypes";
 import {ReactiveFormsModule} from '@angular/forms';
 import {RentTypeService} from "../services/rentTypes";
+import {EmployeeService} from "../services/employees";
 
 
 
@@ -45,7 +46,7 @@ import {RentTypeService} from "../services/rentTypes";
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ContractService, CustomerService, FacilityService, CustomerTypeService, RentTypeService],
+  providers: [ContractService, CustomerService, FacilityService, CustomerTypeService, RentTypeService, EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {

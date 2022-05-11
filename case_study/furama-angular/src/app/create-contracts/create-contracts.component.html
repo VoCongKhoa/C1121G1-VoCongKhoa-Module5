@@ -3,74 +3,102 @@
     <div class="col-md-8 mx-auto">
       <div class="contact-form">
         <h1>Create Contract</h1>
-        <form action="/contract/create" id="createFormVilla" method="POST">
+        <form id="createFormVilla" method="POST" [formGroup]="contractCreateForm" (ngSubmit)="onSubmit()">
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="contractStartDateCreate">Contract Start Date</label>
-                <input type="date" class="form-control" id="contractStartDateCreate">
+                <input type="date" class="form-control" id="contractStartDateCreate"
+                       formControlName="contractStartDate">
+                <div
+                  *ngIf="contractStartDate.invalid && (contractStartDate.dirty || contractStartDate.touched) || contractStartDate.errors?.empty || contractStartDate.errors?.dateErrors">
+                  <span *ngIf="contractStartDate.errors.required || contractStartDate.errors.empty" style="color: red">Empty! Choose please!</span>
+                  <span *ngIf="contractStartDate.errors.dateErrors" style="color: red">Start date must be before end date! Please choose again!!</span>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="contractEndDateCreate">Contract End Date</label>
-                <input type="date" class="form-control" id="contractEndDateCreate">
+                <input type="date" class="form-control" id="contractEndDateCreate" formControlName="contractEndDate">
+                <div
+                  *ngIf="contractEndDate.invalid && (contractEndDate.dirty || contractEndDate.touched) || contractEndDate.errors?.empty || contractEndDate.errors?.dateErrors">
+                  <span *ngIf="contractEndDate.errors.required || contractEndDate.errors.empty" style="color: red">Empty! Choose please!</span>
+                  <span *ngIf="contractEndDate.errors.dateErrors" style="color: red">End date must be after start date! Please choose again!</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="contractDepositCreate">Contract deposit:</label>
+                <label for="contractDepositCreate">Contract deposit: </label>
                 <input type="text" class="form-control" id="contractDepositCreate"
-                       placeholder="Type new contract cost here">
+                       placeholder="Type new contract cost here" formControlName="contractDeposit">
+                <div
+                  *ngIf="contractDeposit.invalid && (contractDeposit.dirty || contractDeposit.touched) || contractDeposit.errors?.empty">
+                    <span *ngIf="contractDeposit.errors?.gte"
+                          style="color: red">{{contractDeposit.errors?.requiredValue}}</span>
+                  <span *ngIf="contractDeposit.errors.required || contractDeposit.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
-                <label for="contractTotalMoneyCreate">Contract total money:</label>
+                <label for="contractTotalMoneyCreate">Contract total money: </label>
                 <input type="text" class="form-control" id="contractTotalMoneyCreate"
-                       placeholder="Type new contract cost here">
+                       placeholder="Type new contract cost here" formControlName="contractTotalMoney">
+                <div
+                  *ngIf="contractTotalMoney.invalid && (contractTotalMoney.dirty || contractTotalMoney.touched) || contractTotalMoney.errors?.empty">
+                    <span *ngIf="contractTotalMoney.errors?.gte"
+                          style="color: red">{{contractTotalMoney.errors?.requiredValue}}</span>
+                  <span *ngIf="contractTotalMoney.errors.required || contractTotalMoney.errors.empty"
+                        style="color: red">Empty! Input please!</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-6">
               <div class="form-group">
+                <!--                [attr.selected]="rt"-->
                 <label for="employeeCreate">Choose new employee:</label>
-                <select id="employeeCreate" class="form-control">
-                  <option value="1">Nguyễn Văn An</option>
-                  <option value="2">Lê Văn Bình</option>
-                  <option value="3">Hồ Thị Yến</option>
-                  <option value="4">Võ Công Toản</option>
-                  <option value="5">Nguyễn Bỉnh Phát</option>
+                <select id="employeeCreate" class="form-control" formControlName="employee">
+                  <option *ngFor="let e of employees; let first" [selected]="first" [ngValue]="e">{{e.employeeId}}
+                    - {{e.employeeName}}</option>
                 </select>
+                <div
+                  *ngIf="employee.invalid && (employee.dirty || employee.touched) || employee.errors?.empty">
+                  <span *ngIf="employee.errors.required || employee.errors.empty" style="color: red">Empty! Choose please!</span>
+                </div>
               </div>
             </div>
 
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="customerCreate">Choose new customer:</label>
-                <select id="customerCreate" class="form-control">
-                  <option value="1">KH-0001 - Nguyễn Thị Hào</option>
-                  <option value="2">KH-0002 - Phạm Xuân Diệu</option>
-                  <option value="3">KH-0003 - Trương Đình Nghệ</option>
-                  <option value="4">KH-0004 - Dương Văn Quan</option>
-                  <option value="5">KH-0005 - Hoàng Trần Nhi Nhi</option>
+                <select id="customerCreate" class="form-control" formControlName="customer">
+                  <option *ngFor="let c of customers; let first" [selected]="first" [ngValue]="c">{{c.customerCode}}
+                    - {{c.customerName}}</option>
                 </select>
+                <div
+                  *ngIf="customer.invalid && (customer.dirty || customer.touched) || customer.errors?.empty">
+                  <span *ngIf="customer.errors.required || customer.errors.empty" style="color: red">Empty! Choose please!</span>
+                </div>
               </div>
             </div>
           </div>
           <div class="form-group">
             <label for="servicesCreate">Choose new services:</label>
-            <select id="servicesCreate" class="form-control">
-              <option value="6">Room Twin 02</option>
-              <option value="5">House Princess 02</option>
-              <option value="4">Villa No Beach Front</option>
-              <option value="3">Room Twin 01</option>
-              <option value="2">House Princess 01</option>
-              <option value="1">Villa Beach Front</option>
+            <select id="servicesCreate" class="form-control" formControlName="services">
+              <option *ngFor="let f of facilities; let first" [selected]="first"
+                      [ngValue]="f">{{f.serviceName}}</option>
             </select>
+            <div
+              *ngIf="services.invalid && (services.dirty || services.touched) || services.errors?.empty">
+              <span *ngIf="services.errors.required || services.errors.empty"
+                    style="color: red">Empty! Choose please!</span>
+            </div>
           </div>
           <div class="text-center">
             <button type="submit" class="btn btn-primary" style="
