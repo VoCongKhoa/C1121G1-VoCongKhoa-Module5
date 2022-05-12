@@ -1,0 +1,122 @@
+<div class="container-lg">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="contact-form">
+        <h1>Register Account</h1>
+        <form id="createFormVilla" method="POST" [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+          <div class="form-group">
+            <label>Email </label>
+            <input type="text" class="form-control"
+                   formControlName="email">
+            <div
+              *ngIf="email.invalid && (email.dirty || email.touched) || email.errors?.empty">
+              <span *ngIf="email.errors.required || email.errors.empty" style="color: red">Empty! Choose please!</span>
+              <span *ngIf="email.errors.email" style="color: red">Wrong format email! Input again!!</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Password </label>
+                <input type="text" class="form-control" formControlName="password">
+                <div
+                  *ngIf="password.invalid && (password.dirty || password.touched) || password.errors?.empty || password.errors?.confirm">
+                  <span *ngIf="password.errors.required || password.errors?.empty" style="color: red">Empty! Choose please!</span>
+                  <span *ngIf="password.errors?.confirm" style="color: red">Wrong confirm password! Please input again!</span>
+                  <span *ngIf="password.errors.minlength" style="color: red">Pass word must be more than 6 character! Input again!</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Confirm password </label>
+                <input type="text" class="form-control" formControlName="rePassword">
+                <div
+                  *ngIf="rePassword.invalid && (rePassword.dirty || rePassword.touched) || rePassword.errors?.empty || rePassword.errors?.confirm">
+                  <span *ngIf="rePassword.errors.required || rePassword.errors?.empty" style="color: red">Empty! Choose please!</span>
+                  <span *ngIf="rePassword.errors?.confirm" style="color: red">Wrong confirm password! Please input again!</span>
+                  <span *ngIf="rePassword.errors.minlength" style="color: red">Pass word must be more than 6 character! Input again!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Country: </label>
+                <select formControlName="country">
+                  <option value="Vietnam">Vietnam</option>
+                  <option value="Japan">Japan</option>
+                  <option value="China">China</option>
+                  <option value="America">America</option>
+                </select>
+                <div
+                  *ngIf="country.invalid && (country.dirty || country.touched) || country.errors?.empty">
+                  <span *ngIf="country.errors.required || country.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="age">Age: </label>
+                <input type="text" class="form-control" id="age"
+                       placeholder="Type new age cost here" formControlName="age">
+                <div
+                  *ngIf="age.invalid && (age.dirty || age.touched) || age.errors?.empty">
+                  <span *ngIf="age.errors?.gte" style="color: red">{{age.errors?.requiredValue}}</span>
+                  <span *ngIf="age.errors.required || age.errors.empty" style="color: red">Empty! Input please!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Select gender:</label><br>
+                <input type="radio" id="female" value = 0 formControlName="gender" style="margin: 10px;">
+                <label for="female" style="margin-bottom: 1px;">Female</label><br>
+                <input type="radio" id="male" value = 1 formControlName="gender" style="margin: 10px;">
+                <label for="male">Male</label>
+                <div
+                  *ngIf="gender.invalid && (gender.dirty || gender.touched) || gender.errors?.empty">
+                  <span *ngIf="gender.errors?.required || gender.errors?.empty" style="color: red">Please choose gender!</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label>Phone: (Ex: +84000444555)</label>
+                <input type="text" class="form-control"
+                       placeholder="Type new contract cost here" formControlName="phone">
+                <div
+                  *ngIf="phone.invalid && (phone.dirty || phone.touched) || phone.errors?.empty">
+                  <span *ngIf="phone.errors.required || phone.errors.empty"  style="color: red">Empty! Choose please!</span>
+                  <span *ngIf="phone.errors.pattern" style="color: red">Wrong format phone! Input again!!</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" style="
+                              min-width: 250px;
+                              color: #fcda2e;
+                              background: #403838 !important;
+                              margin-top: 20px;
+                              border: none;"
+                    id="btn-create-villa">
+              <i class="fa fa-paper-plane"></i>
+              Send
+            </button>
+          </div>
+        </form>
+        <br>
+        <br>
+        <div *ngIf="registerForm.valid">
+          <p [(ngModel)]="account">{{account | json}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

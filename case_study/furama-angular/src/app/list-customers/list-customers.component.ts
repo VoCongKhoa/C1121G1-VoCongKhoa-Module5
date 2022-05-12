@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Customer} from "../../models/customer";
 import {CustomerService} from "../../services/customers";
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-list-customers',
@@ -9,16 +10,25 @@ import {CustomerService} from "../../services/customers";
 })
 export class ListCustomersComponent implements OnInit {
 
-  customers: Customer[] = [];
+  customers: Customer[];
+
   constructor(private customerService: CustomerService) {
-    this.getCustomers();
   }
 
   ngOnInit(): void {
+    this.getCustomers();
   }
 
-  getCustomers(){
-    this.customers = this.customerService.getCustomers();
+  getCustomers() {
+    this.customerService.getAllCustomers().subscribe(
+      (response: Customer[]) => {
+        this.customers = response;
+        console.log(response)
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error)
+      }
+    )
   }
 
 }

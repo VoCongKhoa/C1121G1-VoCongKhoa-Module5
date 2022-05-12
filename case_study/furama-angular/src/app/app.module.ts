@@ -22,6 +22,8 @@ import {CustomerTypeService} from "../services/customerTypes";
 import {ReactiveFormsModule} from '@angular/forms';
 import {RentTypeService} from "../services/rentTypes";
 import {EmployeeService} from "../services/employees";
+import { CustomerModalComponent } from './list-customers/customer-modal/customer-modal.component';
+import {HttpClientModule} from "@angular/common/http";
 
 
 
@@ -38,13 +40,15 @@ import {EmployeeService} from "../services/employees";
     UpdateCustomersComponent,
     CreateCustomersComponent,
     ListContractsComponent,
-    CreateContractsComponent
+    CreateContractsComponent,
+    CustomerModalComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [ContractService, CustomerService, FacilityService, CustomerTypeService, RentTypeService, EmployeeService],
   bootstrap: [AppComponent]

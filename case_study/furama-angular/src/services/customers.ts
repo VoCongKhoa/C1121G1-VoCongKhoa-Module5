@@ -1,6 +1,27 @@
 import {Customer} from "../models/customer";
+import {HttpClient} from "@angular/common/http";
+import {Observable} from "rxjs";
+import {Injectable} from "@angular/core";
+import {environment} from "../environments/environment";
 
+
+@Injectable({
+  providedIn: 'root'
+})
 export class CustomerService {
+
+  // private apiBaseUrl: 'http://localhost:8080/api/customer';
+
+  // De ben environment
+  private apiBaseUrl = environment.apiBaseUrl;
+  constructor(
+    private http: HttpClient
+  ) {}
+
+  getAllCustomers(): Observable<Customer[]>{
+    return this.http.get<Customer[]>(`${this.apiBaseUrl}/api/customer/list?page=2`);
+  }
+
   private customers: Customer[] = [
     {
       customerId: 1,
