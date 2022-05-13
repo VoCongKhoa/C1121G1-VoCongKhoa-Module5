@@ -106,7 +106,7 @@
             <td>{{c.customerPhone}}</td>
             <td>{{c.customerEmail}}</td>
             <td>{{c.customerAddress}}</td>
-            <td>{{c.customerType.customerTypeId}}</td>
+            <td>{{c.customerType.customerTypeName}}</td>
 <!--            <td [ngSwitch]="c.customerTypeId">-->
 <!--              <span *ngSwitchCase="1">Diamond</span>-->
 <!--              <span *ngSwitchCase="2">Platinum</span>-->
@@ -115,10 +115,13 @@
 <!--              <span *ngSwitchCase="5">Member</span>-->
 <!--            </td>-->
             <td colspan="2">
-              <a type="button" style="color: #ffc107" routerLink="/update-customers/{{c.customerId}}"><i class="fas fa-edit"></i></a>
-              <a type="button" style="color: #17a2b8"><i class="fa-solid fa-trash-can"
-                                                         data-toggle="modal"
-                                                         data-target="#deleteModal"></i></a>
+              <a type="button" style="color: #ffc107" routerLink="/update-customers/{{c.customerId}}">
+                <i class="fas fa-edit"></i>
+              </a>
+<!--              <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#deleteModal"></button>-->
+              <a type="button" style="color: #17a2b8; cursor: pointer" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="sendDelete(c)">
+                <i class="fa-solid fa-trash-can "></i>
+              </a>
             </td>
           </tr>
           </tbody>
@@ -141,5 +144,5 @@
     </div>
   </div>
 </div>
-<!--<app-customer-modal></app-customer-modal>-->
+<app-customer-modal [customerChild] = 'customerRoot'></app-customer-modal>
 

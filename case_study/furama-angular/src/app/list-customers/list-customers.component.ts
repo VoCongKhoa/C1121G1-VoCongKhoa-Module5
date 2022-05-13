@@ -11,6 +11,7 @@ import {HttpErrorResponse} from "@angular/common/http";
 export class ListCustomersComponent implements OnInit {
   p: number = 1;
   customers: Customer[];
+  customerRoot: Customer;
 
   constructor(private customerService: CustomerService) {
   }
@@ -31,4 +32,7 @@ export class ListCustomersComponent implements OnInit {
     )
   }
 
+  sendDelete(c: Customer) {
+    this.customerRoot = c;
+  }
 }

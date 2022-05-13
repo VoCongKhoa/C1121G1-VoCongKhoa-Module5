@@ -24,6 +24,12 @@ export class CustomerService {
     return this.http.get<Customer[]>(`${this.apiBaseUrl}/api/customer/list`);
   }
 
+  delete(id: number): void {
+    console.log(id);
+    console.log(`${this.apiBaseUrl}/api/customer/delete/12`);
+    this.http.get(`${this.apiBaseUrl}/api/customer/delete/11`);
+  }
+
   // private customers: Customer[] = [
   //   {
   //     customerId: 1,
@@ -281,4 +287,8 @@ export class CustomerService {
   public findById(id:number){
     return this.customers.filter(c => c.customerId == id);
   }
+
+  // delete(id: number) {
+  //   this.customers = this.customers.filter((p) => p.id !== id);
+  // }
 }
