@@ -96,8 +96,8 @@
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let c of customers; index as i">
-            <td>{{i+1}}</td>
+          <tr *ngFor="let c of customers | paginate : { itemsPerPage: 5, currentPage: p }">
+            <td>{{c.customerId}}</td>
             <td>{{c.customerCode}}</td>
             <td>{{c.customerName}}</td>
             <td>{{c.customerBirthday | date:'dd/MM/yyyy'}}</td>
@@ -106,13 +106,14 @@
             <td>{{c.customerPhone}}</td>
             <td>{{c.customerEmail}}</td>
             <td>{{c.customerAddress}}</td>
-            <td [ngSwitch]="c.customerTypeId">
-              <span *ngSwitchCase="1">Diamond</span>
-              <span *ngSwitchCase="2">Platinum</span>
-              <span *ngSwitchCase="3">Gold</span>
-              <span *ngSwitchCase="4">Silver</span>
-              <span *ngSwitchCase="5">Member</span>
-            </td>
+            <td>{{c.customerType.customerTypeId}}</td>
+<!--            <td [ngSwitch]="c.customerTypeId">-->
+<!--              <span *ngSwitchCase="1">Diamond</span>-->
+<!--              <span *ngSwitchCase="2">Platinum</span>-->
+<!--              <span *ngSwitchCase="3">Gold</span>-->
+<!--              <span *ngSwitchCase="4">Silver</span>-->
+<!--              <span *ngSwitchCase="5">Member</span>-->
+<!--            </td>-->
             <td colspan="2">
               <a type="button" style="color: #ffc107" routerLink="/update-customers/{{c.customerId}}"><i class="fas fa-edit"></i></a>
               <a type="button" style="color: #17a2b8"><i class="fa-solid fa-trash-can"
@@ -124,47 +125,21 @@
         </table>
 
         <hr/>
-        <ul class="nav nav-pills" style="align-items: center; justify-content: center">
-          <a class="page-link">«</a>
-          <li class="nav-item d-flex">
-            <a class="nav-link" href="#">1</a>
-            <a class="nav-link active" href="#">2</a>
-            <a class="nav-link" href="#">3</a>
-          </li>
-          <a class="page-link">»</a>
-        </ul>
+        <div style="justify-content: space-around;display: flex;">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+<!--        <ul class="nav nav-pills" style="align-items: center; justify-content: center">-->
+<!--          <a class="page-link">«</a>-->
+<!--          <li class="nav-item d-flex">-->
+<!--            <a class="nav-link" href="#">1</a>-->
+<!--            <a class="nav-link active" href="#">2</a>-->
+<!--            <a class="nav-link" href="#">3</a>-->
+<!--          </li>-->
+<!--          <a class="page-link">»</a>-->
+<!--        </ul>-->
       </div>
     </div>
   </div>
 </div>
 <!--<app-customer-modal></app-customer-modal>-->
 
-<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="customerCodeDelete" class="col-form-label">Customer Code :</label>
-            <input type="text" class="form-control" id="customerCodeDelete">
-          </div>
-          <div class="form-group">
-            <label for="customerNameDelete" class="col-form-label">Customer Name :</label>
-            <input type="text" class="form-control" id="customerNameDelete">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-        <button type="button" class="btn btn-primary" id="btn-delete">Delete</button>
-      </div>
-    </div>
-  </div>
-</div>

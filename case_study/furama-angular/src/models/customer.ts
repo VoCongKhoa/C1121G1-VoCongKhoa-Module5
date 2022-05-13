@@ -1,3 +1,5 @@
+import {CustomerType} from "./customerType";
+
 export class Customer {
   customerId: number;
 
@@ -17,7 +19,7 @@ export class Customer {
 
   customerAddress: string;
 
-  customerTypeId: number;
+  customerType: CustomerType;
 
   active: number = 1;
 }

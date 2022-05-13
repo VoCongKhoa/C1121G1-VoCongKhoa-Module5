@@ -11,6 +11,9 @@ import { RatingBarComponent } from './rating-bar/rating-bar.component';
 import { CountdownAppComponent } from './countdown-app/countdown-app.component';
 import { RegisterComponent } from './register/register.component';
 import { LoginAccountComponent } from './login-account/login-account.component';
+import { DictionaryComponent } from './dictionary/dictionary.component';
+import {WordService} from "./services/word-service";
+import { WordDetailComponent } from './dictionary/word-detail/word-detail.component';
 
 @NgModule({
   declarations: [
@@ -22,14 +25,16 @@ import { LoginAccountComponent } from './login-account/login-account.component';
     RatingBarComponent,
     CountdownAppComponent,
     RegisterComponent,
-    LoginAccountComponent
+    LoginAccountComponent,
+    DictionaryComponent,
+    WordDetailComponent
   ],
     imports: [
         BrowserModule,
         FormsModule,
         ReactiveFormsModule
     ],
-  providers: [],
+  providers: [WordService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

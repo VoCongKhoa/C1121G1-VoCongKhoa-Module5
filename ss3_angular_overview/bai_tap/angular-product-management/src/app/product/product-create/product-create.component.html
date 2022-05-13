@@ -1,0 +1,57 @@
+
+<div class="container-lg">
+  <div class="row">
+    <div class="col-md-8 mx-auto">
+      <div class="contact-form">
+        <h1 style="text-align: center; margin: 20px">Create Product</h1>
+        <form [formGroup]="productForm" (ngSubmit)="submit()" id="createFormVilla">
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="serviceNameCreateVilla">Id</label>
+                <input type="text" class="form-control"
+                       id="serviceNameCreateVilla" formControlName="id">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="serviceAreaCreateVilla">Name</label>
+                <input type="text" class="form-control" id="serviceAreaCreateVilla" formControlName="name">
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="rentTypeCreateVilla">Price:</label>
+                <input type="text" class="form-control" id="rentTypeCreateVilla"
+                       formControlName="price">
+              </div>
+            </div>
+            <div class="col-sm-6">
+              <div class="form-group">
+                <label for="email">Description:</label>
+                <input id="email" type="text" class="form-control"
+                       formControlName="description">
+              </div>
+            </div>
+          </div>
+          <div class="text-center">
+            <button type="submit" class="btn btn-primary" style="
+                              min-width: 250px;
+                              color: #fcda2e;
+                              background: #403838 !important;
+                              margin-top: 20px;
+                              border: none;"
+                    id="btn-create-villa">
+              <i class="fa fa-paper-plane"></i>
+              Send
+            </button>
+          </div>
+        </form>
+        <br>
+        <br>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+[
+  {
+    "appId": 1,
+    "timezone": "IST",
+    "email": "daily"
+  },
+  {
+    "appId": 2,
+    "timezone": "EST",
+    "email": "weekly"
+  },
+  {
+    "appId": 3,
+    "timezone": "PST",
+    "email": "never"
+  }
+]

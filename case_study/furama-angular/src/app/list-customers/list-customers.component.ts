@@ -9,7 +9,7 @@ import {HttpErrorResponse} from "@angular/common/http";
   styleUrls: ['./list-customers.component.css']
 })
 export class ListCustomersComponent implements OnInit {
-
+  p: number = 1;
   customers: Customer[];
 
   constructor(private customerService: CustomerService) {

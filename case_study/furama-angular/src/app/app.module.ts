@@ -24,6 +24,7 @@ import {RentTypeService} from "../services/rentTypes";
 import {EmployeeService} from "../services/employees";
 import { CustomerModalComponent } from './list-customers/customer-modal/customer-modal.component';
 import {HttpClientModule} from "@angular/common/http";
+import {NgxPaginationModule} from 'ngx-pagination';
 
 
 
@@ -45,6 +46,7 @@ import {HttpClientModule} from "@angular/common/http";
   ],
   imports: [
     BrowserModule,
+    NgxPaginationModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,

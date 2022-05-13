@@ -1,0 +1,33 @@
+<h1 style="text-align: center; margin: 20px">List Products</h1>
+<table class="table table-striped">
+  <thead>
+  <tr class="table-primary">
+    <td>#</td>
+    <td>Name</td>
+    <td>Price</td>
+    <td>Description</td>
+    <td colspan="2">Action</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let product of products; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{product.name}}</td>
+    <td>{{product.price}}</td>
+    <td>{{product.description}}</td>
+    <td>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateProduct" (click)="sendId(product)">
+        Update Product
+      </button>
+    </td>
+    <td>
+      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteProduct" (click)="sendId(product)">
+        Delete Product
+      </button>
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+<app-product-modal [productUpdateChild] = 'productUpdateRoot' (flagUpdate)="sendFlag($event)"></app-product-modal>
+
