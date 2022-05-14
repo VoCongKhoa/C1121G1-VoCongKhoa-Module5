@@ -92,11 +92,11 @@
             <th>Employee Id</th>
             <th>Customer</th>
             <th>Service</th>
-            <th>Action</th>
+            <th colspan="2">Action</th>
           </tr>
           </thead>
           <tbody>
-          <tr *ngFor="let contract of contracts">
+          <tr *ngFor="let contract of contracts | paginate : { itemsPerPage: 5, currentPage: p }">
             <td>{{contract.contractId}}</td>
             <td>{{contract.contractStartDate | date:'dd/MM/yyyy'}}</td>
             <td>{{contract.contractEndDate | date:'dd/MM/yyyy'}}</td>
@@ -108,20 +108,30 @@
             <td>
               <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
             </td>
+            <td>
+              <a type="button" style="color: #17a2b8; cursor: pointer" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="sendDelete(contract)">
+                <i class="fa-solid fa-trash-can "></i>
+              </a>
+            </td>
           </tr>
           </tbody>
         </table>
         <hr/>
-        <ul class="nav nav-pills" style="align-items: center; justify-content: center">
-          <a class="page-link">«</a>
-          <li class="nav-item d-flex">
-            <a class="nav-link" href="#">1</a>
-            <a class="nav-link active" href="#">2</a>
-            <a class="nav-link" href="#">3</a>
-          </li>
-          <a class="page-link">»</a>
-        </ul>
+        <div style="justify-content: space-around;display: flex;">
+          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+        </div>
+<!--        <ul class="nav nav-pills" style="align-items: center; justify-content: center">-->
+<!--          <a class="page-link">«</a>-->
+<!--          <li class="nav-item d-flex">-->
+<!--            <a class="nav-link" href="#">1</a>-->
+<!--            <a class="nav-link active" href="#">2</a>-->
+<!--            <a class="nav-link" href="#">3</a>-->
+<!--          </li>-->
+<!--          <a class="page-link">»</a>-->
+<!--        </ul>-->
       </div>
     </div>
   </div>
 </div>
+
+<app-contract-modal [contractChild]="contractRoot" (flagDelete)="confirmDelete($event)"></app-contract-modal>

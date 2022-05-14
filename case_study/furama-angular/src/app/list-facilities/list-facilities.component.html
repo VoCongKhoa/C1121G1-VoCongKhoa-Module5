@@ -3,7 +3,7 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-sm-4" *ngFor="let f of facilities; index as i">
+    <div class="col-sm-4" *ngFor="let f of facilities | paginate: { itemsPerPage: 2, currentPage: p }">
       <div class="card">
         <div class="card-image">
           <img class="img-responsive"
@@ -16,9 +16,13 @@
         </div>
         <div class="card-action d-flex">
           <button type="button" class="btn btn-info" routerLink="/update-facilities/{{f.serviceId}}">Edit</button>
-          <button type="button" class="btn btn-danger">Delete</button>
+          <button type="button" class="btn btn-danger" (click)="sendDelete(f)">Delete</button>
         </div>
       </div>
     </div>
   </div>
 </div>
+<div style="justify-content: space-around;display: flex;">
+  <pagination-controls (pageChange)="p = $event"></pagination-controls>
+</div>
+<app-facility-modal [facilityChild] = 'facilityRoot' (flagDelete) = 'confirmDelete($event)'></app-facility-modal>

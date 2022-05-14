@@ -1,0 +1,30 @@
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Do you want to delete facility</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #btnDeleteClose></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="facilityCodeDelete" class="col-form-label">Facility Code :</label>
+          <input type="text" class="form-control" id="facilityIdDelete" value="{{facilityDelete.serviceId}}" hidden>
+          <input type="text" class="form-control" id="facilityCodeDelete" value="{{facilityDelete.serviceCode}}">
+        </div>
+        <div class="form-group">
+          <label for="facilityNameDelete" class="col-form-label">Facility Name :</label>
+          <input type="text" class="form-control" id="facilityNameDelete" value="{{facilityDelete.serviceName}}">
+        </div>
+        <div class="form-group">
+          <label for="facilityNameDelete" class="col-form-label">Facility Area :</label>
+          <input type="text" class="form-control" id="facilityEmailDelete" value="{{facilityDelete.serviceArea}} - {{facilityDelete.serviceCost*0.8}}">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="delete()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>

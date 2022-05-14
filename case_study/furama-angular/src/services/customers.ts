@@ -24,10 +24,8 @@ export class CustomerService {
     return this.http.get<Customer[]>(`${this.apiBaseUrl}/api/customer/list`);
   }
 
-  delete(id: number): void {
-    console.log(id);
-    console.log(`${this.apiBaseUrl}/api/customer/delete/12`);
-    this.http.get(`${this.apiBaseUrl}/api/customer/delete/11`);
+  delete(id: number): Observable<void> {
+    return this.http.get<void>(`${this.apiBaseUrl}/api/customer/delete/${id}`);
   }
 
   // private customers: Customer[] = [
@@ -285,7 +283,7 @@ export class CustomerService {
   }
 
   public findById(id:number){
-    return this.customers.filter(c => c.customerId == id);
+    return this.customers.filter((c) => c.customerId == id);
   }
 
   // delete(id: number) {

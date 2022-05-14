@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import { FacilityService} from "../../services/facilities";
 import { Facility } from "../../models/facility"
 
@@ -9,9 +9,9 @@ import { Facility } from "../../models/facility"
 })
 export class ListFacilitiesComponent implements OnInit {
 
-  // @ts-ignore
-  // facilityList: InstanceType<typeof facilityList>;
   facilities: Facility[] = [];
+  p: number = 1;
+  facilityRoot: Facility;
   constructor(private facilityService: FacilityService) {
     this.getFacilities();
   }
@@ -24,4 +24,13 @@ export class ListFacilitiesComponent implements OnInit {
   }
 
 
+  sendDelete(f: Facility) {
+    this.facilityRoot = f;
+  }
+
+  confirmDelete(e: any) {
+    if (e){
+      this.getFacilities();
+    }
+  }
 }

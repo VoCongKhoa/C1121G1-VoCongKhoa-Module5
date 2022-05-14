@@ -27,12 +27,19 @@ export class ListCustomersComponent implements OnInit {
         console.log(response)
       },
       (error: HttpErrorResponse) => {
-        console.log(error)
+        console.log(error);
       }
     )
   }
 
   sendDelete(c: Customer) {
     this.customerRoot = c;
+  }
+
+  confirmDelete(e: any){
+    if (e){
+      this.getCustomers();
+      // window.location.reload();
+    }
   }
 }

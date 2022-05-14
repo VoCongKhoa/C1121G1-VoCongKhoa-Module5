@@ -1,0 +1,34 @@
+<!-- Modal -->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Do you want to delete contract</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" #btnDeleteClose></button>
+      </div>
+      <div class="modal-body">
+        <div class="form-group">
+          <label for="customerNameDelete" class="col-form-label">Customer name :</label>
+          <input type="text" class="form-control" id="customerNameDelete" value="{{contractDelete.customer.customerCode}} - {{contractDelete.customer.customerName}}">
+        </div>
+        <div class="form-group">
+          <label for="contractCodeDelete" class="col-form-label">Contract Start Date :</label>
+          <input type="text" class="form-control" id="contractIdDelete" value="{{contractDelete.contractId}}" hidden>
+          <input type="text" class="form-control" id="contractCodeDelete" value="{{contractDelete.contractStartDate}}">
+        </div>
+        <div class="form-group">
+          <label for="contractNameDelete" class="col-form-label">Contract End Date :</label>
+          <input type="text" class="form-control" id="contractNameDelete" value="{{contractDelete.contractEndDate}}">
+        </div>
+        <div class="form-group">
+          <label for="contractNameDelete" class="col-form-label">Contract Total Money :</label>
+          <input type="text" class="form-control" id="contractEmailDelete" value="{{contractDelete.contractTotalMoney}}">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" (click)="delete()">Confirm</button>
+      </div>
+    </div>
+  </div>
+</div>

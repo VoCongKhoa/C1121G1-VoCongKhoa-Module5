@@ -144,5 +144,5 @@
     </div>
   </div>
 </div>
-<app-customer-modal [customerChild] = 'customerRoot'></app-customer-modal>
+<app-customer-modal [customerChild] = 'customerRoot' (flagDelete) = 'confirmDelete($event)'></app-customer-modal>
 

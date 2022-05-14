@@ -141,6 +141,7 @@ export class CreateFacilitiesComponent implements OnInit {
   }
 
   onSubmit() {
+    this.facilityCreateForm.clearValidators();
     if (this.facilityCreateForm.invalid) {
       if (this.serviceCode.value == '') {
         this.serviceCode.setErrors({empty: 'Empty! Please input!'})
@@ -181,7 +182,7 @@ export class CreateFacilitiesComponent implements OnInit {
 
       this.route.navigateByUrl('/create-facilities');
     } else {
-      console.log(this.facilityCreateForm.value);
+      console.log(this.facilityCreateForm);
       this.route.navigateByUrl('/facilities');
       this.facilityService.createFacility(this.facilityCreateForm.value);
       // this.facility = this.facilityCreateForm.value;

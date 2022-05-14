@@ -25,6 +25,8 @@ import {EmployeeService} from "../services/employees";
 import { CustomerModalComponent } from './list-customers/customer-modal/customer-modal.component';
 import {HttpClientModule} from "@angular/common/http";
 import {NgxPaginationModule} from 'ngx-pagination';
+import { ContractModalComponent } from './list-contracts/contract-modal/contract-modal.component';
+import { FacilityModalComponent } from './list-facilities/facility-modal/facility-modal.component';
 
 
 
@@ -42,15 +44,17 @@ import {NgxPaginationModule} from 'ngx-pagination';
     CreateCustomersComponent,
     ListContractsComponent,
     CreateContractsComponent,
-    CustomerModalComponent
+    CustomerModalComponent,
+    ContractModalComponent,
+    FacilityModalComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     NgxPaginationModule,
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    HttpClientModule
   ],
   providers: [ContractService, CustomerService, FacilityService, CustomerTypeService, RentTypeService, EmployeeService],
   bootstrap: [AppComponent]
