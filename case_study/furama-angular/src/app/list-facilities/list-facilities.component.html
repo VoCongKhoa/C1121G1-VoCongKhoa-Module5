@@ -16,7 +16,7 @@
         </div>
         <div class="card-action d-flex">
           <button type="button" class="btn btn-info" routerLink="/update-facilities/{{f.serviceId}}">Edit</button>
-          <button type="button" class="btn btn-danger" (click)="sendDelete(f)">Delete</button>
+          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="sendDelete(f)">Delete</button>
         </div>
       </div>
     </div>

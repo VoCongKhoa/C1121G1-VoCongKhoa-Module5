@@ -1,6 +1,7 @@
 import {Component, Input, OnInit} from '@angular/core';
 import { FacilityService} from "../../services/facilities";
 import { Facility } from "../../models/facility"
+import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
   selector: 'app-list-facilities',
@@ -17,10 +18,20 @@ export class ListFacilitiesComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.getFacilities();
   }
 
+
   getFacilities(){
-    this.facilities = this.facilityService.getFacilities();
+    this.facilityService.getAllFacilities().subscribe(
+      (response: Facility[]) => {
+        this.facilities = response;
+        console.log(response)
+      },
+      (error: HttpErrorResponse) => {
+        console.log(error);
+      }
+    )
   }
 
 

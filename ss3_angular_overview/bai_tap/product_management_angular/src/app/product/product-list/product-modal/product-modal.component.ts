@@ -15,7 +15,7 @@ export class ProductModalComponent implements OnInit, OnChanges {
   @Input() productUpdateChild: Product;
   // @Input() productDelete: Product;
   // @ts-ignore
-  @ViewChild('btnUpdateClose') btnUpdateClose;
+  @ViewChild('btnUpdateClose', {static = true}) btnUpdateClose;
   // @ts-ignore
   @ViewChild('btnDeleteClose') btnDeleteClose;
 
