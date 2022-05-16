@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
-import {Customer} from "../../../models/customer";
-import {CustomerService} from "../../../services/customers";
+import {Customer} from "../../models/customer";
+import {CustomerService} from "../../services/customers";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
@@ -27,7 +27,7 @@ export class CustomerModalComponent implements OnInit, OnChanges {
 
       customerBirthday: '',
 
-      customerGender: '0',
+      customerGender: 0,
 
       customerIdCard: '',
 

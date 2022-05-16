@@ -107,12 +107,12 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="typeId">Customer type: </label>
-                <select id="typeId" class="form-control" name="customerTypeId" formControlName="customerTypeId">
+                <select id="typeId" class="form-control" name="customerType" formControlName="customerType">
                   <option [ngValue]="ct.customerTypeId" *ngFor="let ct of customerTypes" >{{ct.customerTypeName}}</option>
                 </select>
                 <div
-                  *ngIf="customerTypeId.invalid && (customerTypeId.dirty || customerTypeId.touched)">
-                  <span *ngIf="customerTypeId.errors.required" style="color: red">Please choose customer type!!</span>
+                  *ngIf="customerType.invalid && (customerType.dirty || customerType.touched)">
+                  <span *ngIf="customerType.errors.required" style="color: red">Please choose customer type!!</span>
                 </div>
               </div>
             </div>

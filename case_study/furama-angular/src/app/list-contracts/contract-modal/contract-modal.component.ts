@@ -1,6 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
-import {Contract} from "../../../models/contract";
-import {ContractService} from "../../../services/contracts";
+import {Contract} from "../../models/contract";
+import {ContractService} from "../../services/contracts";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
@@ -44,7 +44,7 @@ export class ContractModalComponent implements OnInit {
 
         customerBirthday: "1970-11-07",
 
-        customerGender: "0",
+        customerGender: 0,
 
         customerIdCard: "643431213",
 

@@ -1,15 +1,14 @@
 import {Component, OnInit} from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Customer} from "../../models/customer";
-import {Facility} from "../../models/facility";
-import {gte} from "../../services/gte";
+import {Customer} from "../models/customer";
+import {Facility} from "../models/facility";
+import {gte} from "../services/gte";
 import {ActivatedRoute, Router} from "@angular/router";
-import {EmployeeService} from "../../services/employees";
-import {CustomerService} from "../../services/customers";
-import {FacilityService} from "../../services/facilities";
-import {Employee} from "../../models/employee";
-import {ContractService} from "../../services/contracts";
-import {DatePipe} from "@angular/common";
+import {EmployeeService} from "../services/employees";
+import {CustomerService} from "../services/customers";
+import {FacilityService} from "../services/facilities";
+import {Employee} from "../models/employee";
+import {ContractService} from "../services/contracts";
 
 @Component({
   selector: 'app-create-contracts',

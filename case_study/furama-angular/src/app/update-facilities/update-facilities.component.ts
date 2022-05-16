@@ -1,12 +1,12 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {RentTypeService} from "../../services/rentTypes";
+import {RentTypeService} from "../services/rentTypes";
 import {FormBuilder, FormGroup, Validators} from "@angular/forms";
-import {Facility} from "../../models/facility";
-import {RentType} from "../../models/rentType";
-import {FacilityService} from "../../services/facilities";
-import {gte} from "../../services/gte";
-import {FacilityDTO} from "../../models/facilityDTO";
+import {Facility} from "../models/facility";
+import {RentType} from "../models/rentType";
+import {FacilityService} from "../services/facilities";
+import {gte} from "../services/gte";
+import {FacilityDTO} from "../models/facilityDTO";
 
 @Component({
   selector: 'app-update-facilities',

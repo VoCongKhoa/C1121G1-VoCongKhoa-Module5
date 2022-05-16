@@ -9,7 +9,7 @@ export class Customer {
 
   customerBirthday: string;
 
-  customerGender: string;
+  customerGender: number;
 
   customerIdCard: string;
 

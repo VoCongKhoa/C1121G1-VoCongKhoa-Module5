@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {ContractService} from "../../services/contracts";
-import {Contract} from "../../models/contract";
+import {ContractService} from "../services/contracts";
+import {Contract} from "../models/contract";
 import {HttpErrorResponse} from "@angular/common/http";
 // import {contractList} from "../../services/contracts";
 

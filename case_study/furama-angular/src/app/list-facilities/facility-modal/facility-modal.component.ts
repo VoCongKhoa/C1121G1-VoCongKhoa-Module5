@@ -1,7 +1,7 @@
 import {Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges, ViewChild} from '@angular/core';
-import {Facility} from "../../../models/facility";
+import {Facility} from "../../models/facility";
 import {HttpErrorResponse} from "@angular/common/http";
-import {FacilityService} from "../../../services/facilities";
+import {FacilityService} from "../../services/facilities";
 
 @Component({
   selector: 'app-facility-modal',

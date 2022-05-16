@@ -1,10 +1,11 @@
 import {Component, OnInit} from '@angular/core';
 import {ActivatedRoute, Router} from "@angular/router";
-import {CustomerService} from "../../services/customers";
-import {CustomerTypeService} from "../../services/customerTypes";
+import {CustomerService} from "../services/customers";
+import {CustomerTypeService} from "../services/customerTypes";
 import {FormBuilder, FormControl, FormGroup, Validators} from "@angular/forms";
-import {Customer} from "../../models/customer";
-import {CustomerType} from "../../models/customerType";
+import {Customer} from "../models/customer";
+import {CustomerType} from "../models/customerType";
+import {CustomerDto} from "../dto/customerDto";
 
 
 @Component({
@@ -14,6 +15,7 @@ import {CustomerType} from "../../models/customerType";
 })
 export class CreateCustomersComponent implements OnInit {
   customer: Customer;
+  customerDto: CustomerDto;
   customers: Customer[] = [];
   customerTypes: CustomerType[] = [];
   customerCreateForm: FormGroup = new FormGroup(
@@ -26,7 +28,7 @@ export class CreateCustomersComponent implements OnInit {
       customerPhone: new FormControl("", [Validators.required, Validators.pattern('^$|^(0|\\(84\\)\\+)9[0|1]\\d{7}$')]),
       customerEmail: new FormControl("", [Validators.required, Validators.email]),
       customerAddress: new FormControl("", Validators.required),
-      customerTypeId: new FormControl("", Validators.required)
+      customerType: new FormControl(5, Validators.required)
     }
   )
 
@@ -62,8 +64,8 @@ export class CreateCustomersComponent implements OnInit {
     return this.customerCreateForm.get('customerAddress');
   }
 
-  get customerTypeId() {
-    return this.customerCreateForm.get('customerTypeId');
+  get customerType() {
+    return this.customerCreateForm.get('customerType');
   }
 
   constructor(private router: ActivatedRoute,
@@ -107,15 +109,25 @@ export class CreateCustomersComponent implements OnInit {
       if (this.customerAddress.value == '') {
         this.customerAddress.setErrors({empty: 'Empty! Please input!'})
       }
-      if (this.customerTypeId.value == '') {
-        this.customerTypeId.setErrors({empty: 'Empty! Please input!'})
+      if (this.customerType.value == '') {
+        this.customerType.setErrors({empty: 'Empty! Please input!'})
       }
 
       this.route.navigateByUrl('/create-customers');
     } else {
-      this.route.navigateByUrl('/list-customers');
-      this.customer = this.customerCreateForm.value;
-      this.customerService.createCustomer(this.customer);
+      this.customerDto = this.customerCreateForm.value;
+      this.customerDto.active = 1;
+      this.customerService.create(this.customerDto).subscribe(
+        (response)=>{
+          this.route.navigateByUrl('/list-customers');
+        },
+        (error)=>{
+          if (!error.error.status) {
+            this.customerCode.setErrors({existed: error.error.errorMap.customerCode});
+            this.route.navigateByUrl('/create-customers');
+          }
+        },
+        )
     }
   }
 }

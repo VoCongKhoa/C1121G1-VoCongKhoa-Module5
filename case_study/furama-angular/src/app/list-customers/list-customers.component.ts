@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
-import {Customer} from "../../models/customer";
-import {CustomerService} from "../../services/customers";
+import {Customer} from "../models/customer";
+import {CustomerService} from "../services/customers";
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
@@ -24,7 +24,6 @@ export class ListCustomersComponent implements OnInit {
     this.customerService.getAllCustomers().subscribe(
       (response: Customer[]) => {
         this.customers = response;
-        console.log(response)
       },
       (error: HttpErrorResponse) => {
         console.log(error);

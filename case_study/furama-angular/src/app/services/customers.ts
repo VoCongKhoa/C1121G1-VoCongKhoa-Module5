@@ -2,7 +2,8 @@ import {Customer} from "../models/customer";
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Injectable} from "@angular/core";
-import {environment} from "../environments/environment";
+import {environment} from "../../environments/environment";
+import {CustomerDto} from "../dto/customerDto";
 
 
 @Injectable({
@@ -26,6 +27,18 @@ export class CustomerService {
 
   delete(id: number): Observable<void> {
     return this.http.get<void>(`${this.apiBaseUrl}/api/customer/delete/${id}`);
+  }
+
+  create(data: CustomerDto): Observable<any> {
+    return this.http.post<any>(`${this.apiBaseUrl}/api/customer/create`, data);
+  }
+
+  findById(id: number): Observable<any> {
+    return this.http.get<any>(`${this.apiBaseUrl}/api/customer/detail/${id}`);
+  }
+
+  update(data: CustomerDto): Observable<any> {
+    return this.http.put<any>(`${this.apiBaseUrl}/api/customer/update/${data.customerId}`, data);
   }
 
   // private customers: Customer[] = [
@@ -282,9 +295,9 @@ export class CustomerService {
     this.customers.push(customer);
   }
 
-  public findById(id:number){
-    return this.customers.filter((c) => c.customerId == id);
-  }
+  // public findById(id:number){
+  //   return this.customers.filter((c) => c.customerId == id);
+  // }
 
   // delete(id: number) {
   //   this.customers = this.customers.filter((p) => p.id !== id);

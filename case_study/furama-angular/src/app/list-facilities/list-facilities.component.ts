@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import { FacilityService} from "../../services/facilities";
-import { Facility } from "../../models/facility"
+import { FacilityService} from "../services/facilities";
+import { Facility } from "../models/facility"
 import {HttpErrorResponse} from "@angular/common/http";
 
 @Component({
