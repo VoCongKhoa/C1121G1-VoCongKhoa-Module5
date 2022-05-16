@@ -1,0 +1,17 @@
+<h1 mat-dialog-title>Delete Category</h1>
+<div mat-dialog-content>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Product Name</mat-label>
+    <input matInput value="{{deleteData.id}}">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Category</mat-label>
+    <input matInput value="{{deleteData.name}}">
+  </mat-form-field>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button mat-dialog-close>Close</button>
+  <button mat-raised-button color="warn" (click)="deleteCategory()">Confirm</button>
+</div>
+
+

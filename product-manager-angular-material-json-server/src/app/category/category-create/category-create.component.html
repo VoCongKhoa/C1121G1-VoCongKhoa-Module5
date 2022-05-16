@@ -1,0 +1,24 @@
+<h1 mat-dialog-title style="color: darkblue; text-align: center; font-size: 60px; margin: 60px; font-family: fantasy">Create Product</h1>
+<div mat-dialog-content class="container">
+  <form [formGroup]="categoryForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Category Id</mat-label>
+      <input matInput placeholder="Id" formControlName="id">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Category Name</mat-label>
+      <input matInput placeholder="Name"  formControlName="name">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+  </form>
+</div>
+<div mat-dialog-actions style="display: flex; justify-content: center">
+  <button mat-raised-button color="warn" routerLink="/category/list">Back</button>
+  <button mat-raised-button color="primary" (click)="addProduct()">{{actionBtn}}</button>
+</div>
+
+
+

@@ -18,7 +18,12 @@ export class ProductListComponent implements OnInit {
   }
 
   getAll() {
-    this.products = this.productService.getAll();
+     this.productService.getAllProducts().subscribe(
+      (response) => {
+        this.products = response;
+        console.log(this.products);
+      },
+      (error => { alert('FAILED'); }));
   }
 
   sendId(product: Product) {
@@ -27,7 +32,7 @@ export class ProductListComponent implements OnInit {
 
   sendFlag(e: any) {
     if (e) {
-      this.products = this.productService.getAll();
+      this.getAll();
     }
   }
 }

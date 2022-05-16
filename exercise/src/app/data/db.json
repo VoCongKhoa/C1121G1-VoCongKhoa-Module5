@@ -1,0 +1,64 @@
+{
+  "taskList": [
+    {
+      "id": 1,
+      "title": "Go to market"
+    },
+    {
+      "id": 2,
+      "title": "Call friends"
+    },
+    {
+      "id": 3,
+      "title": "Go to coffee"
+    },
+    {
+      "id": 4,
+      "title": "Work at home"
+    },
+    {
+      "id": 5,
+      "title": "Go to cinema 3"
+    },
+    {
+      "id": 6,
+      "title": "abc"
+    },
+    {
+      "id": 7,
+      "title": "abbbb"
+    }
+  ],
+  "srcList": [
+    {
+      "id": 1,
+      "src": "https://a-z-animals.com/media/2021/07/Siberian-Tiger-1024x535.jpg",
+      "alt": "Image_1",
+      "title": "Image_1"
+    },
+    {
+      "id": 2,
+      "src": "https://i.pinimg.com/originals/7b/8d/86/7b8d864e41342a71212d90f4294ea069.jpg",
+      "alt": "Image_2",
+      "title": "Image_3"
+    },
+    {
+      "id": 3,
+      "src": "https://wallup.net/wp-content/uploads/2018/10/07/605966-cat-animal-cats-beautiful-lovely-cute-animals-748x468.jpg",
+      "alt": "Image_3",
+      "title": "Image_3"
+    },
+    {
+      "id": 4,
+      "src": "https://storage.googleapis.com/ares-profile-pictures/hd/cutest-a011cc97ac5a100f1cf36f3c57833d14_hd.jpg",
+      "alt": "Image_4",
+      "title": "Image_4"
+    },
+    {
+      "id": 5,
+      "src": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR--0DYYfi1QcH71LE_oRotb2aFLE3sQkv0Beo9V00XmkQhD86mJc3xvPR1FTieiX60mwk&usqp=CAU",
+      "alt": "Image_5",
+      "title": "Image_5"
+    }
+  ]
+}

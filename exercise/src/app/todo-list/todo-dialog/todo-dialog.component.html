@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Dialog with elements</h1>
+<div mat-dialog-content>
+  <form [formGroup]="taskForm">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>ID</mat-label>
+    <input matInput value="{{data.id}}" formControlName = "id">
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Title</mat-label>
+    <input matInput value="{{data.title}}"  formControlName = "title">
+  </mat-form-field>
+  </form>
+</div>
+
+<div mat-dialog-actions [align]="'end'">
+  <button mat-button mat-dialog-close>Close</button>
+  <button mat-button (click)="update(data)">Update</button>
+</div>

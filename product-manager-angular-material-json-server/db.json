@@ -1,0 +1,76 @@
+{
+  "productList": [
+    {
+      "productName": "Apple",
+      "category": {
+        "id": 1,
+        "name": "Fruits"
+      },
+      "freshness": "Brand New",
+      "price": "5",
+      "comment": "the new ones",
+      "date": "2022-05-13T17:00:00.000Z",
+      "id": 1
+    },
+    {
+      "productName": "Mango",
+      "category": {
+        "id": 1,
+        "name": "Fruits"
+      },
+      "freshness": "Second Hand",
+      "price": "2",
+      "comment": "old",
+      "date": "2022-05-12T17:00:00.000Z",
+      "id": 2
+    },
+    {
+      "productName": "Avocado",
+      "category": {
+        "id": 1,
+        "name": "Fruits"
+      },
+      "freshness": "Brand New",
+      "price": "15",
+      "comment": "Good",
+      "date": "2022-05-14T17:00:00.000Z",
+      "id": 3
+    },
+    {
+      "productName": "iPhone 12 PRO MAX",
+      "category": {
+        "id": 3,
+        "name": "Electronic"
+      },
+      "freshness": "Brand New",
+      "price": "1000",
+      "comment": "New",
+      "date": "2022-05-07T17:00:00.000Z",
+      "id": 4
+    }
+  ],
+  "categoryList": [
+    {
+      "id": 1,
+      "name": "Fruits"
+    },
+    {
+      "id": 2,
+      "name": "Vegetable"
+    },
+    {
+      "id": 3,
+      "name": "Electronic"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

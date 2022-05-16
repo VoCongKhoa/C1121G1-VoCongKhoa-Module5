@@ -15,13 +15,14 @@ export class ProductModalComponent implements OnInit, OnChanges {
   @Input() productUpdateChild: Product;
   // @Input() productDelete: Product;
   // @ts-ignore
-  @ViewChild('btnUpdateClose', {static = true}) btnUpdateClose;
+  @ViewChild('btnUpdateClose') btnUpdateClose;
   // @ts-ignore
   @ViewChild('btnDeleteClose') btnDeleteClose;
 
   @Output() flagUpdate = new EventEmitter();
 
-  constructor(private fb: FormBuilder, private productService: ProductService) {
+  constructor(private fb: FormBuilder,
+              private productService: ProductService) {
   }
 
   ngOnInit() {
@@ -29,7 +30,7 @@ export class ProductModalComponent implements OnInit, OnChanges {
       id: [''],
       name: [''],
       price: [''],
-      description: ['']
+      description: [''],
     });
 
     this.productUpdateChild = {
@@ -54,21 +55,31 @@ export class ProductModalComponent implements OnInit, OnChanges {
     }
   }
 
+
   updateProduct() {
     // Phai gan tung gia tri boi vi neu truyen nguyen Form sang, thi ten cua cac truong thuoc tinh se bi sai
     // Vi du: id se thanh idUpdate
-    this.productService.update(this.productUpdateForm.value);
-    this.btnUpdateClose.nativeElement.click();
-    const flag = true;
-    this.flagUpdate.emit(flag);
-    // console.log(this.flagUpdate);
+    this.productService.putProduct(this.productUpdateForm.value, this.productUpdateChild.id).subscribe(
+      (response) => {
+        this.btnUpdateClose.nativeElement.click();
+        const flag = true;
+        this.flagUpdate.emit(flag);
+      },
+      (error => {
+        alert('FAILED');
+      }));
   }
 
   delete() {
     // console.log(this.productUpdateChild);
-    this.productService.delete(this.productUpdateChild.id);
-    this.btnDeleteClose.nativeElement.click();
-    const flag = true;
-    this.flagUpdate.emit(flag);
+    this.productService.deleteProduct(this.productUpdateChild.id).subscribe(
+      (response) => {
+        this.btnDeleteClose.nativeElement.click();
+        const flag = true;
+        this.flagUpdate.emit(flag);
+      },
+      (error => {
+        alert('FAILED');
+      }));
   }
 }

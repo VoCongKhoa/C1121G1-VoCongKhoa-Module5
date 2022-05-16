@@ -1,0 +1,10 @@
+<h1>{{title}}</h1>
+<input type="text" placeholder="Enter new task" #task>
+<br><br>
+<button (click)="addNew(task.value)">Add new task</button>
+<br><br>
+<ul *ngFor="let task of listTask">
+  <li>{{task.title}}</li>
+  <button (click)="updateTask(task)">Edit</button><button (click)="removeTask(task.id)">Remove</button>
+</ul>
+

@@ -9,11 +9,12 @@ import {ProductService} from '../../service/product.service';
 })
 export class ProductCreateComponent implements OnInit {
   productCreateForm: FormGroup = new FormGroup({
-    idCreate: new FormControl(),
-    nameCreate: new FormControl(),
-    priceCreate: new FormControl(),
-    descriptionCreate: new FormControl(),
+    id: new FormControl(),
+    name: new FormControl(),
+    price: new FormControl(),
+    description: new FormControl(),
   });
+
 
   constructor(private productService: ProductService) {
   }
@@ -21,9 +22,18 @@ export class ProductCreateComponent implements OnInit {
   ngOnInit() {
   }
 
+
+
   submit() {
     const product = this.productCreateForm.value;
-    this.productService.saveProduct(product);
-    this.productCreateForm.reset();
+    this.productService.postProduct(product).subscribe(
+      (response) => {
+        console.log(product);
+        this.productCreateForm.reset();
+      },
+      (error => {
+        alert('FAILED');
+      }));
   }
+
 }

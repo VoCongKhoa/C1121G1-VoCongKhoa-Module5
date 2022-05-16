@@ -1,0 +1,33 @@
+<h1 style="text-align: center; margin: 20px">List Products</h1>
+<table class="table table-striped">
+  <thead>
+  <tr class="table-primary">
+    <td>#</td>
+    <td>Name</td>
+    <td>Price</td>
+    <td>Description</td>
+    <td colspan="2">Action</td>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let t of todoList; index as i">
+    <td>{{i + 1}}</td>
+    <td>{{t.content}}</td>
+    <td>{{t.complete}}</td>
+    <td>Action</td>
+    <td>
+<!--      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#updateProduct" (click)="sendId(t)">-->
+<!--        Update Product-->
+<!--      </button>-->
+    </td>
+    <td>
+<!--      <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#deleteProduct" (click)="sendId(t)">-->
+<!--        Delete Product-->
+<!--      </button>-->
+    </td>
+  </tr>
+  </tbody>
+</table>
+
+
+

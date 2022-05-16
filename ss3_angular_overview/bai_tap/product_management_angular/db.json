@@ -1,0 +1,84 @@
+{
+  "todoList": [
+    {
+      "id": 1,
+      "content": "Lam bai tap ve nha",
+      "complete": true
+    },
+    {
+      "id": 2,
+      "content": "Tap the duc",
+      "complete": true
+    },
+    {
+      "id": 1,
+      "content": "Mua quan ao",
+      "complete": false
+    },
+    {
+      "id": 2,
+      "content": "Xem phim",
+      "complete": false
+    }
+  ],
+  "productList": [
+    {
+      "id": 1,
+      "name": "IPhone 12",
+      "price": 2400000,
+      "description": "New"
+    },
+    {
+      "id": 2,
+      "name": "IPhone 11",
+      "price": 1560000,
+      "description": "ike new"
+    },
+    {
+      "id": 3,
+      "name": "IPhone X",
+      "price": 968000,
+      "description": "98%"
+    },
+    {
+      "id": 4,
+      "name": "IPhone 8",
+      "price": 7540000,
+      "description": "98%"
+    },
+    {
+      "id": 5,
+      "name": "IPhone 11 Pro",
+      "price": 1895000,
+      "description": "Like new"
+    }
+  ],
+  "categoryList": [
+    {
+      "id": 1,
+      "name": "Smartphone"
+    },
+    {
+      "id": 2,
+      "name": "Laptop"
+    },
+    {
+      "id": 3,
+      "name": "PC"
+    },
+    {
+      "id": 4,
+      "name": "Tablet"
+    }
+  ],
+  "comments": [
+    {
+      "id": 1,
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}
