@@ -14,6 +14,7 @@
             <div *ngIf="serviceCode.invalid && (serviceCode.dirty || serviceCode.touched)">
               <span *ngIf="serviceCode.errors.pattern" style="color: red">Wrong format, ex: KH-0123</span>
               <span *ngIf="serviceCode.errors.required" style="color: red">Empty! Input please!</span>
+              <span *ngIf="serviceCode.errors.existed" style="color: red">{{serviceCode.errors.existed}}</span>
             </div>
           </div>
           <div class="row">
@@ -67,15 +68,15 @@
             <div class="col-sm-6">
               <div class="form-group">
                 <label>Rent type:</label>
-                <select class="form-control" formControlName="rentTypeId">
-                  <option *ngFor="let rt of rentTypes" [ngValue]="rt.rentTypeId" [selected]="rt.rentTypeId==facility.rentType.rentTypeId">{{rt.rentTypeName}}</option>
+                <select class="form-control" formControlName="rentType">
+                  <option *ngFor="let rt of rentTypes" [ngValue]="rt.rentTypeId">{{rt.rentTypeName}}</option>
                 </select>
               </div>
             </div>
             <div class="col-sm-6">
               <div class="form-group">
                 <label for="serviceTypeCreateVilla">Service type:</label>
-                <select id="serviceTypeCreateVilla" class="form-control" formControlName="serviceTypeId">
+                <select id="serviceTypeCreateVilla" class="form-control" formControlName="serviceType">
                   <option value="3">Room</option>
                   <option value="2">House</option>
                   <option value="1">Villa</option>

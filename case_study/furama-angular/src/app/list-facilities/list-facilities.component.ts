@@ -1,7 +1,16 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, ViewChild} from '@angular/core';
 import { FacilityService} from "../services/facilities";
 import { Facility } from "../models/facility"
 import {HttpErrorResponse} from "@angular/common/http";
+import {MatTableDataSource} from "@angular/material/table";
+import {MatPaginator} from "@angular/material/paginator";
+import {MatSort} from "@angular/material/sort";
+import {MatDialog} from "@angular/material/dialog";
+import {Router} from "@angular/router";
+import {DialogCustomerComponent} from "../list-customers/dialog-customer/dialog-customer.component";
+import {ModalCustomerComponent} from "../list-customers/modal-customer/modal-customer.component";
+import {DialogFacilityComponent} from "./dialog-facility/dialog-facility.component";
+import {ModalFacilityComponent} from "./modal-facility/modal-facility.component";
 
 @Component({
   selector: 'app-list-facilities',
@@ -10,10 +19,14 @@ import {HttpErrorResponse} from "@angular/common/http";
 })
 export class ListFacilitiesComponent implements OnInit {
 
+  dataSource: MatTableDataSource<any>;
+  displayedColumns: string[] = ['customerId','customerCode','customerName','customerBirthday','customerGender','customerIdCard','customerPhone','actions'];
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  @ViewChild(MatSort) sort!: MatSort;
   facilities: Facility[] = [];
   p: number = 1;
   facilityRoot: Facility;
-  constructor(private facilityService: FacilityService) {
+  constructor(public dialog: MatDialog, private facilityService: FacilityService, private router: Router) {
     this.getFacilities();
   }
 
@@ -26,10 +39,13 @@ export class ListFacilitiesComponent implements OnInit {
     this.facilityService.getAllFacilities().subscribe(
       (response: Facility[]) => {
         this.facilities = response;
-        console.log(response)
+        this.dataSource = new MatTableDataSource<any>(response);
+        this.dataSource.paginator = this.paginator;
+        this.dataSource.sort = this.sort;
       },
       (error: HttpErrorResponse) => {
-        console.log(error);
+        console.log('Failed');
+        this.router.navigateByUrl('/error/404');
       }
     )
   }
@@ -43,5 +59,21 @@ export class ListFacilitiesComponent implements OnInit {
     if (e){
       this.getFacilities();
     }
+  }
+
+  applyFilter(event: Event) {
+    const filterValue = (event.target as HTMLInputElement).value;
+    this.dataSource.filter = filterValue.trim().toLowerCase();
+
+    if (this.dataSource.paginator) {
+      this.dataSource.paginator.firstPage();
+    }
+  }
+
+  deleteFacility(row: any){
+    this.dialog.open(ModalFacilityComponent,{
+      width: '60%',
+      data: row
+    }).afterClosed().subscribe((response)=>{ this.getFacilities();});
   }
 }

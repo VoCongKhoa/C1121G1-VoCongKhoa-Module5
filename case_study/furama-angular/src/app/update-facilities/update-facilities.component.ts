@@ -36,39 +36,47 @@ export class UpdateFacilitiesComponent implements OnInit {
 
     this.facilityUpdateForm = this.fb.group({
       serviceId: [''],
-      serviceCode: ["", [Validators.required, Validators.pattern('^$|^DV-[\\d]{4}$')]],
-      serviceName: ["", Validators.required],
+      serviceCode: ['', [Validators.required, Validators.pattern('^$|^DV-[\\d]{4}$')]],
+      serviceName: ['', Validators.required],
       serviceImage: [''],
-      serviceArea: [0, [Validators.required, gte]],
-      serviceCost: [0, [Validators.required, gte]],
-      serviceMaxPeople: [0, [Validators.required, gte]],
+      serviceArea: ['', [Validators.required, gte]],
+      serviceCost: ['', [Validators.required, gte]],
+      serviceMaxPeople: ['', [Validators.required, gte]],
       standardRoom: [''],
       descriptionOtherConvenience: [''],
-      poolArea: [0, [gte]],
-      numberOfFloors: [0, [gte]],
+      poolArea: ['', [gte]],
+      numberOfFloors: ['', [gte]],
       freeAttachedService: [''],
-      rentTypeId: [''],
-      serviceTypeId: [0, Validators.required]
+      rentType: [''],
+      serviceType: ['', Validators.required]
     })
 
     //Generate facility update form
     if (this.router.snapshot.params['id']) {
-      this.facility = this.facilityService.findById(this.router.snapshot.params['id'])[0];
-      this.facilityDTO.serviceId = this.facility.serviceId;
-      this.facilityDTO.serviceCode = this.facility.serviceCode;
-      this.facilityDTO.serviceName = this.facility.serviceName;
-      this.facilityDTO.serviceImage = this.facility.serviceImage;
-      this.facilityDTO.serviceArea = this.facility.serviceArea;
-      this.facilityDTO.serviceCost = this.facility.serviceCost;
-      this.facilityDTO.serviceMaxPeople = this.facility.serviceMaxPeople;
-      this.facilityDTO.standardRoom = this.facility.standardRoom;
-      this.facilityDTO.descriptionOtherConvenience = this.facility.descriptionOtherConvenience;
-      this.facilityDTO.poolArea = this.facility.poolArea;
-      this.facilityDTO.numberOfFloors = this.facility.numberOfFloors;
-      this.facilityDTO.freeAttachedService = this.facility.freeAttachedService;
-      this.facilityDTO.rentTypeId = this.facility.rentType.rentTypeId;
-      this.facilityDTO.serviceTypeId = this.facility.serviceTypeId;
-      this.facilityUpdateForm.patchValue(this.facilityDTO);
+      this.facilityService.findById(this.router.snapshot.params['id']).subscribe(
+        (response)=>{
+          console.log(response.data[0]);
+          this.facilityUpdateForm.controls['serviceId'].setValue(response.data[0].serviceId);
+          this.facilityUpdateForm.controls['serviceCode'].setValue(response.data[0].serviceCode);
+          this.facilityUpdateForm.controls['serviceName'].setValue(response.data[0].serviceName);
+          this.facilityUpdateForm.controls['serviceImage'].setValue(response.data[0].serviceImage);
+          this.facilityUpdateForm.controls['serviceArea'].setValue(response.data[0].serviceArea);
+          this.facilityUpdateForm.controls['serviceCost'].setValue(response.data[0].serviceCost);
+          this.facilityUpdateForm.controls['serviceMaxPeople'].setValue(response.data[0].serviceMaxPeople);
+          this.facilityUpdateForm.controls['standardRoom'].setValue(response.data[0].standardRoom);
+          this.facilityUpdateForm.controls['descriptionOtherConvenience'].setValue(response.data[0].descriptionOtherConvenience);
+          this.facilityUpdateForm.controls['poolArea'].setValue(response.data[0].poolArea);
+          this.facilityUpdateForm.controls['numberOfFloors'].setValue(response.data[0].numberOfFloors);
+          this.facilityUpdateForm.controls['freeAttachedService'].setValue(response.data[0].freeAttachedService);
+          this.facilityUpdateForm.controls['rentType'].setValue(response.data[0].rentType.rentTypeId);
+          this.facilityUpdateForm.controls['serviceType'].setValue(response.data[0].serviceType.serviceTypeId);
+
+        },
+        (error)=>{
+          confirm('Wrong service id! Input again!');
+          this.route.navigateByUrl('/facilities')
+        }
+      );
     }
 
   }
@@ -121,25 +129,33 @@ export class UpdateFacilitiesComponent implements OnInit {
     return this.facilityUpdateForm.get('freeAttachedService');
   }
 
-  get rentTypeId() {
+  get rentType() {
     return this.facilityUpdateForm.get('rentType');
   }
 
-  get serviceTypeId() {
-    return this.facilityUpdateForm.get('serviceTypeId');
+  get serviceType() {
+    return this.facilityUpdateForm.get('serviceType');
   }
 
   onSubmit() {
     if (this.facilityUpdateForm.invalid) {
       this.route.navigateByUrl('/update-facilities/' + this.serviceId.value);
     } else {
-      //Chu y de navigate len dau moi duoc
       this.facilityDTO = this.facilityUpdateForm.value;
-      this.route.navigateByUrl('/facilities');
-      this.facility.rentType = this.rentTypeService.findById(this.facilityUpdateForm.value.rentTypeId)[0];
-      this.facilityService.updateFacility(this.facility);
-      console.log(this.facility)
+      this.facilityDTO.active = 1;
+      this.facilityService.update(this.facilityDTO).subscribe(
+        (response) => {
+          this.route.navigateByUrl('/facilities');
+        },
+        (error) => {
+          console.log(error)
+          if (!error.error.status) {
+            this.serviceCode.setErrors({existed: error.error.errorMap.serviceCode});
+          }
+        }
+      );
     }
   }
+
 
 }

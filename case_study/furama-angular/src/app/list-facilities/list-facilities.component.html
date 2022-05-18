@@ -3,26 +3,50 @@
 </div>
 <div class="container">
   <div class="row">
-    <div class="col-sm-4" *ngFor="let f of facilities | paginate: { itemsPerPage: 2, currentPage: p }">
-      <div class="card">
-        <div class="card-image">
-          <img class="img-responsive"
-               src="{{f.serviceImage}}">
-        </div>
-        <div class="card-content">
-          <span class="card-title">{{f.serviceName}}</span>
-          <p class="room-name">Room size {{f.serviceArea}}m² - {{f.descriptionOtherConvenience}}</p>
-          <p><span class="discount-price">VND {{f.serviceCost}}</span> VND {{f.serviceCost * 0.8}}</p>
-        </div>
-        <div class="card-action d-flex">
-          <button type="button" class="btn btn-info" routerLink="/update-facilities/{{f.serviceId}}">Edit</button>
-          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="sendDelete(f)">Delete</button>
-        </div>
-      </div>
+    <div class="col-sm-4" *ngFor="let f of facilities | paginate: { itemsPerPage: 3, currentPage: p }">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>{{f.serviceName}}</mat-card-title>
+          <mat-card-subtitle>Room size {{f.serviceArea}}m² - {{f.descriptionOtherConvenience}}</mat-card-subtitle>
+        </mat-card-header>
+        <img mat-card-image src="https://furamavietnam.com/wp-content/uploads/2020/04/04-Facilities-Maintenance.jpg">
+        <mat-card-content>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. A ad alias architecto blanditiis distinctio
+            ducimus facilis fugit, harum hic illum impedit ipsum modi natus nisi officia perferendis sunt voluptate,
+            voluptatibus.
+          </p>
+        </mat-card-content>
+        <mat-card-actions [align]="'end'">
+          <button mat-icon-button color="primary" routerLink="/update-facilities/{{f.serviceId}}">
+            <mat-icon><i class="material-icons">edit_calendar</i></mat-icon>
+          </button>
+          <button mat-icon-button color="warn" (click)="deleteFacility(f)">
+            <mat-icon><i class="material-icons">folder_delete</i></mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+
+      <!--      <div class="card">-->
+      <!--        <div class="card-image">-->
+      <!--          <img class="img-responsive"-->
+      <!--               src="{{f.serviceImage}}">-->
+      <!--        </div>-->
+      <!--        <div class="card-content">-->
+      <!--          <span class="card-title">{{f.serviceName}}</span>-->
+      <!--          <p class="room-name">Room size {{f.serviceArea}}m² - {{f.descriptionOtherConvenience}}</p>-->
+      <!--          <p><span class="discount-price">VND {{f.serviceCost}}</span> VND {{f.serviceCost * 0.8}}</p>-->
+      <!--        </div>-->
+      <!--        <div class="card-action d-flex">-->
+      <!--          <button type="button" class="btn btn-info" routerLink="/update-facilities/{{f.serviceId}}">Edit</button>-->
+      <!--          <button type="button" class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="sendDelete(f)">Delete</button>-->
+      <!--        </div>-->
+      <!--      </div>-->
     </div>
   </div>
 </div>
 <div style="justify-content: space-around;display: flex;">
   <pagination-controls (pageChange)="p = $event"></pagination-controls>
 </div>
-<app-facility-modal [facilityChild] = 'facilityRoot' (flagDelete) = 'confirmDelete($event)'></app-facility-modal>
+<app-facility-modal [facilityChild]='facilityRoot' (flagDelete)='confirmDelete($event)'></app-facility-modal>

@@ -12,7 +12,7 @@ export class FacilityDTO {
   poolArea: number;
   numberOfFloors: number;
   freeAttachedService: string;
-  rentTypeId: number;
-  serviceTypeId: number;
-  active: number;
+  rentType: number;
+  serviceType: number;
+  active: number = 1;
 }

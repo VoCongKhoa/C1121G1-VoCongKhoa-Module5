@@ -3,7 +3,7 @@
     <form action="/services/showCreate" method="GET">
       <label for="createSelection" style="font-size: 30px; margin-top: 10px;"><b>Select service type for
         create:</b></label>
-      <select name="serviceTypeId" id="createSelection" class="form-control mb-3" style="width: 550px;"
+      <select name="serviceType" id="createSelection" class="form-control mb-3" style="width: 550px;"
               (change)="showFormCreate($event)">
         <option value="0" selected>Create new services</option>
         <option value="1">Create by villa</option>
@@ -103,7 +103,7 @@
                   <label for="serviceTypeCreateVilla">Service type:</label>
                   <input type="text" class="form-control" value="Villa" readonly>
                   <input type="text" class="form-control" id="serviceTypeCreateVilla"
-                         formControlName="serviceTypeId" hidden>
+                         formControlName="serviceType" hidden>
                 </div>
               </div>
             </div>
@@ -256,7 +256,7 @@
                   <label for="serviceTypeCreateHouse">Service type:</label>
                   <input type="text" class="form-control" value="House" readonly>
                   <input type="text" class="form-control" id="serviceTypeCreateHouse"
-                         formControlName="serviceTypeId" hidden>
+                         formControlName="serviceType" hidden>
                 </div>
               </div>
             </div>
@@ -395,7 +395,7 @@
                   <label for="serviceTypeCreateRoom">Service type:</label>
                   <input type="text" class="form-control" value="Room" readonly>
                   <input type="text" class="form-control" id="serviceTypeCreateRoom"
-                         formControlName="serviceTypeId" hidden>
+                         formControlName="serviceType" hidden>
                 </div>
               </div>
             </div>

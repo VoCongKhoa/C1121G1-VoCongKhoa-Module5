@@ -19,116 +19,117 @@
           </div>
         </div>
       </div>
-      <div class="table-filter">
-        <div class="row">
-          <div class="col-sm-3">
-
-            <!--                        FORM SORT-->
-            <form method="get" id="sortForm" action="/contract/list" onchange="submitSortForm()">
-              <div class="filter-group">
-                <select name="sortOption" id="sort" class="form-control">
-                  <option value="" selected>Sort</option>
-                  <option value="startDateSort">Sort by start date</option>
-                  <option value="endDateSort">Sort by end date</option>
-                  <option value="depositSort">Sort by deposit</option>
-                  <option value="totalMoneySort">Sort by total money</option>
-                </select>
-              </div>
-            </form>
-          </div>
-          <div class="col-sm-9">
-
-            <!--                        FORM SEARCH-->
-            <div class="filter-group">
-              <div class="filter-group d-flex">
-
-                <!--                                REFRESH BUTTON-->
-                <span class="input-group-text" id="basic-addon1"
-                      style="width: fit-content;padding-bottom: 0px;">
-                                      <a href="/customer/list" type="button"><svg
-                                        xmlns="http://www.w3.org/2000/svg" width="16"
-                                        height="16"
-                                        fill="currentColor"
-                                        class="bi bi-arrow-clockwise" viewBox="0 0 16 16"
-                                        style="margin-bottom: 6px;">
-                                          <path fill-rule="evenodd"
-                                                d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"></path>
-                                          <path
-                                            d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"></path>
-                                      </svg></a>
-
-                                    </span>
-                <form method="get" action="/contract/list">
-                  Contract date from:
-                  <input type="date" class="form-control"
-                         aria-label="Input group example" aria-describedby="basic-addon1"
-                         name="contractStartDateOptional">
-                  To:
-                  <input type="date" class="form-control"
-                         aria-label="Input group example" aria-describedby="basic-addon1"
-                         name="contractEndDateOptional">
-                  <input type="text" class="form-control" placeholder="Search by total money from..."
-                         aria-label="Input group example" aria-describedby="basic-addon1"
-                         name="contractTotalMoneyOptional">
-                  <button type="submit" class="btn btn-primary" style="margin-left: 10px;"><i
-                    class="fa fa-search"></i></button>
-                </form>
-              </div>
-            </div>
-
-
-          </div>
-        </div>
-      </div>
       <div>
-        <table class="table table-striped table-hover">
-          <thead>
-          <tr>
-            <th>ID</th>
-            <th>Contract Start Date</th>
-            <th>Contract End Date</th>
-            <th>Contract Deposit</th>
-            <th>Contract Total Money</th>
-            <th>Employee Id</th>
-            <th>Customer</th>
-            <th>Service</th>
-            <th colspan="2">Action</th>
-          </tr>
-          </thead>
-          <tbody>
-          <tr *ngFor="let contract of contracts | paginate : { itemsPerPage: 5, currentPage: p }">
-            <td>{{contract.contractId}}</td>
-            <td>{{contract.contractStartDate | date:'dd/MM/yyyy'}}</td>
-            <td>{{contract.contractEndDate | date:'dd/MM/yyyy'}}</td>
-            <td>{{contract.contractDeposit}}</td>
-            <td>{{contract.contractTotalMoney}}</td>
-            <td>{{contract.employee.employeeId}} - {{contract.employee.employeeName}}</td>
-            <td>{{contract.customer.customerCode}} - {{contract.customer.customerName}}</td>
-            <td>{{contract.services.serviceName}}</td>
-            <td>
-              <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>
-            </td>
-            <td>
-              <a type="button" style="color: #17a2b8; cursor: pointer" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="sendDelete(contract)">
-                <i class="fa-solid fa-trash-can "></i>
-              </a>
-            </td>
-          </tr>
-          </tbody>
-        </table>
-        <hr/>
-        <div style="justify-content: space-around;display: flex;">
-          <pagination-controls (pageChange)="p = $event"></pagination-controls>
+<!--        <table class="table table-striped table-hover">-->
+<!--          <thead>-->
+<!--          <tr>-->
+<!--            <th>ID</th>-->
+<!--            <th>Contract Start Date</th>-->
+<!--            <th>Contract End Date</th>-->
+<!--            <th>Contract Deposit</th>-->
+<!--            <th>Contract Total Money</th>-->
+<!--            <th>Employee Id</th>-->
+<!--            <th>Customer</th>-->
+<!--            <th>Service</th>-->
+<!--            <th colspan="2">Action</th>-->
+<!--          </tr>-->
+<!--          </thead>-->
+<!--          <tbody>-->
+<!--          <tr *ngFor="let contract of contracts | paginate : { itemsPerPage: 5, currentPage: p }">-->
+<!--            <td>{{contract.contractId}}</td>-->
+<!--            <td>{{contract.contractStartDate | date:'dd/MM/yyyy'}}</td>-->
+<!--            <td>{{contract.contractEndDate | date:'dd/MM/yyyy'}}</td>-->
+<!--            <td>{{contract.contractDeposit}}</td>-->
+<!--            <td>{{contract.contractTotalMoney}}</td>-->
+<!--            <td>{{contract.employee.employeeId}} - {{contract.employee.employeeName}}</td>-->
+<!--            <td>{{contract.customer.customerCode}} - {{contract.customer.customerName}}</td>-->
+<!--            <td>{{contract.services.serviceName}}</td>-->
+<!--            <td>-->
+<!--              <a href="#" style="color: #4ff321" title="Edit"><i class="fa-solid fa-info"></i></a>-->
+<!--            </td>-->
+<!--            <td>-->
+<!--              <a type="button" style="color: #17a2b8; cursor: pointer" data-bs-toggle="modal" data-bs-target="#deleteModal" (click)="sendDelete(contract)">-->
+<!--                <i class="fa-solid fa-trash-can "></i>-->
+<!--              </a>-->
+<!--            </td>-->
+<!--          </tr>-->
+<!--          </tbody>-->
+<!--        </table>-->
+
+
+        <div>
+          <mat-form-field appearance="standard">
+            <mat-label>Filter</mat-label>
+            <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
+          </mat-form-field>
+
+          <div class="mat-elevation-z8">
+            <table mat-table [dataSource]="dataSource" matSort>
+
+              <ng-container matColumnDef="contractId">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> ID</th>
+                <td mat-cell *matCellDef="let row"> {{row.contractId}} </td>
+              </ng-container>
+
+
+              <ng-container matColumnDef="contractStartDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract Start Date</th>
+                <td mat-cell *matCellDef="let row"> {{row.contractStartDate | date:'dd/MM/yyyy'}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="contractEndDate">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract End Date</th>
+                <td mat-cell *matCellDef="let row"> {{row.contractEndDate | date:'dd/MM/yyyy'}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="contractDeposit">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract Deposit</th>
+                <td mat-cell *matCellDef="let row"> {{row.contractDeposit  | currency}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="contractTotalMoney">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Contract Total Money</th>
+                <td mat-cell *matCellDef="let row"> {{row.contractTotalMoney  | currency}}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="employee">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Employee</th>
+                <td mat-cell *matCellDef="let row"> {{row.employee.employeeName}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="customer">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Customer</th>
+                <td mat-cell *matCellDef="let row"> {{row.customer.customerCode}} - {{row.customer.customerName}} </td>
+              </ng-container>
+
+              <ng-container matColumnDef="services">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Service</th>
+                <td mat-cell *matCellDef="let row"> {{row.services.serviceName}}</td>
+              </ng-container>
+
+              <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header> Actions</th>
+                <td mat-cell *matCellDef="let row">
+                </td>
+              </ng-container>
+
+              <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+              <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+              <!-- Row shown when there is no matching data. -->
+              <tr class="mat-row" *matNoDataRow>
+                <td class="mat-cell" colspan="4">No data matching the filter "{{input.value}}"</td>
+              </tr>
+            </table>
+
+            <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" aria-label="Select page of users"></mat-paginator>
+          </div>
         </div>
-<!--        <ul class="nav nav-pills" style="align-items: center; justify-content: center">-->
-<!--          <a class="page-link">«</a>-->
-<!--          <li class="nav-item d-flex">-->
-<!--            <a class="nav-link" href="#">1</a>-->
-<!--            <a class="nav-link active" href="#">2</a>-->
-<!--            <a class="nav-link" href="#">3</a>-->
-<!--          </li>-->
-<!--          <a class="page-link">»</a>-->
-<!--        </ul>-->
+
+<!--        <hr/>-->
+<!--        <div style="justify-content: space-around;display: flex;">-->
+<!--          <pagination-controls (pageChange)="p = $event"></pagination-controls>-->
+<!--        </div>-->
       </div>
     </div>
   </div>

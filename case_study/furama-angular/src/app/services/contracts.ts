@@ -4,6 +4,8 @@ import {Injectable} from "@angular/core";
 import {HttpClient} from "@angular/common/http";
 import {Customer} from "../models/customer";
 import {environment} from "../../environments/environment";
+import {CustomerDto} from "../dto/customerDto";
+import {ContractDto} from "../dto/contractDto";
 
 @Injectable({
   providedIn: 'root'
@@ -380,14 +382,18 @@ export class ContractService {
     return this.contracts;
   }
 
-  createContract(contract: Contract) {
-    contract.contractId = this.contracts.length + 1;
-    contract.active = 1;
-    this.contracts.push(contract);
-  }
+  // createContract(contract: Contract) {
+  //   contract.contractId = this.contracts.length + 1;
+  //   contract.active = 1;
+  //   this.contracts.push(contract);
+  // }
 
   delete(id: number): Observable<void> {
     return this.http.get<void>(`${this.apiBaseUrl}/api/contract/delete/${id}`);
+  }
+
+  create(data: ContractDto): Observable<any> {
+    return this.http.post<any>(`${this.apiBaseUrl}/api/contract/create`, data);
   }
 }
 

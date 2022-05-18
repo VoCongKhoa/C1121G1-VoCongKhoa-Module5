@@ -1,7 +1,27 @@
-import { CustomerType } from "../models/customerType"
+import {CustomerType} from "../models/customerType"
+import {Injectable} from "@angular/core";
+import {environment} from "../../environments/environment";
+import {HttpClient} from "@angular/common/http";
 
+@Injectable({
+  providedIn: 'root'
+})
 export class CustomerTypeService {
-  public getCustomerTypes(){
+
+  private apiBaseUrl = environment.apiBaseUrl;
+
+  private customerTypes: CustomerType[];
+
+  constructor(
+    private http: HttpClient
+  ) {
+  }
+
+  getAllCustomerTypes() {
+    return this.http.get<CustomerType[]>(`${this.apiBaseUrl}/api/customerType/list`);
+  }
+
+  public getCustomerTypes() {
     let customerTypes: CustomerType[];
     customerTypes = [
       {

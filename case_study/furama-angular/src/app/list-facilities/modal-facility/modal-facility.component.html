@@ -1,0 +1,24 @@
+<h1 mat-dialog-title>Delete Facility</h1>
+<div mat-dialog-content>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Customer Code</mat-label>
+    <input matInput value="{{deleteData.serviceCode}}" readonly>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Customer Name</mat-label>
+    <input matInput value="{{deleteData.serviceName}}" readonly>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Customer Gender</mat-label>
+    <input matInput value="{{deleteData.serviceCost == 0 ? 'Female' : 'Male'}}" readonly>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="outline" readonly>
+    <mat-label>Customer Birthday</mat-label>
+    <input matInput value="{{deleteData.serviceArea}}" readonly>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button mat-dialog-close>Close</button>
+  <button mat-raised-button color="warn" (click)="deleteFacility()">Confirm</button>
+</div>
+

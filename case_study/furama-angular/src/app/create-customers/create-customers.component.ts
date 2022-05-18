@@ -76,8 +76,8 @@ export class CreateCustomersComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    //Generate customers list
-    this.customers = this.customerService.getCustomers();
+    // //Generate customers list
+    // this.customers = this.customerService.getCustomers();
 
     //Generate customerTypes list
     this.customerTypes = this.customerTypeService.getCustomerTypes();
@@ -126,7 +126,7 @@ export class CreateCustomersComponent implements OnInit {
             this.customerCode.setErrors({existed: error.error.errorMap.customerCode});
             this.route.navigateByUrl('/create-customers');
           }
-        },
+        }
         )
     }
   }

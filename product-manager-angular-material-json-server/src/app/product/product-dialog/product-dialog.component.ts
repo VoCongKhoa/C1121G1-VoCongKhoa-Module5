@@ -59,7 +59,7 @@ export class ProductDialogComponent implements OnInit {
   };
 
   addProduct() {
-    console.log(this.productForm.value);
+    // console.log(this.productForm.value);
     if (!this.updateData){
       this.productService.postProduct(this.productForm.value).subscribe(
         (response)=>{

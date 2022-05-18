@@ -2,6 +2,8 @@ import {Facility} from "../models/facility";
 import {environment} from "../../environments/environment";
 import {HttpClient} from "@angular/common/http";
 import {Injectable} from "@angular/core";
+import {Observable} from "rxjs";
+import {FacilityDTO} from "../models/facilityDTO";
 
 @Injectable({
   providedIn: 'root'
@@ -151,27 +153,31 @@ export class FacilityService {
     return this.facilities;
   }
 
+  // findById(id: number) {
+  //   return this.facilities.filter(f => f.serviceId == id);
+  // }
+
   findById(id: number) {
-    return this.facilities.filter(f => f.serviceId == id);
+    return this.http.get<any>(`${this.apiBaseUrl}/api/facility/detail/${id}`);
   }
 
-  updateFacility(facility: Facility) {
-    this.facilities = this.facilities.map(
-      (c) => {
-        if(c.serviceId == facility.serviceId){
-          c = facility;
-        }
-        return c;
-      }
-    );
-  }
+  // updateFacility(facility: Facility) {
+  //   this.facilities = this.facilities.map(
+  //     (c) => {
+  //       if(c.serviceId == facility.serviceId){
+  //         c = facility;
+  //       }
+  //       return c;
+  //     }
+  //   );
+  // }
 
-  createFacility(facility: Facility) {
-    facility.serviceId = this.facilities.length + 1;
-    facility.active = 1;
-    facility.serviceImage = 'https://mediawiki.ivao.aero/images/9/9e/NEW.jpg';
-    this.facilities.push(facility);
-  }
+  // createFacility(facility: Facility) {
+  //   facility.serviceId = this.facilities.length + 1;
+  //   facility.active = 1;
+  //   facility.serviceImage = 'https://mediawiki.ivao.aero/images/9/9e/NEW.jpg';
+  //   this.facilities.push(facility);
+  // }
 
   delete(id: number) {
     return this.http.get<void>(`${this.apiBaseUrl}/api/facility/delete/${id}`);
@@ -179,5 +185,13 @@ export class FacilityService {
 
   getAllFacilities() {
     return this.http.get<Facility[]>(`${this.apiBaseUrl}/api/facility/list`);
+  }
+
+  update(data: FacilityDTO): Observable<any> {
+    return this.http.put<any>(`${this.apiBaseUrl}/api/facility/update/${data.serviceId}`, data);
+  }
+
+  create(data: FacilityDTO): Observable<any> {
+    return this.http.post<any>(`${this.apiBaseUrl}/api/facility/create`, data);
   }
 }

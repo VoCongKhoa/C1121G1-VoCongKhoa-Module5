@@ -19,7 +19,11 @@ const routes: Routes = [
   { path: 'create-customers', component: CreateCustomersComponent},
   { path: 'list-contracts', component: ListContractsComponent},
   { path: 'create-contracts', component: CreateContractsComponent},
-  { path:'',component: HomePageComponent}
+  { path:'',component: HomePageComponent},
+  {
+    path: 'error',
+    loadChildren: () => import('./error/error.module').then(module => module.ErrorModule)
+  }
   // { path:'**',component: PageNotFoundComponent}
 ]
 

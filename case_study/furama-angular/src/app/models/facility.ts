@@ -18,6 +18,4 @@ export class Facility {
   rentType: RentType;
   serviceTypeId: number;
   active: number;
-
-
 }

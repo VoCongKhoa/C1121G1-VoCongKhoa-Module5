@@ -64,7 +64,7 @@
                 <!--                [attr.selected]="rt"-->
                 <label for="employeeCreate">Choose new employee:</label>
                 <select id="employeeCreate" class="form-control" formControlName="employee">
-                  <option *ngFor="let e of employees; let first" [selected]="first" [ngValue]="e">{{e.employeeId}}
+                  <option *ngFor="let e of employees" [ngValue]="e.employeeId">{{e.employeeId}}
                     - {{e.employeeName}}</option>
                 </select>
                 <div
@@ -78,7 +78,7 @@
               <div class="form-group">
                 <label for="customerCreate">Choose new customer:</label>
                 <select id="customerCreate" class="form-control" formControlName="customer">
-                  <option *ngFor="let c of customers; let first" [selected]="first" [ngValue]="c">{{c.customerCode}}
+                  <option *ngFor="let c of customers" [ngValue]="c.customerId">{{c.customerCode}}
                     - {{c.customerName}}</option>
                 </select>
                 <div
@@ -91,8 +91,8 @@
           <div class="form-group">
             <label for="servicesCreate">Choose new services:</label>
             <select id="servicesCreate" class="form-control" formControlName="services">
-              <option *ngFor="let f of facilities; let first" [selected]="first"
-                      [ngValue]="f">{{f.serviceName}}</option>
+              <option *ngFor="let f of facilities"
+                      [ngValue]="f.serviceId">{{f.serviceName}}</option>
             </select>
             <div
               *ngIf="services.invalid && (services.dirty || services.touched) || services.errors?.empty">

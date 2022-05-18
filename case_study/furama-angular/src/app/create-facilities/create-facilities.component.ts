@@ -6,6 +6,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {RentTypeService} from "../services/rentTypes";
 import {gte} from "../services/gte";
 import {FacilityService} from "../services/facilities";
+import {FacilityDTO} from "../models/facilityDTO";
 
 @Component({
   selector: 'app-create-facilities',
@@ -28,7 +29,6 @@ export class CreateFacilitiesComponent implements OnInit {
 
   ngOnInit(): void {
     this.facilityCreateForm = this.fb.group({
-      serviceId: [''],
       serviceCode: ['', [Validators.required, Validators.pattern('^$|^DV-[\\d]{4}$')]],
       serviceName: ['', Validators.required],
       serviceImage: [''],
@@ -41,7 +41,7 @@ export class CreateFacilitiesComponent implements OnInit {
       numberOfFloors: ['', [gte]],
       freeAttachedService: [''],
       rentType: [],
-      serviceTypeId: []
+      serviceType: []
     })
 
     //Generate facility update form
@@ -99,49 +99,37 @@ export class CreateFacilitiesComponent implements OnInit {
     return this.facilityCreateForm.get('rentType');
   }
 
-  get serviceTypeId() {
-    return this.facilityCreateForm.get('serviceTypeId');
+  get serviceType() {
+    return this.facilityCreateForm.get('serviceType');
   }
 
 
   showFormCreate(event) {
     if (event.target.value == 0) {
+      this.facilityCreateForm.clearValidators();
       this.check = 0;
     }
     if (event.target.value == 1) {
+      this.facilityCreateForm.clearValidators();
       this.check = 1;
-      this.facilityCreateForm.controls['serviceTypeId'].setValue(1);
-      this.facilityCreateForm.controls['rentType'].setValue({
-        rentTypeId: 4,
-        rentTypeName: "hour",
-        rentTypeCost: 10000000,
-        active: 1
-      });
+      this.facilityCreateForm.controls['serviceType'].setValue(1);
+      this.facilityCreateForm.controls['rentType'].setValue(4);
     }
     if (event.target.value == 2) {
+      this.facilityCreateForm.clearValidators();
       this.check = 2;
-      this.facilityCreateForm.controls['serviceTypeId'].setValue(2);
-      this.facilityCreateForm.controls['rentType'].setValue({
-        rentTypeId: 4,
-        rentTypeName: "hour",
-        rentTypeCost: 10000000,
-        active: 1
-      });
+      this.facilityCreateForm.controls['serviceType'].setValue(2);
+      this.facilityCreateForm.controls['rentType'].setValue(4);
     }
     if (event.target.value == 3) {
+      this.facilityCreateForm.clearValidators();
       this.check = 3;
-      this.facilityCreateForm.controls['serviceTypeId'].setValue(3);
-      this.facilityCreateForm.controls['rentType'].setValue({
-        rentTypeId: 4,
-        rentTypeName: "hour",
-        rentTypeCost: 10000000,
-        active: 1
-      });
+      this.facilityCreateForm.controls['serviceType'].setValue(3);
+      this.facilityCreateForm.controls['rentType'].setValue(4);
     }
   }
 
   onSubmit() {
-    this.facilityCreateForm.clearValidators();
     if (this.facilityCreateForm.invalid) {
       if (this.serviceCode.value == '') {
         this.serviceCode.setErrors({empty: 'Empty! Please input!'})
@@ -158,34 +146,29 @@ export class CreateFacilitiesComponent implements OnInit {
       if (this.serviceMaxPeople.value == '') {
         this.serviceMaxPeople.setErrors({empty: 'Empty! Please input!'})
       }
-      // if (this.standardRoom.value == '') {
-      //   this.standardRoom.setErrors({empty: 'Empty! Please input!'})
-      // }
-      // if (this.descriptionOtherConvenience.value == '') {
-      //   this.descriptionOtherConvenience.setErrors({empty: 'Empty! Please input!'})
-      // }
       if (this.poolArea.value == '') {
         this.poolArea.setErrors({empty: 'Empty! Please input!'})
       }
       if (this.numberOfFloors.value == '') {
         this.numberOfFloors.setErrors({empty: 'Empty! Please input!'})
       }
-      // if (this.freeAttachedService.value == '') {
-      //   this.freeAttachedService.setErrors({empty: 'Empty! Please input!'})
-      // }
-      // if (this.rentType.value == '') {
-      //   this.rentType.setErrors({empty: 'Empty! Please input!'})
-      // }
-      // if (this.serviceTypeId.value == '') {
-      //   this.serviceTypeId.setErrors({empty: 'Empty! Please input!'})
-      // }
 
       this.route.navigateByUrl('/create-facilities');
     } else {
-      console.log(this.facilityCreateForm);
-      this.route.navigateByUrl('/facilities');
-      this.facilityService.createFacility(this.facilityCreateForm.value);
-      // this.facility = this.facilityCreateForm.value;
+      let facilityDto : FacilityDTO = this.facilityCreateForm.value;
+      facilityDto.active = 1;
+      console.log(facilityDto)
+      this.facilityService.create(facilityDto).subscribe(
+        (response)=>{
+          this.route.navigateByUrl('/facilities');
+        },
+        (error)=>{
+          if (!error.error.status) {
+            this.serviceCode.setErrors({existed: error.error.errorMap.serviceCode});
+            this.route.navigateByUrl('/create-facilities');
+          }
+        }
+      );
     }
 
   }
