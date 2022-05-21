@@ -1,4 +1,4 @@
-<h1 mat-dialog-title>Favorite Animal</h1>
+<h1 mat-dialog-title>Update Product</h1>
 <div mat-dialog-content>
   <form [formGroup]="productForm">
     <mat-form-field appearance="outline">
@@ -24,6 +24,13 @@
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+
+      <div
+        *ngIf="productForm.get('date').invalid && (productForm.get('date').dirty || productForm.get('date').touched) || productForm.get('date').errors?.empty || productForm.get('date').errors?.checkAge">
+        <span *ngIf="productForm.get('date').errors.pattern" style="color: red">Wrong format, ex: 123456789</span>
+        <span *ngIf="productForm.get('date').errors.required || productForm.get('date').errors.empty" style="color: red">Empty! Input please!</span>
+        <span *ngIf="productForm.get('date').errors.ageError" style="color: red">Day of birth must be more than 18!</span>
+      </div>
     </mat-form-field>
 
     <label id="example-radio-group-label"><h1 style="margin-top: 20px">Product Freshness</h1></label>
@@ -49,7 +56,7 @@
 </div>
 <div mat-dialog-actions [align]="'end'">
   <button mat-raised-button color="warn" mat-dialog-close>Close</button>
-  <button mat-raised-button color="primary" (click)="addProduct()">{{actionBtn}}</button>
+  <button mat-raised-button color="primary" (click)="updateProduct()">{{actionBtn}}</button>
 </div>
 
 

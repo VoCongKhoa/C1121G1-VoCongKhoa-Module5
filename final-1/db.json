@@ -1,0 +1,200 @@
+{
+  "productList": [
+    {
+      "productName": "Apple",
+      "category": {
+        "id": 1,
+        "name": "Fruits"
+      },
+      "freshness": "Brand New",
+      "price": 5,
+      "comment": "the new ones",
+      "date": "2022-05-13T17:00:00.000Z",
+      "id": 1
+    },
+    {
+      "productName": "Mango",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Second Hand",
+      "price": 2,
+      "comment": "old",
+      "date": "2022-05-12T17:00:00.000Z",
+      "id": 2
+    },
+    {
+      "productName": "Avocado",
+      "category": {
+        "id": 1,
+        "name": "Fruits"
+      },
+      "freshness": "Brand New",
+      "price": 15,
+      "comment": "Good",
+      "date": "2022-05-14T17:00:00.000Z",
+      "id": 3
+    },
+    {
+      "productName": "Apple",
+      "category": {
+        "id": 3,
+        "name": "Electronic"
+      },
+      "freshness": "Brand New",
+      "price": 5,
+      "comment": "the new ones",
+      "date": "2022-05-13T17:00:00.000Z",
+      "id": 4
+    },
+    {
+      "productName": "Mango",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Second Hand",
+      "price": 2,
+      "comment": "old",
+      "date": "2022-05-12T17:00:00.000Z",
+      "id": 5
+    },
+    {
+      "productName": "Avocado",
+      "category": {
+        "id": 1,
+        "name": "Fruits"
+      },
+      "freshness": "Brand New",
+      "price": 15,
+      "comment": "Good",
+      "date": "2022-05-14T17:00:00.000Z",
+      "id": 6
+    },
+    {
+      "productName": "Apple",
+      "category": {
+        "id": 1,
+        "name": "Fruits"
+      },
+      "freshness": "Brand New",
+      "price": 5,
+      "comment": "the new ones",
+      "date": "2022-05-13T17:00:00.000Z",
+      "id": 7
+    },
+    {
+      "productName": "Mango",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Second Hand",
+      "price": 2,
+      "comment": "old",
+      "date": "2022-05-12T17:00:00.000Z",
+      "id": 8
+    },
+    {
+      "productName": "Avocado",
+      "category": {
+        "id": 3,
+        "name": "Electronic"
+      },
+      "freshness": "Brand New",
+      "price": 15,
+      "comment": "Good",
+      "date": "2022-05-14T17:00:00.000Z",
+      "id": 9
+    },
+    {
+      "productName": "Papaya",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Brand New",
+      "price": 10,
+      "comment": "a",
+      "date": "2022-05-08T17:00:00.000Z",
+      "id": 10
+    },
+    {
+      "productName": "Papaya",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Second Hand",
+      "price": 500,
+      "comment": "a",
+      "date": "2022-05-17T17:00:00.000Z",
+      "id": 11
+    },
+    {
+      "productName": "Mango",
+      "category": {
+        "id": 1,
+        "name": "Fruits"
+      },
+      "freshness": "Brand New",
+      "price": 1000,
+      "date": "2022-05-17T17:00:00.000Z",
+      "id": 12
+    },
+    {
+      "productName": "Papaya",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Brand New",
+      "price": 1150,
+      "comment": "a",
+      "date": "2022-05-17T17:00:00.000Z",
+      "id": 13
+    },
+    {
+      "productName": "Mango",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Brand New",
+      "price": 1200,
+      "comment": "a",
+      "date": "2022-05-16T17:00:00.000Z",
+      "id": 14
+    },
+    {
+      "productName": "Papaya",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Brand New",
+      "price": 1400,
+      "comment": "a",
+      "date": "2022-05-17T17:00:00.000Z",
+      "id": 15
+    }
+  ],
+  "categoryList": [
+    {
+      "id": 1,
+      "name": "Fruits"
+    },
+    {
+      "id": 2,
+      "name": "Vegetable"
+    },
+    {
+      "id": 3,
+      "name": "Electronic"
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  }
+}

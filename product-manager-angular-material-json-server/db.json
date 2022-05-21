@@ -7,7 +7,7 @@
         "name": "Fruits"
       },
       "freshness": "Brand New",
-      "price": "5",
+      "price": 5,
       "comment": "the new ones",
       "date": "2022-05-13T17:00:00.000Z",
       "id": 1
@@ -15,11 +15,11 @@
     {
       "productName": "Mango",
       "category": {
-        "id": 1,
-        "name": "Fruits"
+        "id": 2,
+        "name": "Vegetable"
       },
       "freshness": "Second Hand",
-      "price": "2",
+      "price": 2,
       "comment": "old",
       "date": "2022-05-12T17:00:00.000Z",
       "id": 2
@@ -31,10 +31,153 @@
         "name": "Fruits"
       },
       "freshness": "Brand New",
-      "price": "15",
+      "price": 15,
       "comment": "Good",
       "date": "2022-05-14T17:00:00.000Z",
       "id": 3
+    },
+    {
+      "productName": "Apple",
+      "category": {
+        "id": 3,
+        "name": "Electronic"
+      },
+      "freshness": "Brand New",
+      "price": 5,
+      "comment": "the new ones",
+      "date": "2022-05-13T17:00:00.000Z",
+      "id": 4
+    },
+    {
+      "productName": "Mango",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Second Hand",
+      "price": 2,
+      "comment": "old",
+      "date": "2022-05-12T17:00:00.000Z",
+      "id": 5
+    },
+    {
+      "productName": "Avocado",
+      "category": {
+        "id": 1,
+        "name": "Fruits"
+      },
+      "freshness": "Brand New",
+      "price": 15,
+      "comment": "Good",
+      "date": "2022-05-14T17:00:00.000Z",
+      "id": 6
+    },
+    {
+      "productName": "Apple",
+      "category": {
+        "id": 1,
+        "name": "Fruits"
+      },
+      "freshness": "Brand New",
+      "price": 5,
+      "comment": "the new ones",
+      "date": "2022-05-13T17:00:00.000Z",
+      "id": 7
+    },
+    {
+      "productName": "Mango",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Second Hand",
+      "price": 2,
+      "comment": "old",
+      "date": "2022-05-12T17:00:00.000Z",
+      "id": 8
+    },
+    {
+      "productName": "Avocado",
+      "category": {
+        "id": 3,
+        "name": "Electronic"
+      },
+      "freshness": "Brand New",
+      "price": 15,
+      "comment": "Good",
+      "date": "2022-05-14T17:00:00.000Z",
+      "id": 9
+    },
+    {
+      "productName": "Papaya",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Brand New",
+      "price": 10,
+      "comment": "a",
+      "date": "2022-05-08T17:00:00.000Z",
+      "id": 10
+    },
+    {
+      "productName": "Papaya",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Second Hand",
+      "price": 500,
+      "comment": "a",
+      "date": "2022-05-17T17:00:00.000Z",
+      "id": 11
+    },
+    {
+      "productName": "Mango",
+      "category": {
+        "id": 1,
+        "name": "Fruits"
+      },
+      "freshness": "Brand New",
+      "price": 1000,
+      "date": "2022-05-17T17:00:00.000Z",
+      "id": 12
+    },
+    {
+      "productName": "Papaya",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Brand New",
+      "price": 1150,
+      "comment": "a",
+      "date": "2022-05-17T17:00:00.000Z",
+      "id": 13
+    },
+    {
+      "productName": "Mango",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Brand New",
+      "price": 1200,
+      "comment": "a",
+      "date": "2022-05-16T17:00:00.000Z",
+      "id": 14
+    },
+    {
+      "productName": "Papaya",
+      "category": {
+        "id": 2,
+        "name": "Vegetable"
+      },
+      "freshness": "Brand New",
+      "price": 1400,
+      "comment": "a",
+      "date": "2022-05-17T17:00:00.000Z",
+      "id": 15
     }
   ],
   "categoryList": [
@@ -51,11 +194,160 @@
       "name": "Electronic"
     }
   ],
-  "comments": [
+  "baiDang": [
     {
       "id": 1,
-      "body": "some comment",
-      "postId": 1
+      "tieuDe": "Can ban 1 can nha",
+      "danhMuc": {
+        "id": 1,
+        "ten": "Nha dat"
+      },
+      "vungMien": {
+        "id": 1,
+        "ten": "TP Ho Chi Minh"
+      },
+      "banLa": 0,
+      "huong": {
+        "id": 1,
+        "ten": "Dong"
+      },
+      "tinhTrang": 0,
+      "diaChi": "Quan Go Vap, TP Ho Chi Minh",
+      "dienTich": 64,
+      "gia": 900000000,
+      "noiDung": "Nha dep",
+      "hinhAnh": ""
+    },
+    {
+      "tieuDe": "Ban dat",
+      "danhMuc": {
+        "id": 3,
+        "ten": "Dat"
+      },
+      "vungMien": {
+        "id": 3,
+        "ten": "Da Nang"
+      },
+      "banLa": 0,
+      "huong": {
+        "id": 2,
+        "ten": "Tay"
+      },
+      "tinhTrang": 0,
+      "diaChi": "Ton Dan",
+      "dienTich": 150,
+      "gia": 5000000000,
+      "noiDung": "Dep",
+      "hinhAnh": "",
+      "id": 2
+    },
+    {
+      "tieuDe": "Ban dat",
+      "danhMuc": {
+        "id": 3,
+        "ten": "Dat"
+      },
+      "vungMien": {
+        "id": 3,
+        "ten": "Da Nang"
+      },
+      "banLa": 0,
+      "huong": {
+        "id": 2,
+        "ten": "Tay"
+      },
+      "tinhTrang": 0,
+      "diaChi": "Ton Dan",
+      "dienTich": 150,
+      "gia": 5000000000,
+      "noiDung": "Dep",
+      "hinhAnh": "",
+      "id": 3
+    },
+    {
+      "tieuDe": "Ban nha",
+      "danhMuc": {
+        "id": 2,
+        "ten": "Nha"
+      },
+      "vungMien": {
+        "id": 2,
+        "ten": "Ha Noi"
+      },
+      "banLa": 0,
+      "huong": {
+        "id": 3,
+        "ten": "Nam"
+      },
+      "tinhTrang": 0,
+      "diaChi": "Da Nang",
+      "dienTich": 55,
+      "gia": 6666666666666,
+      "noiDung": "dep",
+      "hinhAnh": "",
+      "id": 4
+    }
+  ],
+  "danhMuc": [
+    {
+      "id": 1,
+      "ten": "Nha dat"
+    },
+    {
+      "id": 2,
+      "ten": "Nha"
+    },
+    {
+      "id": 3,
+      "ten": "Dat"
+    }
+  ],
+  "vungMien": [
+    {
+      "id": 1,
+      "ten": "TP Ho Chi Minh"
+    },
+    {
+      "id": 2,
+      "ten": "Ha Noi"
+    },
+    {
+      "id": 3,
+      "ten": "Da Nang"
+    }
+  ],
+  "huong": [
+    {
+      "id": 1,
+      "ten": "Dong"
+    },
+    {
+      "id": 2,
+      "ten": "Tay"
+    },
+    {
+      "id": 3,
+      "ten": "Nam"
+    },
+    {
+      "id": 4,
+      "ten": "Bac"
+    },
+    {
+      "id": 5,
+      "ten": "Dong Nam"
+    },
+    {
+      "id": 6,
+      "ten": "Dong Bac"
+    },
+    {
+      "id": 7,
+      "ten": "Tay Nam"
+    },
+    {
+      "id": 8,
+      "ten": "Tay Bac"
     }
   ],
   "profile": {

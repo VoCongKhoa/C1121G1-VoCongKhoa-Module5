@@ -8,7 +8,8 @@ import {CategoryService} from "../../services/category.service";
 @Component({
   selector: 'app-product-create',
   templateUrl: './product-create.component.html',
-  styleUrls: ['./product-create.component.css']
+  styleUrls: ['./product-create.component.css'],
+
 })
 export class ProductCreateComponent implements OnInit {
 
@@ -28,7 +29,7 @@ export class ProductCreateComponent implements OnInit {
       productName: ['', [Validators.required]],
       category: ['', [Validators.required]],
       freshness: ['', [Validators.required]],
-      price: ['', [Validators.required]],
+      price: ['',Validators.required],
       comment: ['', [Validators.required]],
       date: ['', [Validators.required]],
     })
@@ -37,6 +38,7 @@ export class ProductCreateComponent implements OnInit {
 
   addProduct() {
     console.log(this.productForm.value);
+    this.productForm.value.price = Number.parseFloat(this.productForm.value.price);
       this.productService.postProduct(this.productForm.value).subscribe(
         (response)=>{
           alert('OK');

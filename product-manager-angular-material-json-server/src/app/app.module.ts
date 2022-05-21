@@ -13,7 +13,7 @@ import {MatFormFieldModule} from "@angular/material/form-field";
 import {MatInputModule} from "@angular/material/input";
 import {MatSelectModule} from "@angular/material/select";
 import {MatDatepickerModule} from "@angular/material/datepicker";
-import {MatNativeDateModule} from '@angular/material/core'
+import {MAT_DATE_LOCALE, MatNativeDateModule} from '@angular/material/core'
 import {MatRadioModule} from "@angular/material/radio";
 import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {HttpClientModule} from "@angular/common/http";
@@ -22,11 +22,15 @@ import {MatSortModule} from "@angular/material/sort";
 import {MatPaginatorModule} from "@angular/material/paginator";
 import {ProductModule} from "./product/product.module";
 import {SharedModule} from "./shared/shared.module";
+import { BaiDangComponent } from './bai-dang/bai-dang.component';
+import { BaiDangCreateComponent } from './bai-dang/bai-dang-create/bai-dang-create.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     DialogComponent,
+    BaiDangComponent,
+    BaiDangCreateComponent,
   ],
   imports: [
     BrowserModule,

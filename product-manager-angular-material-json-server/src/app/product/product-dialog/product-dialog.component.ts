@@ -7,6 +7,7 @@ import {ProductService} from "../../services/product.service";
 import {ProductModalComponent} from "../product-modal/product-modal.component";
 import {Category} from "../../models/Category";
 import {CategoryService} from "../../services/category.service";
+import {checkAge} from "../../services/checkAge";
 
 @Component({
   selector: 'app-product-dialog',
@@ -37,7 +38,7 @@ export class ProductDialogComponent implements OnInit {
       freshness: ['', [Validators.required]],
       price: ['', [Validators.required]],
       comment: ['', [Validators.required]],
-      date: ['', [Validators.required]],
+      date: ['', [Validators.required, checkAge]],
     })
     if(this.updateData){
       this.productForm.controls['productName'].setValue(this.updateData.productName);
@@ -74,15 +75,21 @@ export class ProductDialogComponent implements OnInit {
 
   }
 
-  private updateProduct() {
-    this.productService.putProduct(this.productForm.value, this.updateData.id).subscribe(
-      (response)=>{
-        alert('OK');
-        this.productForm.reset();
-        this.dialogRef.close('update');
-      },
-      (error)=>{ alert('Failed') }
-    );
+  updateProduct() {
+    if (this.productForm.valid){
+      this.productForm.value.price = Number.parseFloat(this.productForm.value.price);
+      this.productService.putProduct(this.productForm.value, this.updateData.id).subscribe(
+        (response)=>{
+          alert('OK');
+          this.productForm.reset();
+          this.dialogRef.close('update');
+        },
+        (error)=>{ alert('Failed') }
+      );
+    } else {
+      alert('Failed');
+    }
+
   }
 
   getAllCategiries() {

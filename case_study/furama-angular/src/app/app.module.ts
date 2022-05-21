@@ -6,14 +6,7 @@ import {AppComponent} from './app.component';
 import {HomePageComponent} from './home-page/home-page.component';
 import {FuramaHeaderComponent} from './furama-header/furama-header.component';
 import {FuramaFooterComponent} from './furama-footer/furama-footer.component';
-import {ListFacilitiesComponent} from './list-facilities/list-facilities.component';
-import {UpdateFacilitiesComponent} from './update-facilities/update-facilities.component';
-import {CreateFacilitiesComponent} from './create-facilities/create-facilities.component';
-import {ListCustomersComponent} from './list-customers/list-customers.component';
-import {UpdateCustomersComponent} from './update-customers/update-customers.component';
-import {CreateCustomersComponent} from './create-customers/create-customers.component';
-import {ListContractsComponent} from './list-contracts/list-contracts.component';
-import {CreateContractsComponent} from './create-contracts/create-contracts.component';
+
 import {FormsModule} from "@angular/forms";
 import {ContractService} from "./services/contracts";
 import {CustomerService} from "./services/customers";
@@ -22,11 +15,7 @@ import {CustomerTypeService} from "./services/customerTypes";
 import {ReactiveFormsModule} from '@angular/forms';
 import {RentTypeService} from "./services/rentTypes";
 import {EmployeeService} from "./services/employees";
-import {CustomerModalComponent} from './list-customers/customer-modal/customer-modal.component';
-import {HttpClientModule} from "@angular/common/http";
-import {NgxPaginationModule} from 'ngx-pagination';
-import {ContractModalComponent} from './list-contracts/contract-modal/contract-modal.component';
-import {FacilityModalComponent} from './list-facilities/facility-modal/facility-modal.component';
+
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
@@ -41,11 +30,25 @@ import {MatRadioModule} from "@angular/material/radio";
 import {MatTableModule} from "@angular/material/table";
 import {MatSortModule} from "@angular/material/sort";
 import {MatPaginatorModule} from "@angular/material/paginator";
-import { DialogCustomerComponent } from './list-customers/dialog-customer/dialog-customer.component';
-import { ModalCustomerComponent } from './list-customers/modal-customer/modal-customer.component';
-import { ModalFacilityComponent } from './list-facilities/modal-facility/modal-facility.component';
-import { DialogFacilityComponent } from './list-facilities/dialog-facility/dialog-facility.component';
+
 import {MatCardModule} from "@angular/material/card";
+import {ListFacilitiesComponent} from "./facility/list-facilities/list-facilities.component";
+import {FacilityModalComponent} from "./facility/list-facilities/facility-modal/facility-modal.component";
+import {NgxPaginationModule} from "ngx-pagination";
+import {ModalCustomerComponent} from "./customer/list-customers/modal-customer/modal-customer.component";
+import {UpdateCustomersComponent} from "./customer/update-customers/update-customers.component";
+import {ContractModalComponent} from "./contract/list-contracts/contract-modal/contract-modal.component";
+import {DialogFacilityComponent} from "./facility/list-facilities/dialog-facility/dialog-facility.component";
+import {CreateCustomersComponent} from "./customer/create-customers/create-customers.component";
+import {ModalFacilityComponent} from "./facility/list-facilities/modal-facility/modal-facility.component";
+import {DialogCustomerComponent} from "./customer/list-customers/dialog-customer/dialog-customer.component";
+import {CreateContractsComponent} from "./contract/create-contracts/create-contracts.component";
+import {ListContractsComponent} from "./contract/list-contracts/list-contracts.component";
+import {ListCustomersComponent} from "./customer/list-customers/list-customers.component";
+import {CustomerModalComponent} from "./customer/list-customers/customer-modal/customer-modal.component";
+import {CreateFacilitiesComponent} from "./facility/create-facilities/create-facilities.component";
+import {HttpClientModule} from "@angular/common/http";
+import {UpdateFacilitiesComponent} from "./facility/update-facilities/update-facilities.component";
 
 
 @NgModule({

@@ -1,0 +1,145 @@
+<h1 mat-dialog-title style="color: darkblue; text-align: center; font-size: 60px; margin: 60px; font-family: fantasy">
+  Create Product</h1>
+<div mat-dialog-content class="container">
+  <form [formGroup]="baiDangForm">
+
+    <mat-form-field appearance="outline">
+      <mat-label> Tieu de</mat-label>
+      <input matInput placeholder="Tieu de" formControlName="tieuDe">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+      <div
+        *ngIf="tieuDe.invalid && (tieuDe.dirty || tieuDe.touched) || tieuDe.errors?.empty">
+        <span *ngIf="tieuDe.errors.required || tieuDe.errors.empty" style="color: red"> Vui long khong de trong!</span>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label> Danh muc</mat-label>
+      <mat-select placeholder="Danh muc" formControlName="danhMuc">
+        <mat-option *ngFor="let c of danhMucs" [value]="c">{{c.id}} - {{c.ten}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label> Vung mien</mat-label>
+      <mat-select placeholder="Vung mien" formControlName="vungMien">
+        <mat-option *ngFor="let c of vungMiens" [value]="c">{{c.id}} - {{c.ten}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <label id="example1"><h1 style="margin-top: 15px">Ban la</h1></label>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                     formControlName="banLa">
+      <mat-radio-button class="example-radio-button" [value]="0" style="margin-top: -15px">Ca nhan</mat-radio-button>
+      <mat-radio-button class="example-radio-button" [value]="1">Cong ty</mat-radio-button>
+    </mat-radio-group>
+    <!--    <label id="examplel"><h1 style="margin-top: 20px"> Ban la</h1></label>-->
+    <!--    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"  formControlName="banLa">-->
+    <!--      <mat-radio-button class="example-radio-button" *ngFor="let f of freshnessList" [value]="f">-->
+    <!--        {{f}}-->
+    <!--      </mat-radio-button>-->
+    <!--    </mat-radio-group>-->
+
+    <mat-form-field appearance="outline">
+      <mat-label> Huong</mat-label>
+      <mat-select placeholder="Category" formControlName="huong">
+        <mat-option *ngFor="let c of huongs" [value]="c">{{c.id}} - {{c.ten}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+
+    <label id="example2"><h1 style="margin-top: 15px">Tinh trang</h1></label>
+    <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"
+                     formControlName="tinhTrang">
+      <mat-radio-button class="example-radio-button" [value]="0" style="margin-top: -15px">Moi</mat-radio-button>
+      <mat-radio-button class="example-radio-button" [value]="1">Da su dung</mat-radio-button>
+    </mat-radio-group>
+
+    <!--        <label id="example-radio-group-label"><h1 style="margin-top: 20px"> Tinh trang</h1></label>-->
+    <!--        <mat-radio-group aria-labelledby="example-radio-group-label" class="example-radio-group"-->
+    <!--                         formControlName="tinhTrang">-->
+    <!--          <mat-radio-button class="example-radio-button" *ngFor="let f of freshnessList" [value]="f">-->
+    <!--            {{f}}-->
+    <!--          </mat-radio-button>-->
+    <!--        </mat-radio-group>-->
+
+    <!--    <mat-form-field appearance="outline">-->
+    <!--      <mat-label> Huong</mat-label>-->
+    <!--      <mat-select placeholder="Category" formControlName="category">-->
+    <!--        <mat-option *ngFor="let c of categories" [value]="c">{{c.id}} - {{c.name}}</mat-option>-->
+    <!--      </mat-select>-->
+    <!--    </mat-form-field>-->
+
+    <!--    <mat-form-field appearance="fill">-->
+    <!--      <mat-label>Choose a date</mat-label>-->
+    <!--      <input matInput [matDatepicker]="picker" formControlName="date">-->
+    <!--      <mat-hint>MM/DD/YYYY</mat-hint>-->
+    <!--      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>-->
+    <!--      <mat-datepicker #picker></mat-datepicker>-->
+    <!--    </mat-form-field>-->
+
+    <mat-form-field appearance="outline">
+      <mat-label> Dia chi</mat-label>
+      <textarea matInput placeholder="Comment" formControlName="diaChi"></textarea>
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+      <div
+        *ngIf="diaChi.invalid && (diaChi.dirty || diaChi.touched) || diaChi.errors?.empty">
+        <span *ngIf="diaChi.errors.required || diaChi.errors.empty" style="color: red"> Vui long khong de trong!</span>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label> Dien tich</mat-label>
+      <input matInput placeholder="Price" formControlName="dienTich" type="number">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    <div
+      *ngIf="dienTich.invalid && (dienTich.dirty || dienTich.touched) || dienTich.errors?.empty">
+                    <span *ngIf="dienTich.errors?.gte"
+                          style="color: red">{{dienTich.errors?.requiredValue}}</span>
+      <span *ngIf="dienTich.errors.required || dienTich.errors.empty" style="color: red">Vui long khong de trong!</span>
+    </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label> Gia</mat-label>
+      <input matInput placeholder="Price" formControlName="gia" type="number">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+      <div
+        *ngIf="gia.invalid && (gia.dirty || gia.touched) || gia.errors?.empty">
+                    <span *ngIf="gia.errors?.gte"
+                          style="color: red"> {{gia.errors?.requiredValue}}</span>
+        <span *ngIf="gia.errors.required || gia.errors.empty" style="color: red"> Vui long khong de trong!</span>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label> Noi dung</mat-label>
+      <input matInput placeholder="Price" formControlName="noiDung">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+      <div
+        *ngIf="noiDung.invalid && (noiDung.dirty || noiDung.touched) || noiDung.errors?.empty">
+        <span *ngIf="noiDung.errors.required || noiDung.errors.empty" style="color: red"> Vui long khong de trong!</span>
+      </div>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline">
+      <mat-label> Hinh anh</mat-label>
+      <input matInput placeholder="Price" formControlName="hinhAnh">
+      <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      <mat-hint>Hint</mat-hint>
+    </mat-form-field>
+
+  </form>
+</div>
+<div mat-dialog-actions style="display: flex; justify-content: center">
+  <button mat-raised-button color="warn" routerLink="/baiDang">Back</button>
+  <button mat-raised-button color="primary" (click)="themMoi()">Luu thay doi</button>
+</div>
+
+
+

@@ -1,0 +1,14 @@
+npm i -g @angular/cli
+
+npm install -g @angular/cli@9.1.15
+
+ng add @angular/material
+npm i @angular/material@9.2.4
+
+npm i json-server
+
+json-server --watch db.json
+
+npm install --save @angular/material @angular/cdk
+
+npm audit fix --force

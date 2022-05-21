@@ -1,0 +1,128 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="e74873a5-2823-4e17-a804-02e29d0c2cc5" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Algo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-2/src/app/models/category.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-2/src/app/models/product.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-2/src/app/services/category.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-2/src/app/services/category.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-2/src/app/services/product.service.spec.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-2/src/app/services/product.service.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/controllers/BaiDangRestController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/dto/BaiDangDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/models/BaiDang.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/models/DanhMuc.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/models/Huong.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/models/ResponseObject.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/models/VungMien.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/repositories/IBaiDangRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/repositories/IDanhMucRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/repositories/IHuongRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/repositories/IVungMienRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/services/BaiDangServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/services/DanhMucServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/services/HuongServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/services/IBaiDangService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/services/IDanhMucService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/services/IHuongService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/services/IVungMienService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../final-webservice/src/main/java/project/services/VungMienServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/models/danhMuc.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/models/huong.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/models/vungMien.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/services/checkAge.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/services/gte.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/services/gteGia.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/db.json" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/db.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/app-routing.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/app-routing.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/app.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-create/product-create.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-create/product-create.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-create/product-create.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-create/product-create.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-dialog/product-dialog.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-dialog/product-dialog.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-dialog/product-dialog.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-dialog/product-dialog.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-list/product-list.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-list/product-list.component.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-list/product-list.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-list/product-list.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-list/product-list.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product-list/product-list.component.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/product/product.module.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/services/product.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/services/product.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/shared/navbar/navbar.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/../product-manager-angular-material-json-server/src/app/shared/navbar/navbar.component.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ss1_ux_ui/bai_tap/landing_page/angular-component" beforeDir="false" afterPath="$PROJECT_DIR$/../ss1_ux_ui/bai_tap/landing_page/angular-component" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="MarkdownSettingsMigration">
+    <option name="stateVersion" value="1" />
+  </component>
+  <component name="ProjectId" id="29QG8QaOlI7ss4VjSv2c3wimzU2" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.0" />
+  </component>
+  <component name="RunManager">
+    <configuration name="Algo" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="Algo" />
+      <module name="algo1" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.Algo" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="e74873a5-2823-4e17-a804-02e29d0c2cc5" name="Changes" comment="" />
+      <created>1653037736589</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1653037736589</updated>
+      <workItem from="1653037737842" duration="3696000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+</project>

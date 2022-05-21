@@ -1,14 +1,15 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ListFacilitiesComponent } from "./list-facilities/list-facilities.component";
-import { UpdateFacilitiesComponent } from "./update-facilities/update-facilities.component";
-import { HomePageComponent } from "./home-page/home-page.component";
-import {CreateFacilitiesComponent} from "./create-facilities/create-facilities.component";
-import {ListCustomersComponent} from "./list-customers/list-customers.component";
-import {UpdateCustomersComponent} from "./update-customers/update-customers.component";
-import {CreateCustomersComponent} from "./create-customers/create-customers.component";
-import {CreateContractsComponent} from "./create-contracts/create-contracts.component";
-import {ListContractsComponent} from "./list-contracts/list-contracts.component";
+import {ListFacilitiesComponent} from "./facility/list-facilities/list-facilities.component";
+import {CreateContractsComponent} from "./contract/create-contracts/create-contracts.component";
+import {ListContractsComponent} from "./contract/list-contracts/list-contracts.component";
+import {ListCustomersComponent} from "./customer/list-customers/list-customers.component";
+import {UpdateCustomersComponent} from "./customer/update-customers/update-customers.component";
+import {CreateFacilitiesComponent} from "./facility/create-facilities/create-facilities.component";
+import {CreateCustomersComponent} from "./customer/create-customers/create-customers.component";
+import {HomePageComponent} from "./home-page/home-page.component";
+import {UpdateFacilitiesComponent} from "./facility/update-facilities/update-facilities.component";
+
 
 const routes: Routes = [
   { path: 'facilities', component: ListFacilitiesComponent},

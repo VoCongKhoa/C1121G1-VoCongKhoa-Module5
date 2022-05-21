@@ -1,6 +1,37 @@
 <div class="container">
+  <div style="display: flex; justify-content: center; margin: 10px">
+    <form method="get" [formGroup]="searchForm" (ngSubmit)="search()">
+      <input type="text" class="form-control" placeholder="Search by name"
+             aria-label="Input group example" aria-describedby="basic-addon1"
+             name="name" formControlName="nameSearch" style="margin: 10px">
+      <input type="date" class="form-control" placeholder="Search by date from"
+             aria-label="Input group example" aria-describedby="basic-addon1"
+             name="date" formControlName="dateSearch" style="margin: 10px">
+<!--      <div class="form-group">-->
+        <!--      <label for="employeeCreate">Search by category:</label>-->
+        <select id="employeeCreate" class="form-control" formControlName="categorySearch" style="margin: 10px">
+          <option disabled [value]="0">--Search by category--</option>
+          <option *ngFor="let c of categoryList" [ngValue]="c.id">{{c.id}}
+            - {{c.name}}</option>
+        </select>
+        <!--      <div-->
+        <!--        *ngIf="employee.invalid && (employee.dirty || employee.touched) || employee.errors?.empty">-->
+        <!--        <span *ngIf="employee.errors.required || employee.errors.empty" style="color: red">Empty! Choose please!</span>-->
+        <!--      </div>-->
+<!--      </div>-->
+      <input type="text" class="form-control" placeholder="Search by price"
+             aria-label="Input group example" aria-describedby="basic-addon1"
+             name="price" formControlName="priceSearch" style="margin: 10px">
+      <button type="submit" class="btn btn-primary" style="margin-left: 10px;"><i
+        class="fa fa-search"></i>Search
+      </button>
+    </form>
+  </div>
+</div>
+
+<div class="container">
   <button mat-raised-button routerLink="/product/create" color="primary">Add Product</button>
-  
+
   <mat-form-field appearance="standard">
     <mat-label>Filter</mat-label>
     <input matInput (keyup)="applyFilter($event)" placeholder="Ex. Mia" #input>
@@ -26,6 +57,7 @@
         <th mat-header-cell *matHeaderCellDef mat-sort-header> Date</th>
         <td mat-cell *matCellDef="let row"> {{row.date | date:'dd/MM/yyyy'}} </td>
       </ng-container>
+
 
       <!-- Fruit Column -->
       <ng-container matColumnDef="price">

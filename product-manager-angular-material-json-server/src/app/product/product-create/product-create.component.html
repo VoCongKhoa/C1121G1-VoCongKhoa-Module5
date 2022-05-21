@@ -11,9 +11,6 @@
       <mat-label>Product Category</mat-label>
       <mat-select placeholder="Category" formControlName="category">
         <mat-option *ngFor="let c of categories" [value]="c">{{c.id}} - {{c.name}}</mat-option>
-<!--        <mat-option value="Fruits">Fruits</mat-option>-->
-<!--        <mat-option value="Vegetable">Vegetable</mat-option>-->
-<!--        <mat-option value="Electronic">Electronic</mat-option>-->
       </mat-select>
     </mat-form-field>
     <mat-form-field appearance="fill">
