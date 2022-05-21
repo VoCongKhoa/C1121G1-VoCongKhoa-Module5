@@ -1,7 +1,7 @@
-<h1 mat-dialog-title style="color: darkblue; text-align: center; font-size: 60px; margin: 60px; font-family: fantasy">
-  Tao moi Bai Dang</h1>
-<div mat-dialog-content class="container">
+<h1 mat-dialog-title>Update Product</h1>
+<div mat-dialog-content>
   <form [formGroup]="baiDangForm">
+    <input formControlName="id" hidden>
     <mat-form-field appearance="outline">
       <mat-label> Tieu de</mat-label>
       <input matInput placeholder="Tieu de" formControlName="tieuDe">
@@ -71,12 +71,12 @@
       <input matInput placeholder="Price" formControlName="dienTich" type="number">
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
       <mat-hint>Hint</mat-hint>
-    <div
-      *ngIf="dienTich.invalid && (dienTich.dirty || dienTich.touched) || dienTich.errors?.empty">
+      <div
+        *ngIf="dienTich.invalid && (dienTich.dirty || dienTich.touched) || dienTich.errors?.empty">
                     <span *ngIf="dienTich.errors?.gte"
                           style="color: red">{{dienTich.errors?.requiredValue}}</span><br>
-      <span *ngIf="dienTich.errors.required || dienTich.errors.empty" style="color: red">Vui long khong de trong!</span>
-    </div>
+        <span *ngIf="dienTich.errors.required || dienTich.errors.empty" style="color: red">Vui long khong de trong!</span>
+      </div>
     </mat-form-field>
 
     <mat-form-field appearance="outline">
@@ -112,9 +112,9 @@
 
   </form>
 </div>
-<div mat-dialog-actions style="display: flex; justify-content: center">
-  <button mat-raised-button color="warn" routerLink="/baiDang">Back</button>
-  <button mat-raised-button color="primary" (click)="themMoi()">Luu thay doi</button>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+  <button mat-raised-button color="primary" (click)="luuBaiDang()">Luu thay doi</button>
 </div>
 
 

@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>Delete Product</h1>
+<div mat-dialog-content>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Tieu De</mat-label>
+    <input matInput value="{{deleteData.tieuDe}}" readonly>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Vung Mien</mat-label>
+    <input matInput value="{{deleteData.vungMien.ten}}" readonly>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Huong</mat-label>
+    <input matInput value="{{deleteData.huong.ten}}" readonly>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Dia Chi</mat-label>
+    <input matInput value="{{deleteData.diaChi}}" readonly>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Dien Tich</mat-label>
+    <input matInput value="{{deleteData.dienTich}}m2" readonly>
+  </mat-form-field>
+  <mat-form-field class="example-full-width" appearance="outline">
+    <mat-label>Gia</mat-label>
+    <input matInput value="{{deleteData.gia | currency}}" readonly>
+  </mat-form-field>
+</div>
+<div mat-dialog-actions [align]="'end'">
+  <button mat-raised-button mat-dialog-close>Close</button>
+  <button mat-raised-button color="warn" (click)="deleteBaiDang()">Confirm</button>
+</div>
+
+

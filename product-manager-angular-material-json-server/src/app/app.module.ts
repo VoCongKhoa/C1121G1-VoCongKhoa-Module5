@@ -24,6 +24,9 @@ import {ProductModule} from "./product/product.module";
 import {SharedModule} from "./shared/shared.module";
 import { BaiDangComponent } from './bai-dang/bai-dang.component';
 import { BaiDangCreateComponent } from './bai-dang/bai-dang-create/bai-dang-create.component';
+import { BaiDangUpdateComponent } from './bai-dang/bai-dang-update/bai-dang-update.component';
+import { BaiDangDeleteComponent } from './bai-dang/bai-dang-delete/bai-dang-delete.component';
+import {NgxPaginationModule} from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -31,6 +34,8 @@ import { BaiDangCreateComponent } from './bai-dang/bai-dang-create/bai-dang-crea
     DialogComponent,
     BaiDangComponent,
     BaiDangCreateComponent,
+    BaiDangUpdateComponent,
+    BaiDangDeleteComponent,
   ],
   imports: [
     BrowserModule,
@@ -53,7 +58,8 @@ import { BaiDangCreateComponent } from './bai-dang/bai-dang-create/bai-dang-crea
     MatSortModule,
     MatPaginatorModule,
     ProductModule,
-    SharedModule
+    SharedModule,
+    NgxPaginationModule
   ],
   providers: [],
   bootstrap: [AppComponent],

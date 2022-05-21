@@ -10,7 +10,7 @@ public class BaiDang {
     @Column(name = "id")
     int id;
 
-    @Column(name = "ten")
+    @Column(name = "tieu_de")
     String tieuDe;
 
     @ManyToOne

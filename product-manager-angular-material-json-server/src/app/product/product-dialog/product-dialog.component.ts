@@ -89,7 +89,6 @@ export class ProductDialogComponent implements OnInit {
     } else {
       alert('Failed');
     }
-
   }
 
   getAllCategiries() {

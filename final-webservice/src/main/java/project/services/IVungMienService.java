@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IVungMienService {
     List<VungMien> findAll();
+
+    VungMien findById(int id);
 }

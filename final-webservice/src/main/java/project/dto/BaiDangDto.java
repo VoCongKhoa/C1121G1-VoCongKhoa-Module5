@@ -6,28 +6,36 @@ import project.models.DanhMuc;
 import project.models.Huong;
 import project.models.VungMien;
 
+import javax.validation.constraints.NotBlank;
+import java.util.Objects;
+
 
 public class BaiDangDto implements Validator {
     int id;
 
+    @NotBlank(message = "Vui long khong de trong")
     String tieuDe;
 
-    DanhMuc danhMuc;
+    int danhMuc;
 
-    VungMien vungMien;
+    int vungMien;
 
     int banLa;
 
-    Huong huong;
+    int huong;
 
     int tinhTrang;
 
+    @NotBlank(message = "Vui long khong de trong")
     String diaChi;
 
-    double dienTich;
+    @NotBlank(message = "Vui long khong de trong")
+    String dienTich;
 
-    double gia;
+    @NotBlank(message = "Vui long khong de trong")
+    String gia;
 
+    @NotBlank(message = "Vui long khong de trong")
     String noiDung;
 
     String hinhAnh;
@@ -51,19 +59,19 @@ public class BaiDangDto implements Validator {
         this.tieuDe = tieuDe;
     }
 
-    public DanhMuc getDanhMuc() {
+    public int getDanhMuc() {
         return danhMuc;
     }
 
-    public void setDanhMuc(DanhMuc danhMuc) {
+    public void setDanhMuc(int danhMuc) {
         this.danhMuc = danhMuc;
     }
 
-    public VungMien getVungMien() {
+    public int getVungMien() {
         return vungMien;
     }
 
-    public void setVungMien(VungMien vungMien) {
+    public void setVungMien(int vungMien) {
         this.vungMien = vungMien;
     }
 
@@ -75,11 +83,11 @@ public class BaiDangDto implements Validator {
         this.banLa = banLa;
     }
 
-    public Huong getHuong() {
+    public int getHuong() {
         return huong;
     }
 
-    public void setHuong(Huong huong) {
+    public void setHuong(int huong) {
         this.huong = huong;
     }
 
@@ -99,19 +107,19 @@ public class BaiDangDto implements Validator {
         this.diaChi = diaChi;
     }
 
-    public double getDienTich() {
+    public String getDienTich() {
         return dienTich;
     }
 
-    public void setDienTich(double dienTich) {
+    public void setDienTich(String dienTich) {
         this.dienTich = dienTich;
     }
 
-    public double getGia() {
+    public String getGia() {
         return gia;
     }
 
-    public void setGia(double gia) {
+    public void setGia(String gia) {
         this.gia = gia;
     }
 
@@ -138,6 +146,26 @@ public class BaiDangDto implements Validator {
 
     @Override
     public void validate(Object target, Errors errors) {
-
+        BaiDangDto baiDangDto = (BaiDangDto) target;
+        if (!Objects.equals(baiDangDto.getDienTich(), "")){
+            if (!baiDangDto.getDienTich().trim().equals("") && !baiDangDto.getDienTich().matches("^\\s*(?=.*[1-9])\\d*(?:\\.\\d{1,4})?\\s*$")){
+                errors.rejectValue("dienTich", "", "Dien tich phai la so lon hon 0");
+            } else {
+                double dt = Double.parseDouble(baiDangDto.getDienTich().trim());
+                if (dt <= 20){
+                    errors.rejectValue("dienTich", "", "Dien tich phai la so lon hon 20");
+                }
+            }
+        }
+        if (!Objects.equals(baiDangDto.getGia(), "")){
+            if (!baiDangDto.getGia().trim().equals("") && !baiDangDto.getGia().matches("^\\s*(?=.*[1-9])\\d*(?:\\.\\d{1,4})?\\s*$")){
+                errors.rejectValue("gia", "", "Gia tien phai la so lon hon 0");
+            } else {
+                double g = Double.parseDouble(baiDangDto.getGia().trim());
+                if (g <= 100000000){
+                    errors.rejectValue("gia", "", "Gia tien phai la so lon hon 100000000");
+                }
+            }
+        }
     }
 }

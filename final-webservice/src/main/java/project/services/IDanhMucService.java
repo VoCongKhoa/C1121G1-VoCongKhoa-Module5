@@ -6,4 +6,6 @@ import java.util.List;
 
 public interface IDanhMucService {
     List<DanhMuc> findAll();
+
+    DanhMuc findById(int id);
 }

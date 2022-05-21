@@ -16,4 +16,9 @@ public class VungMienServiceImpl implements IVungMienService{
     public List<VungMien> findAll() {
         return iVungMienRepository.findAll();
     }
+
+    @Override
+    public VungMien findById(int id) {
+        return iVungMienRepository.findById(id).orElse(null);
+    }
 }

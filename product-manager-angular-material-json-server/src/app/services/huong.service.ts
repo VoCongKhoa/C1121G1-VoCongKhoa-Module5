@@ -12,7 +12,7 @@ export class HuongService {
     return this.http.post<any>('http://localhost:3000/huong/', data);
   }
   getAllHuongs(){
-    return this.http.get<any>('http://localhost:3000/huong');
+    return this.http.get<any>('http://localhost:8080/huong/list');
   }
 
   putHuong(data: any, id: number) {

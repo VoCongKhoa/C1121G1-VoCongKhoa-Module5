@@ -16,4 +16,9 @@ public class HuongServiceImpl implements IHuongService{
     public List<Huong> findAll() {
         return iHuongRepository.findAll();
     }
+
+    @Override
+    public Huong findById(int id) {
+        return iHuongRepository.findById(id).orElse(null);
+    }
 }

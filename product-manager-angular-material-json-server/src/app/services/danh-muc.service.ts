@@ -12,7 +12,7 @@ export class DanhMucService {
     return this.http.post<any>('http://localhost:3000/danhMuc/', data);
   }
   getAllDanhMucs(){
-    return this.http.get<any>('http://localhost:3000/danhMuc');
+    return this.http.get<any>('http://localhost:8080/danh-muc/list');
   }
 
   putDanhMuc(data: any, id: number) {

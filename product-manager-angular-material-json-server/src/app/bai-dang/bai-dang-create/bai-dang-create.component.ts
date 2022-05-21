@@ -3,15 +3,14 @@ import {FormBuilder, FormGroup, Validators} from "@angular/forms";
 import {DanhMuc} from "../../models/danhMuc";
 import {VungMien} from "../../models/vungMien";
 import {Huong} from "../../models/huong";
-import {ProductService} from "../../services/product.service";
 import {Router} from "@angular/router";
-import {CategoryService} from "../../services/category.service";
 import {BaiDangService} from "../../services/bai-dang.service";
 import {DanhMucService} from "../../services/danh-muc.service";
 import {VungMienService} from "../../services/vung-mien.service";
 import {HuongService} from "../../services/huong.service";
 import {gte} from "../../services/gte";
 import {gteGia} from "../../services/gteGia";
+import {BaiDangDto} from "../../models/BaiDangDto";
 
 @Component({
   selector: 'app-bai-dang-create',
@@ -93,6 +92,8 @@ export class BaiDangCreateComponent implements OnInit {
   themMoi() {
     if (this.baiDangForm.valid){
       console.log(this.baiDangForm.value);
+      let baiDangDto : BaiDangDto = this.baiDangForm.value;
+      console.log(baiDangDto);
       this.baiDangService.postBaiDang(this.baiDangForm.value).subscribe(
         (response)=>{
           alert('OK');
@@ -124,20 +125,20 @@ export class BaiDangCreateComponent implements OnInit {
 
   getAllDanhMucs(){
     this.danhMucService.getAllDanhMucs().subscribe(
-      (response)=>{ this.danhMucs = response;},
+      (response)=>{ this.danhMucs = response.data;},
       (error)=>{ alert('FAILED')}
     )
   }
   getAllVungMiens(){
     this.vungMienService.getAllVungMiens().subscribe(
-      (response)=>{ this.vungMiens = response;},
+      (response)=>{ this.vungMiens = response.data;},
       (error)=>{ alert('FAILED')}
     )
   }
 
   getAllHuongs(){
     this.huongService.getAllHuongs().subscribe(
-      (response)=>{ this.huongs = response;},
+      (response)=>{ this.huongs = response.data;},
       (error)=>{ alert('FAILED')}
     )
   }
