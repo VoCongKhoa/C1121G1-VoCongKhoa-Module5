@@ -18,4 +18,6 @@ public interface IBaiDangService {
     Page<BaiDang> getAllBaiDangPaging(Pageable pageable);
 
     Page<BaiDang> getAllBaiDangPagingAndSearch(Pageable pageable, String dienTich, String gia, String huong);
+
+    Page<BaiDang> getAllBaiDangPagingAndSearchAndSort(Pageable pageable, String dienTich, String gia, String huong, String sort);
 }

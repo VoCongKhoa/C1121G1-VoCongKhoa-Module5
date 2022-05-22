@@ -31,6 +31,17 @@
         class="fa fa-search"></i>Search
       </button>
     </form>
+    <br>
+    <div>
+    <select class="form-control" (change)="sort(sortValue.value)" #sortValue>
+      <option disabled selected>--Sap xep theo--</option>
+      <option value="dt">Dien tich</option>
+      <option value="g">Gia</option>
+      <option value="vm">Vung mien</option>
+      <option value="h">Huong</option>
+      <option value="dm">Danh muc</option>
+    </select>
+    </div>
   </div>
 </div>
 

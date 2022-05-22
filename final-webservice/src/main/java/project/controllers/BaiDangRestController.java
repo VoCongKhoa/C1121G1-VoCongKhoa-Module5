@@ -110,9 +110,9 @@ public class BaiDangRestController {
     public ResponseEntity<Page<BaiDang>> list(@PageableDefault(value = 3) Pageable pageable,
                                               @RequestParam(name = "dtS", required = false) String dienTich,
                                               @RequestParam(name = "gS", required = false) String gia,
-                                              @RequestParam(name = "hS", required = false) String huong) {
-        System.out.println(huong);
-        Page<BaiDang> baiDangList = iBaiDangService.getAllBaiDangPagingAndSearch(pageable, dienTich, gia, huong);
+                                              @RequestParam(name = "hS", required = false) String huong,
+                                              @RequestParam(name = "s", required = false, defaultValue = "") String sort) {
+        Page<BaiDang> baiDangList = iBaiDangService.getAllBaiDangPagingAndSearchAndSort(pageable, dienTich, gia, huong, sort);
         return new ResponseEntity<>(baiDangList, HttpStatus.OK);
     }
 

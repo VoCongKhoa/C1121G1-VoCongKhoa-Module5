@@ -23,7 +23,7 @@ export class BaiDangComponent implements OnInit {
   first: boolean = true;
   totalPages: any;
   last: boolean;
-
+  sortValue: string = '';
   constructor(public dialog: MatDialog,
               private danhMucService: DanhMucService,
               private vungMienService: VungMienService,
@@ -35,7 +35,7 @@ export class BaiDangComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getAllBaiDangs('','','');
+    this.getAllBaiDangs('','','', '');
     this.getAllHuongs();
     this.searchForm = this.fb.group({
       dienTichSearch: [''],
@@ -55,8 +55,8 @@ export class BaiDangComponent implements OnInit {
     )
   }
 
-  getAllBaiDangs(dienTich: string, gia: string, huong: string) {
-    this.baiDangService.getAllBaiDangs(this.pageNumber,dienTich,gia,huong).subscribe(
+  getAllBaiDangs(dienTich: string, gia: string, huong: string, sort: string) {
+    this.baiDangService.getAllBaiDangs(this.pageNumber,dienTich,gia,huong, sort).subscribe(
       (response) => {
         this.first = response.first;
         this.totalPages = response.totalPages;
@@ -80,7 +80,7 @@ export class BaiDangComponent implements OnInit {
     if (isNaN(this.searchForm.value.giaSearch) || this.searchForm.value.giaSearch.trim == '') {
       this.searchForm.get('giaSearch').setErrors({number: 'Ban phai nhap so!'})
     }
-    this.getAllBaiDangs(this.searchForm.value.dienTichSearch,this.searchForm.value.giaSearch,this.searchForm.value.huongSearch)
+    this.getAllBaiDangs(this.searchForm.value.dienTichSearch,this.searchForm.value.giaSearch,this.searchForm.value.huongSearch, '')
   }
 
   updateBaiDang(row: any) {
@@ -89,7 +89,7 @@ export class BaiDangComponent implements OnInit {
       data: row
     }).afterClosed().subscribe(value => {
       if (value === 'update') {
-        this.getAllBaiDangs('','','');
+        this.getAllBaiDangs('','','','');
       }
     })
   }
@@ -100,28 +100,35 @@ export class BaiDangComponent implements OnInit {
       data: row
     }).afterClosed().subscribe(value => {
       if (value === 'close') {
-        this.getAllBaiDangs('','','');
+        this.getAllBaiDangs('','','','');
       }
     })
   }
 
   next() {
     this.pageNumber++;
-    this.getAllBaiDangs(this.searchForm.value.dienTichSearch,this.searchForm.value.giaSearch,this.searchForm.value.huongSearch)
+    this.getAllBaiDangs(this.searchForm.value.dienTichSearch,this.searchForm.value.giaSearch,this.searchForm.value.huongSearch,this.sortValue)
   }
 
   previous() {
     this.pageNumber--;
-    this.getAllBaiDangs(this.searchForm.value.dienTichSearch,this.searchForm.value.giaSearch,this.searchForm.value.huongSearch)
+    this.getAllBaiDangs(this.searchForm.value.dienTichSearch,this.searchForm.value.giaSearch,this.searchForm.value.huongSearch,this.sortValue)
   }
 
   getBaiDangPaging(index: any) {
     this.pageNumber = index - 1;
-    this.getAllBaiDangs(this.searchForm.value.dienTichSearch,this.searchForm.value.giaSearch,this.searchForm.value.huongSearch)
+    this.getAllBaiDangs(this.searchForm.value.dienTichSearch,this.searchForm.value.giaSearch,this.searchForm.value.huongSearch,this.sortValue)
   }
 
   refresh() {
     this.searchForm.reset();
     this.ngOnInit();
+  }
+
+
+  sort(value: string) {
+    this.sortValue = value
+    this.getAllBaiDangs(this.searchForm.value.dienTichSearch,this.searchForm.value.giaSearch,this.searchForm.value.huongSearch,this.sortValue)
+
   }
 }

@@ -13,8 +13,8 @@ export class BaiDangService {
     return this.http.post<any>('http://localhost:8080/bai-dang/create', data);
   }
 
-  getAllBaiDangs(p: number, dienTich: string, gia: string, huong: string) {
-    return this.http.get<any>(`http://localhost:8080/bai-dang/list?page=${p}&dtS=${dienTich}&gS=${gia}&hS=${huong}`);
+  getAllBaiDangs(p: number, dienTich: string, gia: string, huong: string, sort: string) {
+    return this.http.get<any>(`http://localhost:8080/bai-dang/list?page=${p}&dtS=${dienTich}&gS=${gia}&hS=${huong}&s=${sort}`);
   }
 
   putBaiDang(id: number, data: any) {
