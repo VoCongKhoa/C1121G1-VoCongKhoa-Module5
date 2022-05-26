@@ -3,6 +3,7 @@ package project.controllers;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatus;
@@ -112,6 +113,8 @@ public class BaiDangRestController {
                                               @RequestParam(name = "gS", required = false) String gia,
                                               @RequestParam(name = "hS", required = false) String huong,
                                               @RequestParam(name = "s", required = false, defaultValue = "") String sort) {
+        List<BaiDang> a = new ArrayList<>();
+        Page<BaiDang> page = new PageImpl<>(a);
         Page<BaiDang> baiDangList = iBaiDangService.getAllBaiDangPagingAndSearchAndSort(pageable, dienTich, gia, huong, sort);
         return new ResponseEntity<>(baiDangList, HttpStatus.OK);
     }
