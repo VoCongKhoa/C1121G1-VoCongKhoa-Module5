@@ -19,7 +19,7 @@ public class Supplier {
     private String email;
 
     @OneToMany(mappedBy = "supplier")
-    private Set<Product> productSet;
+    private Set<Storage> storageSet;
 
     @Column(name = "delete_flag", nullable = false)
     private boolean deleteFlag;

@@ -20,12 +20,19 @@ public class Invoice {
     @Column(name = "payments", nullable = false, length = 50)
     private String payments;
 
+//    @ManyToOne
+//    @JoinColumn(name = "employee_id", nullable = false, referencedColumnName = "id")
+//    private Employee employee;
+
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false, referencedColumnName = "id")
     private Customer customer;
 
-    @ManyToOne
-    @JoinColumn(name = "product_id", nullable = false, referencedColumnName = "id")
-    private Product product;
+    @OneToMany(mappedBy = "invoice")
+    private Set<InvoiceDetail> invoiceDetailSet;
+
+//    @ManyToOne
+//    @JoinColumn(name = "product_id", nullable = false, referencedColumnName = "id")
+//    private Product product;
 
 }

@@ -1,21 +1,18 @@
 package api.controllers;
 
-import api.services.IEmployeeService;
-import api.services.IPositionService;
+import api.services.ICustomerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
-@RequestMapping("/api/employee")
-public class EmployeeRestController {
+@RequestMapping("/api/customer")
+public class CustomerRestController {
 
     @Autowired
-    IEmployeeService iEmployeeService;
-
-    @Autowired
-    IPositionService iPositionService;
+    ICustomerService iCustomerService;
 
 }

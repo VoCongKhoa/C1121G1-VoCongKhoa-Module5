@@ -32,6 +32,9 @@ public class Employee {
     @OneToMany(mappedBy = "createdEmployee")
     private Set<Storage> storageSet;
 
+    @OneToMany(mappedBy = "employee")
+    private Set<Invoice> invoiceSet;
+
     @Column(name = "delete_flag", nullable = false)
     private boolean deleteFlag;
 }

@@ -1,7 +1,7 @@
 package api.controllers;
 
-import api.services.IEmployeeService;
-import api.services.IPositionService;
+import api.services.IAccountService;
+import api.services.IRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,13 +9,12 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
-@RequestMapping("/api/employee")
-public class EmployeeRestController {
+@RequestMapping("/api/home")
+public class AccountRestController {
 
     @Autowired
-    IEmployeeService iEmployeeService;
+    IAccountService iAccountService;
 
     @Autowired
-    IPositionService iPositionService;
-
+    IRoleService iRoleService;
 }

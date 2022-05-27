@@ -1,7 +1,6 @@
 package api.controllers;
 
-import api.services.IEmployeeService;
-import api.services.IPositionService;
+import api.services.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -9,13 +8,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @CrossOrigin("http://localhost:4200")
-@RequestMapping("/api/employee")
-public class EmployeeRestController {
+@RequestMapping("/api/product")
+public class ProductRestController {
 
     @Autowired
-    IEmployeeService iEmployeeService;
-
-    @Autowired
-    IPositionService iPositionService;
-
+    IProductService iProductService;
 }

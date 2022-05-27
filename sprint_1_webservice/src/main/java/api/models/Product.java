@@ -35,11 +35,11 @@ public class Product {
     @Column(name = "other_description", columnDefinition = "LONGTEXT")
     private String otherDescription;
 
-    @OneToMany(mappedBy = "product")
-    private Set<StorageProduct> storageProductSet;
+//    @OneToMany(mappedBy = "product")
+//    private Set<Invoice> invoiceSet;
 
     @OneToMany(mappedBy = "product")
-    private Set<Invoice> invoiceSet;
+    private Set<Storage> storageSet;
 
     @Column(name = "delete_flag", nullable = false)
     private boolean deleteFlag;
