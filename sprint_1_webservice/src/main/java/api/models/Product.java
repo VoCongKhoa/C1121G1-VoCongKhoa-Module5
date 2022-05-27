@@ -28,10 +28,6 @@ public class Product {
     @Column(name = "memory", length = 50)
     private String memory;
 
-    @ManyToOne
-    @JoinColumn(name = "supplier_id", referencedColumnName = "id")
-    private Supplier supplier;
-
     @Column(name = "other_description", columnDefinition = "LONGTEXT")
     private String otherDescription;
 
