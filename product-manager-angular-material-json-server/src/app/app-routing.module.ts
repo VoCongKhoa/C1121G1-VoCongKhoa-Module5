@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import {BaiDangComponent} from "./bai-dang/bai-dang.component";
 import {BaiDangCreateComponent} from "./bai-dang/bai-dang-create/bai-dang-create.component";
+import {NhapKhoComponent} from "./test-case-v1/nhap-kho/nhap-kho.component";
 
 
 const routes: Routes = [
@@ -24,6 +25,10 @@ const routes: Routes = [
   {
     path: 'baiDang/create',
     component: BaiDangCreateComponent
+  },
+  {
+    path: 'nhapKho',
+    component: NhapKhoComponent
   }
 ];
 

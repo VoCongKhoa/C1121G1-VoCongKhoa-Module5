@@ -1,0 +1,285 @@
+<div class="modal fade" id="exampleModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+     aria-labelledby="staticBackdropLabel" aria-hidden="true" #modal>
+  <div class="modal-dialog modal-xl modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-body abc">
+        <section>
+          <!--for demo wrap-->
+          <h1 class="mb-5">Tìm nhà cung cấp</h1>
+
+          <div class="mb-3" style="display: flex; justify-content: space-evenly">
+            <div>
+              <p style="margin-top: 10px">Tìm kiếm theo</p>
+            </div>
+            <div>
+              <select name="" id="" class="search-select">
+                <option value="">Tên nhà cung cấp</option>
+                <option value="">Địa chỉ</option>
+                <option value="">Số điện thoại</option>
+                <option value="">Email</option>
+              </select>
+            </div>
+
+            <div style="position: relative">
+              <input style="width: 300px" class="header-search search-input" placeholder="Bạn cần tìm gì?"
+                     type="text"><i
+              class="fa fa-search"
+              style="position: absolute; right: 15px; top: 9px; font-size: 20px"></i>
+            </div>
+            <div>
+              <button class="btn-create btn-rounded" style="width: 100px">Tìm kiếm</button>
+            </div>
+          </div>
+
+          <div class="tbl-header">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <thead>
+              <tr>
+                <th>STT</th>
+                <th>Tên nhà cung cấp</th>
+                <th>Địa chỉ</th>
+                <th>SĐT</th>
+                <th>Email</th>
+              </tr>
+              </thead>
+            </table>
+          </div>
+          <div class="tbl-content">
+            <table cellpadding="0" cellspacing="0" border="0">
+              <tbody>
+              <tr (click)="chooseSupplier(item)" *ngFor="let item of list" [ngClass]="{'class_name': item === currentCompany  }">
+                <td>{{item}}</td>
+                <td>AUSTRALIAN COMPANY</td>
+                <td>$1.38</td>
+                <td>+2.01</td>
+                <td>{{item}}</td>
+              </tr>
+<!--              <tr>-->
+<!--                <td>AAD</td>-->
+<!--                <td>AUSENCO</td>-->
+<!--                <td>$2.38</td>-->
+<!--                <td>-0.01</td>-->
+<!--                <td>-1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAX</td>-->
+<!--                <td>ADELAIDE</td>-->
+<!--                <td>$3.22</td>-->
+<!--                <td>+0.01</td>-->
+<!--                <td>+1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>XXD</td>-->
+<!--                <td>ADITYA BIRLA</td>-->
+<!--                <td>$1.02</td>-->
+<!--                <td>-1.01</td>-->
+<!--                <td>+2.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAC</td>-->
+<!--                <td>AUSTRALIAN COMPANY</td>-->
+<!--                <td>$1.38</td>-->
+<!--                <td>+2.01</td>-->
+<!--                <td>-0.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAD</td>-->
+<!--                <td>AUSENCO</td>-->
+<!--                <td>$2.38</td>-->
+<!--                <td>-0.01</td>-->
+<!--                <td>-1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAX</td>-->
+<!--                <td>ADELAIDE</td>-->
+<!--                <td>$3.22</td>-->
+<!--                <td>+0.01</td>-->
+<!--                <td>+1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>XXD</td>-->
+<!--                <td>ADITYA BIRLA</td>-->
+<!--                <td>$1.02</td>-->
+<!--                <td>-1.01</td>-->
+<!--                <td>+2.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAC</td>-->
+<!--                <td>AUSTRALIAN COMPANY</td>-->
+<!--                <td>$1.38</td>-->
+<!--                <td>+2.01</td>-->
+<!--                <td>-0.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAD</td>-->
+<!--                <td>AUSENCO</td>-->
+<!--                <td>$2.38</td>-->
+<!--                <td>-0.01</td>-->
+<!--                <td>-1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAX</td>-->
+<!--                <td>ADELAIDE</td>-->
+<!--                <td>$3.22</td>-->
+<!--                <td>+0.01</td>-->
+<!--                <td>+1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>XXD</td>-->
+<!--                <td>ADITYA BIRLA</td>-->
+<!--                <td>$1.02</td>-->
+<!--                <td>-1.01</td>-->
+<!--                <td>+2.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAC</td>-->
+<!--                <td>AUSTRALIAN COMPANY</td>-->
+<!--                <td>$1.38</td>-->
+<!--                <td>+2.01</td>-->
+<!--                <td>-0.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAD</td>-->
+<!--                <td>AUSENCO</td>-->
+<!--                <td>$2.38</td>-->
+<!--                <td>-0.01</td>-->
+<!--                <td>-1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAX</td>-->
+<!--                <td>ADELAIDE</td>-->
+<!--                <td>$3.22</td>-->
+<!--                <td>+0.01</td>-->
+<!--                <td>+1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>XXD</td>-->
+<!--                <td>ADITYA BIRLA</td>-->
+<!--                <td>$1.02</td>-->
+<!--                <td>-1.01</td>-->
+<!--                <td>+2.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAC</td>-->
+<!--                <td>AUSTRALIAN COMPANY</td>-->
+<!--                <td>$1.38</td>-->
+<!--                <td>+2.01</td>-->
+<!--                <td>-0.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAD</td>-->
+<!--                <td>AUSENCO</td>-->
+<!--                <td>$2.38</td>-->
+<!--                <td>-0.01</td>-->
+<!--                <td>-1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAX</td>-->
+<!--                <td>ADELAIDE</td>-->
+<!--                <td>$3.22</td>-->
+<!--                <td>+0.01</td>-->
+<!--                <td>+1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>XXD</td>-->
+<!--                <td>ADITYA BIRLA</td>-->
+<!--                <td>$1.02</td>-->
+<!--                <td>-1.01</td>-->
+<!--                <td>+2.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAC</td>-->
+<!--                <td>AUSTRALIAN COMPANY</td>-->
+<!--                <td>$1.38</td>-->
+<!--                <td>+2.01</td>-->
+<!--                <td>-0.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAD</td>-->
+<!--                <td>AUSENCO</td>-->
+<!--                <td>$2.38</td>-->
+<!--                <td>-0.01</td>-->
+<!--                <td>-1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAX</td>-->
+<!--                <td>ADELAIDE</td>-->
+<!--                <td>$3.22</td>-->
+<!--                <td>+0.01</td>-->
+<!--                <td>+1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>XXD</td>-->
+<!--                <td>ADITYA BIRLA</td>-->
+<!--                <td>$1.02</td>-->
+<!--                <td>-1.01</td>-->
+<!--                <td>+2.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAC</td>-->
+<!--                <td>AUSTRALIAN COMPANY</td>-->
+<!--                <td>$1.38</td>-->
+<!--                <td>+2.01</td>-->
+<!--                <td>-0.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAD</td>-->
+<!--                <td>AUSENCO</td>-->
+<!--                <td>$2.38</td>-->
+<!--                <td>-0.01</td>-->
+<!--                <td>-1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAX</td>-->
+<!--                <td>ADELAIDE</td>-->
+<!--                <td>$3.22</td>-->
+<!--                <td>+0.01</td>-->
+<!--                <td>+1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>XXD</td>-->
+<!--                <td>ADITYA BIRLA</td>-->
+<!--                <td>$1.02</td>-->
+<!--                <td>-1.01</td>-->
+<!--                <td>+2.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAC</td>-->
+<!--                <td>AUSTRALIAN COMPANY</td>-->
+<!--                <td>$1.38</td>-->
+<!--                <td>+2.01</td>-->
+<!--                <td>-0.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAD</td>-->
+<!--                <td>AUSENCO</td>-->
+<!--                <td>$2.38</td>-->
+<!--                <td>-0.01</td>-->
+<!--                <td>-1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>AAX</td>-->
+<!--                <td>ADELAIDE</td>-->
+<!--                <td>$3.22</td>-->
+<!--                <td>+0.01</td>-->
+<!--                <td>+1.36%</td>-->
+<!--              </tr>-->
+<!--              <tr>-->
+<!--                <td>XXD</td>-->
+<!--                <td>ADITYA BIRLA</td>-->
+<!--                <td>$1.02</td>-->
+<!--                <td>-1.01</td>-->
+<!--                <td>+2.36%</td>-->
+<!--              </tr>-->
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </div>
+      <div style="display: flex; justify-content: space-evenly; margin: 20px">
+        <button type="button" class="btn-choose btn-rounded">Chọn</button>
+        <button type="button" class="btn-cancel btn-rounded" data-dismiss="modal">Thoát</button>
+      </div>
+    </div>
+  </div>
+</div>

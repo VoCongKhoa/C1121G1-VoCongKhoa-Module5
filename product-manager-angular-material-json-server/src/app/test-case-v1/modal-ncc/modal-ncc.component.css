@@ -1,0 +1,231 @@
+/*.btn-rounded {*/
+/*  !*border: none;*!*/
+/*  border-radius: 0.5rem;*/
+/*}*/
+/*.btn-create {*/
+/*  display: inline-block;*/
+/*  font-weight: 400;*/
+/*  text-align: center;*/
+/*  vertical-align: middle;*/
+/*  border: 1px solid transparent;*/
+/*  padding: 0.5rem 0.5rem;*/
+/*  font-size: 1rem;*/
+/*  line-height: 1.5;*/
+/*  background-position: center;*/
+/*  transition: background 0.8s;*/
+/*  background-color: #D70018;*/
+/*  color: white;*/
+/*  width: 49%;*/
+/*}*/
+/*.btn-create:hover {*/
+/*  background: #fa4665 radial-gradient(circle, transparent 1%, #fa4665 1%) center/15000%;*/
+/*}*/
+/*.btn-create:active {*/
+/*  background-color: #D70018;*/
+/*  background-size: 100%;*/
+/*  transition: background 0s;*/
+/*}*/
+
+/*.btn-cancel {*/
+/*  display: inline-block;*/
+/*  font-weight: 400;*/
+/*  text-align: center;*/
+/*  vertical-align: middle;*/
+/*  border: 1px solid transparent;*/
+/*  padding: 0.375rem 0.75rem;*/
+/*  font-size: 1rem;*/
+/*  line-height: 1.5;*/
+/*  background-position: center;*/
+/*  transition: background 0.8s;*/
+/*  background-color: #277CEA;*/
+/*  color: white;*/
+/*  width: 20%;*/
+
+/*}*/
+/*.btn-cancel:hover {*/
+/*  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;*/
+/*}*/
+/*.btn-cancel:active {*/
+/*  background-color: #6eb9f7;*/
+/*  background-size: 100%;*/
+/*  transition: background 0s;*/
+/*}*/
+
+/*.btn-choose {*/
+/*  display: inline-block;*/
+/*  font-weight: 400;*/
+/*  text-align: center;*/
+/*  vertical-align: middle;*/
+/*  border: 1px solid transparent;*/
+/*  padding: 0.5rem 0.5rem;*/
+/*  font-size: 1rem;*/
+/*  line-height: 1.5;*/
+/*  background-position: center;*/
+/*  transition: background 0.8s;*/
+/*  background-color: #D70018;*/
+/*  color: white;*/
+/*  width: 20%;*/
+/*}*/
+/*.btn-choose:hover {*/
+/*  background: #fa4665 radial-gradient(circle, transparent 1%, #fa4665 1%) center/15000%;*/
+/*}*/
+/*.btn-choose:active {*/
+/*  background-color: #D70018;*/
+/*  background-size: 100%;*/
+/*  transition: background 0s;*/
+/*}*/
+
+
+
+/*!*MODAL*!*/
+
+/*h1 {*/
+/*  font-size: 30px;*/
+/*  color: #fff;*/
+/*  text-transform: uppercase;*/
+/*  font-weight: 300;*/
+/*  text-align: center;*/
+/*  margin-bottom: 15px;*/
+/*}*/
+
+/*table {*/
+/*  width: 100%;*/
+/*  table-layout: fixed;*/
+/*}*/
+
+/*.tbl-header {*/
+/*  background-color: rgba(255, 255, 255, 0.3);*/
+/*}*/
+
+/*.tbl-content {*/
+/*  height: 300px;*/
+/*  overflow-x: auto;*/
+/*  margin-top: 0px;*/
+/*  border: 1px solid rgba(255, 255, 255, 0.3);*/
+/*}*/
+
+/*th {*/
+/*  padding: 20px 15px;*/
+/*  text-align: left;*/
+/*  font-weight: 500;*/
+/*  font-size: 12px;*/
+/*  color: #fff;*/
+/*  text-transform: uppercase;*/
+/*}*/
+
+/*td {*/
+/*  padding: 15px;*/
+/*  text-align: left;*/
+/*  vertical-align: middle;*/
+/*  font-weight: 300;*/
+/*  font-size: 12px;*/
+/*  color: #fff;*/
+/*  border-bottom: solid 1px rgba(255, 255, 255, 0.1);*/
+/*}*/
+
+
+/*!* demo styles *!*/
+
+/*@import url(https://fonts.googleapis.com/css?family=Roboto:400,500,300,700);*/
+/*.abc {*/
+/*  background: -webkit-linear-gradient(left, #dc3545, #111be2);*/
+/*  background: linear-gradient(to right, #dc3545, #111be2);*/
+/*  font-family: 'Montserrat', sans-serif;*/
+/*}*/
+
+/*section {*/
+/*  margin: 50px;*/
+/*}*/
+
+
+/*!* follow me template *!*/
+/*.made-with-love {*/
+/*  margin-top: 40px;*/
+/*  padding: 10px;*/
+/*  clear: left;*/
+/*  text-align: center;*/
+/*  font-size: 10px;*/
+/*  font-family: arial;*/
+/*  color: #fff;*/
+/*}*/
+
+/*.made-with-love i {*/
+/*  font-style: normal;*/
+/*  color: #F50057;*/
+/*  font-size: 14px;*/
+/*  position: relative;*/
+/*  top: 2px;*/
+/*}*/
+
+/*.made-with-love a {*/
+/*  color: #fff;*/
+/*  text-decoration: none;*/
+/*}*/
+
+/*.made-with-love a:hover {*/
+/*  text-decoration: underline;*/
+/*}*/
+
+
+/*!* for custom scrollbar for webkit browser*!*/
+
+/*::-webkit-scrollbar {*/
+/*  width: 6px;*/
+/*}*/
+
+/*::-webkit-scrollbar-track {*/
+/*  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
+/*}*/
+
+/*::-webkit-scrollbar-thumb {*/
+/*  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);*/
+/*}*/
+
+/*.search-input {*/
+/*  display: inline-block;*/
+/*  font-weight: 400;*/
+/*  text-align: center;*/
+/*  vertical-align: middle;*/
+/*  border: 1px solid transparent;*/
+/*  padding: 0.5rem 0.5rem;*/
+/*  font-size: 1rem;*/
+/*  line-height: 1.5;*/
+/*  background-position: center;*/
+/*  transition: background 0.8s;*/
+/*  background-color: #ffffff;*/
+/*  color: black;*/
+/*  width: 49%;*/
+/*}*/
+
+/*.search-select {*/
+/*  display: inline-block;*/
+/*  font-weight: 400;*/
+/*  text-align: left;*/
+/*  vertical-align: middle;*/
+/*  border: 1px solid transparent;*/
+/*  padding: 0.6rem 0.5rem;*/
+/*  font-size: 1rem;*/
+/*  line-height: 1.5;*/
+/*  background-position: center;*/
+/*  transition: background 0.8s;*/
+/*  width: 100%;*/
+/*}*/
+
+/*.btn-search {*/
+/*  display: inline-block;*/
+/*  font-weight: 400;*/
+/*  text-align: center;*/
+/*  vertical-align: middle;*/
+/*  border: 1px solid transparent;*/
+/*  padding: 0.5rem 0.5rem;*/
+/*  font-size: 1rem;*/
+/*  line-height: 1.5;*/
+/*  background-position: center;*/
+/*  transition: background 0.8s;*/
+/*  width: 49%;*/
+/*}*/
+
+/*tr:hover {*/
+/*  background-color: #84c0ec;*/
+/*}*/
+

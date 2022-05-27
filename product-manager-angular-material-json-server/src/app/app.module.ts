@@ -27,6 +27,7 @@ import { BaiDangCreateComponent } from './bai-dang/bai-dang-create/bai-dang-crea
 import { BaiDangUpdateComponent } from './bai-dang/bai-dang-update/bai-dang-update.component';
 import { BaiDangDeleteComponent } from './bai-dang/bai-dang-delete/bai-dang-delete.component';
 import {NgxPaginationModule} from 'ngx-pagination';
+import {TestCaseV1Module} from "./test-case-v1/test-case-v1.module";
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import {NgxPaginationModule} from 'ngx-pagination';
     MatPaginatorModule,
     ProductModule,
     SharedModule,
-    NgxPaginationModule
+    NgxPaginationModule,
+    TestCaseV1Module
   ],
   providers: [],
   bootstrap: [AppComponent],
